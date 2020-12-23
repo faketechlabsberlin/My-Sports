@@ -20,7 +20,7 @@ const Chatroom = require('./models/Chatroom'); //temporary chatroom model for ch
 const { isLoggedIn } = require('./utils/middleware');
 const wrapAsync = require('./utils/wrapAsync');
 
-const userRoutes = require('./routes/users');
+const routes = require('./routes/index');
 
 const dbUrl = 'mongodb://localhost:27017/mysports' //|| process.env.DB_URL ; //db connection on local host first
 
@@ -36,6 +36,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnified
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'html');
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(cors());
 
@@ -76,11 +77,10 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/home', isLoggedIn, wrapAsync(async (req, res) => {
-    res.sendFile(__dirname + '/views/index.html')
-  }))
-
-app.use('/', userRoutes);
+const apiRouter = express.Router();
+app.use('/api', apiRouter);
+apiRouter.use('/users', routes.userRoutes);
+apiRouter.use('/session', routes.sessionRoutes);
 
 io.on('connection', (socket) => { //testing socket usage
     console.log('a user connected');

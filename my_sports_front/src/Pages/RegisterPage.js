@@ -1,7 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from "react-redux";
+import { signup } from "../actions/session";
 
-const RegisterPage = () => {
+const mapStateToProps = ({ errors }) => ({
+    errors
+});
+
+const mapDispatchToProps = dispatch => ({
+    signup: user => dispatch(signup(user))
+});
+
+
+const RegisterPage = ({ errors, signup }) => {   
     const usernameRef = React.createRef();
     const emailRef = React.createRef();
     const passwordRef = React.createRef();
@@ -10,30 +21,25 @@ const RegisterPage = () => {
     const genderRef = React.createRef();
     const locationRef = React.createRef();
 
-    const registerUser = () => {
-        const username = usernameRef.current.value;
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-        const name = nameRef.current.value;
-        const dob = dobRef.current.value;
-        const gender = genderRef.current.value;
-        const location = locationRef.current.value;
-
-        axios.post('http://localhost:5000/register', {
-            username,
-            email,
-            password,
-            name,
-            dob,
-            gender,
-            location
-        })
+    const registerUser = (e) => {
+        e.preventDefault();
+        const user = {
+            username: usernameRef.current.value,
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+            name: nameRef.current.value,
+            dob: dobRef.current.value,
+            gender: genderRef.current.value,
+            location: locationRef.current.value
+        }
+        signup(user);
     }
+
     return (
         <div>
         <h1>MY SPORTS</h1>
         <h4>Register</h4>
-        <form action="/register" method="POST">
+        <form>
             <div>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="username" ref={usernameRef} required />           
@@ -76,4 +82,7 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(RegisterPage);

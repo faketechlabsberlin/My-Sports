@@ -1,28 +1,34 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from "react-redux";
+import { login } from "../actions/session";
 
-const LoginPage = () => {
+const mapStateToProps = ({ errors }) => ({
+    errors
+});
+
+const mapDispatchToProps = dispatch => ({
+    login: user => dispatch(login(user))
+});
+  
+
+const LoginPage = ({ errors, login }) => {
     const usernameRef = React.createRef();
     const passwordRef = React.createRef();
 
-    const loginUser = () => {
-        const username = usernameRef.current.value;
-        const password = passwordRef.current.value;
-
-        axios.post('http://localhost:5000/login', {
-            username,
-            password
-        }).then((response) => {
-            console.log(response.data)
-        }).catch((err) => {
-            console.log(err)
-        })
+    const loginUser = (e) => {
+        e.preventDefault();
+        const user = {
+            username: usernameRef.current.value,
+            password: passwordRef.current.value
+        }
+        login(user);
     }
     return (
         <div>
             <h1>MY SPORTS</h1>
             <h4>Login</h4>
-            <form action="/login" method="POST">
+            <form>
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username" placeholder="username" ref={usernameRef} required />
@@ -37,4 +43,7 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(LoginPage);

@@ -4,13 +4,14 @@ import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import DashboardPage from './Pages/DashboardPage'
 import NotFoundPage from './Pages/NotFoundPage'
+import { AuthRoute, ProtectedRoute } from "./util/route";
 
 function App() {
   return <BrowserRouter>
     <Switch>
-      <Route path="/login" component={LoginPage}/>
-      <Route path="/register" component={RegisterPage}/>
-      <Route path="/dashboard" component={DashboardPage}/>
+      <AuthRoute path="/login" component={LoginPage}/>
+      <AuthRoute path="/register" component={RegisterPage}/>
+      <ProtectedRoute path="/dashboard" component={DashboardPage}/>
       <Route path="*" component={NotFoundPage}/>
     </Switch>
   </BrowserRouter>
