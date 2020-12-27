@@ -19,14 +19,6 @@ module.exports.newUser = async(req, res, next) => {
     }
 }
 
-module.exports.loginForm = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/users/login.html'));
-}
-
-module.exports.loginUser = (req, res) => {
-    res.redirect('/dashboard');
-}
-
 module.exports.logoutUser = (req, res) => {
     req.logout();
     res.redirect('/login');

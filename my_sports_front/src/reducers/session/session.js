@@ -2,7 +2,7 @@ import {
     RECEIVE_CURRENT_USER,
     LOGOUT_CURRENT_USER
   } from "../../actions/session";
-  const _nullSession = { userId: null, username: null }
+  const _nullSession = { userId: null, username: null, name: null }
   export default (state = _nullSession, { type, user }) => {
     Object.freeze(state);
     switch (type) {

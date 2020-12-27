@@ -39,6 +39,8 @@ const LoginPage = ({ errors, login }) => {
                 </div>
                 <button onClick={loginUser}>Login</button>
             </form>
+            <p>Don't have an account?</p>
+            <p><a href="/register">Register here</a></p>
         </div>
     )
 }

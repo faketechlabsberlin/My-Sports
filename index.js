@@ -14,11 +14,6 @@ const io = require('socket.io')(server); //websocket for chatroom
 const cors = require('cors'); //for seperate front end to back end post
 
 const User = require('./models/User'); //temporary user model for chatroom testing
-const Message = require('./models/Message'); //temporary message model for chatroom testing
-const Chatroom = require('./models/Chatroom'); //temporary chatroom model for chatroom testing
-
-const { isLoggedIn } = require('./utils/middleware');
-const wrapAsync = require('./utils/wrapAsync');
 
 const routes = require('./routes/index');
 
@@ -32,9 +27,6 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnified
         console.log(err);
     })
 
-// app.engine('ejs', ejsMate);
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'html');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'assets')));
@@ -81,6 +73,7 @@ const apiRouter = express.Router();
 app.use('/api', apiRouter);
 apiRouter.use('/users', routes.userRoutes);
 apiRouter.use('/session', routes.sessionRoutes);
+apiRouter.use('/event', routes.eventRoutes);
 
 io.on('connection', (socket) => { //testing socket usage
     console.log('a user connected');
