@@ -61,7 +61,7 @@ const CreateEventPage = ({ session }) => {
                 </div>
                 <div> 
                     <label htmlFor="size">Maximum Number of Athelets:</label>
-                    <input id="size" name="size" type="number" min="2" max="10" step="1" required ref={sizeRef} />
+                    <input id="size" name="size" type="number" min="2" max="20" step="1" required ref={sizeRef} />
                 </div>
                 <div>
                     <label htmlFor="date">Date:</label>

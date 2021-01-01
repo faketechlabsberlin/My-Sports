@@ -2,7 +2,11 @@ import { FILTER_BY_SPORT, FILTER_BY_NAME, FILTER_BY_DATE, FILTER_BY_TIME, FILTER
 
 const filtersReducerDefaultState = {
     name: '',
-    sport: ''
+    sport: '',
+    date: '',
+    time: '',
+    minSize: 2,
+    maxSize: 20
   }
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -14,22 +18,30 @@ export default (state = filtersReducerDefaultState, action) => {
                 sport: action.payload
             };
         case FILTER_BY_DATE:
-            //filter by date
-            return state;
+            return {
+                ...state,
+                date: action.payload
+            };
         case FILTER_BY_NAME:
             return {
                 ...state,
                 name: action.payload.value
             };
         case FILTER_BY_TIME:
-           //filter by TIME
-           return state;
+            return {
+                ...state,
+                time: action.payload
+            };
         case FILTER_BY_MIN_SIZE:
-           //filter by min size
-           return state;
+            return {
+                ...state,
+                minSize: action.payload
+            };
         case FILTER_BY_MAX_SIZE:
-            //filter by max size
-            return state;
+            return {
+                ...state,
+                maxSize: action.payload
+            };
         case FILTER_BY_MIN_SKILL:
             //filter by min skill
             return state;

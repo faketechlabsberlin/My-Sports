@@ -17,61 +17,32 @@ export const filterBySport = payload => ({
    payload
 });
 
-// export const filterBySportFunc = () => async dispatch => {
-//    return dispatch(filterBySport(payload));
-// }
+export const filterByDate = payload => ({
+   type: FILTER_BY_DATE,
+   payload
+});
 
-// const filterByDate = payload => ({
-//    type: FILTER_BY_DATE,
-//    payload
-// });
+export const filterByTime = payload => ({
+   type: FILTER_BY_TIME,
+   payload
+});
 
-// export const filterByDateFunc = () => async dispatch => {
-//    return dispatch(filterByDate(payload));
-// }
+export const filterByMaxSize = payload => ({
+   type: FILTER_BY_MAX_SIZE,
+   payload
+});
 
-// const filterByTime = payload => ({
-//    type: FILTER_BY_TIME,
-//    payload
-// });
-
-// export const filterByTimeFunc = () => async dispatch => {
-//    return dispatch(filterByTime(payload));
-// }
-
-// const filterByMaxSize = payload => ({
-//    type: FILTER_BY_MAX_SIZE,
-//    payload
-// });
-
-// export const filterByMaxSizeFunc = () => async dispatch => {
-//    return dispatch(filterByMaxSize(payload));
-// }
-
-// const filterByMinSize = payload => ({
-//    type: FILTER_BY_MIN_SIZE,
-//    payload
-// });
-
-// export const filterByMinSizeFunc = () => async dispatch => {
-//    return dispatch(filterByMinSize(payload));
-// }
+export const filterByMinSize = payload => ({
+   type: FILTER_BY_MIN_SIZE,
+   payload
+});
 
 // const filterByMaxSkill = payload => ({
 //    type: FILTER_BY_MAX_SKILL,
 //    payload
 // });
 
-// export const filterByMaxSkillFunc = () => async dispatch => {
-//    return dispatch(filterByMaxSkill(payload));
-// }
-
 // const filterByMinSkill = payload => ({
 //    type: FILTER_BY_MIN_SKILL,
 //    payload
 // });
-
-
-// export const filterByMinSkillFunc = () => async dispatch => {
-//    return dispatch(filterByMinSkill(payload));
-// }
