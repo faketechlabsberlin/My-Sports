@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: 'Name is required'
     },
+    lastName: {
+        type: String
+    },
     dob: {
         type: Date,
         required: 'DOB required'
@@ -22,7 +25,11 @@ const userSchema = new mongoose.Schema({
     location: {
         type: String,
         required: 'Location is required'
-    }
+    },
+    favSports: [{
+        sport: String,
+        skill: Number
+    }]
 })
 userSchema.plugin(passportLocalMongoose);
 

@@ -4,11 +4,12 @@ import App from './App';
 import './styles/common.css';
 import configureStore from './store/store';
 import { Provider } from 'react-redux';
-import { checkLoggedIn } from './util/session'
+import { checkLoggedIn } from './util/session';
 
 
 const renderApp = preloadedState => {
     const store = configureStore(preloadedState);
+      
     ReactDOM.render(
         <Provider store={store}>
             <App />

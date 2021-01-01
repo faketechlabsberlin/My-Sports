@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { getEvents } from '../actions/event';
 
 const mapStateToProps = ({ session }) => ({
     session
   });
+
+const mapDispatchToProps = dispatch => ({
+    getEvents: event => dispatch(getEvents())
+});
 
 const CreateEventPage = ({ session }) => {
     const titleRef = React.createRef();
@@ -88,4 +93,4 @@ const CreateEventPage = ({ session }) => {
     )
 }
 
-export default connect(mapStateToProps)(CreateEventPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateEventPage);

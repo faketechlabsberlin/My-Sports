@@ -1,20 +1,18 @@
-import { CREATE_EVENT, FIND_EVENTS } from "../../actions/event";
+import { CREATE_EVENT, DELETE_EVENT, FETCH_ALL, FILTER_BY_NAME } from "../../actions/event";
 
-export default (state = {
-    availableEvents = [],
-    upcomingEvents = [],
-    pastEvents = []
-    }, { type, event, events }) => {
+export default (state = [], action) => {
     Object.freeze(state);
-    switch (type) {
+    switch (action.type) {
+        case FETCH_ALL:
+            return action.payload
         case CREATE_EVENT:
-            return [...upcomingEvents, event];
-        case FIND_EVENTS:
-            return [...availableEvents, ...events];
+            return state.concat(action.payload)
+        case DELETE_EVENT:
+            return state.filter(element => element !== action.payload);
         default:
             return state;
     }
 };
 
-export const createEvent = state => state.upcomingEvents;
-export const findEvents = state => state.availableEvents;
+// export const createEvent = state => state.upcomingEvents;
+// export const findEvents = state => state.availableEvents;
