@@ -120,7 +120,7 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
                     <input onChange={e => {filterMaxSize(e)}} id="min-size" type="number" name="max-size" min="2" max="20" value={filters.maxSize}></input>
                 </p>
             </div>
-            {visibleEvents.map((e) => {
+            {visibleEvents && visibleEvents.map((e) => {
                 return <p key={e._id}><Link to={'/event/' + e._id}>{e.title}</Link></p>
             })}
             <p>Didn't find what you were looking for? <Link to="/create-event">Create your own event!</Link></p>
