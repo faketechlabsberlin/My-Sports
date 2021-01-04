@@ -23,7 +23,7 @@ Once you pull the file please follow the instructions below to be able to run th
     'node index.js'
     If everything is functioning properly you should see:
     'Server listening on 5000'
-    'Mongoose connectino open'
+    'Mongoose connection open'
 
 5 - Go to the terminal where you ran 'yarn'. Once that is complete, run the command:
     'yarn start'

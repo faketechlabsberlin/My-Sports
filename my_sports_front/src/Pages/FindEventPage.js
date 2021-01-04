@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize } from '../actions/filter';
+import { filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation } from '../actions/filter';
 
 const getVisibleEvents = (events, filters) => {
     return events.filter((event) => {
@@ -9,6 +9,7 @@ const getVisibleEvents = (events, filters) => {
       const sportMatch = event.sport.includes(filters.sport);
       const dateMatch = event.date.slice(0, 10).includes(filters.date);
       const timeMatch = event.time.includes(filters.time);
+      const locationMatch = event.location.includes(filters.location);
       let sizeMatch = true;
       if (event.size <= filters.minSize) {
           sizeMatch = false
@@ -16,9 +17,7 @@ const getVisibleEvents = (events, filters) => {
       if (event.size >= filters.maxSize) {
           sizeMatch = false
       }
-    //   const minSizeMatch = event.size > filters.minSize;
-    //   const maxSizeMatch = event.size < filters.minSize;
-      return nameMatch && sportMatch && dateMatch && timeMatch && sizeMatch;
+      return nameMatch && sportMatch && dateMatch && timeMatch && locationMatch && sizeMatch;
     });
   };
   
@@ -34,10 +33,11 @@ const mapDispatchToProps = dispatch => ({
     filterByDate: (payload) => dispatch(filterByDate(payload)),
     filterByTime: (payload) => dispatch(filterByTime(payload)),
     filterByMinSize: (payload) => dispatch(filterByMinSize(payload)),
-    filterByMaxSize: (payload) => dispatch(filterByMaxSize(payload))
+    filterByMaxSize: (payload) => dispatch(filterByMaxSize(payload)),
+    filterByLocation: (payload) => dispatch(filterByLocation(payload))
 });
 
-const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize }) => {
+const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation }) => {
 
     const visibleEvents = getVisibleEvents(event, filters);
 
@@ -72,6 +72,12 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
         e.preventDefault();
         const input = e.target.time.value
         filterByTime(input);
+    }
+
+    const filterLocation = (e) => {
+        e.preventDefault();
+        const input = e.target.location.value
+        filterByLocation(input);
     }
 
     const filterMinSize = (e) => {
@@ -110,6 +116,17 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
                         <option value="afternoon">Afternoon</option>
                         <option value="evening">Evening</option>
                         <option value="night">Night</option>
+                    </select>
+                    <button>Filter!</button>
+                </form>
+                <form onSubmit={e => {filterLocation(e)}}>
+                    <label htmlFor="location-filter">Which neighbourhood are you looking to play in?</label>
+                    <select id="location-filter" name="location">
+                        <option value="">Doesn't matter!</option>
+                        <option value="friedrichshain">Friedrichshain</option>
+                        <option value="neukolln">Neukolln</option>
+                        <option value="kreuzburg">Kreuzburg</option>
+                        <option value="prenzlaur burg">Prenzlaur Burg</option>
                     </select>
                     <button>Filter!</button>
                 </form>

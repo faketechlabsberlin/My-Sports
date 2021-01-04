@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; //maybe implement
 
 export const createEvent = event => (
   fetch('api/event', {
@@ -16,14 +16,8 @@ export const getAllEvents = async () => {
   return data;
 }
 
-export const getOneEvent = async (id) => {
-  const response = await fetch('api/event/'+id)
-  const data = await response.json()
-  return data;
-}
-
 export const joinEvent = async (data) => {
-  const response = await fetch('api/event/add-teammate', {
+  const response = await fetch('/api/event/add-teammate', {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {

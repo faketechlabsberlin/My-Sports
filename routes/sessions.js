@@ -1,5 +1,4 @@
 const express = require('express');
-const { session } = require('passport');
 const User = require('../models/User');
 const helper = require('../utils/helpers');
 const passport = require('passport');

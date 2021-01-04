@@ -1,10 +1,5 @@
 const User = require('../models/User');
-const path = require('path');
 const helper = require('../utils/helpers');
-
-module.exports.registerForm = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/users/register.html'))
-}
 
 module.exports.newUser = async(req, res, next) => {
     try {
@@ -22,5 +17,5 @@ module.exports.newUser = async(req, res, next) => {
 module.exports.logoutUser = (req, res) => {
     req.logout();
     res.redirect('/login');
-}
+} //might not need
 

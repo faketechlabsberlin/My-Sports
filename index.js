@@ -10,27 +10,34 @@ const port = process.env.PORT || 5000;
 const passport = require('passport'); //for registration and login functinons
 const localStrategy = require('passport-local'); //local strategy, facebook and google logins can be implemented later
 const server = require('http').createServer(app);
-const io = require('socket.io')(server); //websocket for chatroom
+const io = require('socket.io')(server, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"]
+    }
+}); //websocket for chatroom
 const cors = require('cors'); //for seperate front end to back end post
 
-const User = require('./models/User'); //temporary user model for chatroom testing
+const User = require('./models/User'); //User database model
+const Message = require('./models/Message');//Message database model
 
-const routes = require('./routes/index');
+const routes = require('./routes/index');//API routes
+
 
 const dbUrl = 'mongodb://localhost:27017/mysports' //|| process.env.DB_URL ; //db connection on local host first
 
 mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => {
-        console.log(`Mongoose connectino open!`);
+        console.log(`Mongoose connection open!`);
     })
     .catch(err => {
         console.log(err);
-    })
+    }) 
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'assets')));
-app.use(cors());
+app.use(cors()); //express middlewares
 
 const secret = process.env.SECRET || 'temporarysecret'
 
@@ -67,25 +74,39 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
-})
+}) //might not need
 
 const apiRouter = express.Router();
 app.use('/api', apiRouter);
 apiRouter.use('/users', routes.userRoutes);
 apiRouter.use('/session', routes.sessionRoutes);
 apiRouter.use('/event', routes.eventRoutes);
+apiRouter.use('/message', routes.messageRoutes); //All API routes
 
 io.on('connection', (socket) => { //testing socket usage
-    console.log('a user connected');
-    socket.emit('message', 'Say hi to your new team!');
-    socket.broadcast.emit('message', 'A new teammate has joined the chat')
+    socket.on('joinRoom', (id) => {
+        socket.join(id);
+        console.log('User joined chat foe event with id: ' + id)
+    });
+    socket.on('leaveRoom', (id) => {
+        socket.leave(id);
+        console.log('User left chat for event with id: ' + id)
+    });
+    socket.on('message', async (data) => {
+        const newMessage = new Message(data);
+        await newMessage.save();
+        const messageToEmit = await Message.findById(newMessage._id).populate('user')
+        io.to(data.event).emit('displayMessage', messageToEmit)
+    });
+    
+    // socket.broadcast.emit('message', 'A new teammate has joined the chat')
     socket.on('disconnect', () => {
-        io.emit('message', 'A teammate has left the chat')
+    //     io.emit('message', 'A teammate has left the chat')
         console.log('user disconnected');
     });
-    socket.on('chatMessage', (msg) => {
-        io.emit('message', msg)
-    })
+    // socket.on('chatMessage', (msg) => {
+    //     io.emit('message', msg)
+    // })
 });
    
 server.listen(port, () => {

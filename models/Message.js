@@ -9,7 +9,7 @@ const messageSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: 'User is required',
-        ref: 'Users'
+        ref: 'User'
     },
     message: {
         type: String,

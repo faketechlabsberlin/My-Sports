@@ -1,4 +1,4 @@
-import { CREATE_EVENT, DELETE_EVENT, FETCH_ALL, FILTER_BY_NAME } from "../../actions/event";
+import { CREATE_EVENT, DELETE_EVENT, FETCH_ALL } from "../../actions/event";
 
 export default (state = [], action) => {
     Object.freeze(state);
@@ -6,7 +6,7 @@ export default (state = [], action) => {
         case FETCH_ALL:
             return action.payload
         case CREATE_EVENT:
-            return state.concat(action.payload)
+            return [...state, action.payload]
         case DELETE_EVENT:
             return state.filter(element => element !== action.payload);
         default:

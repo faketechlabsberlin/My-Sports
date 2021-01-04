@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getEvents } from '../actions/event';
+import { createEvent } from '../actions/event';
 
 const mapStateToProps = ({ session }) => ({
     session
   });
 
 const mapDispatchToProps = dispatch => ({
-    getEvents: event => dispatch(getEvents())
+    createEvent: payload => dispatch(createEvent(payload))
 });
 
-const CreateEventPage = ({ session }) => {
+const CreateEventPage = ({ session, createEvent, history }) => {
     const titleRef = React.createRef();
     const sportRef = React.createRef();
     const sizeRef = React.createRef();
@@ -18,7 +18,7 @@ const CreateEventPage = ({ session }) => {
     const timeRef = React.createRef();
     const locationRef = React.createRef();
 
-    const createEvent = async (e) => {
+    const submitEvent = async (e) => {
         e.preventDefault();
         const event = {
             title: titleRef.current.value,
@@ -35,10 +35,11 @@ const CreateEventPage = ({ session }) => {
             headers: {
               'Content-Type': 'application/json'
             }
-          })
+        })
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            createEvent(data)
+            history.push('/dashboard')
         }
     }
 // add min date as today with JS
@@ -87,7 +88,7 @@ const CreateEventPage = ({ session }) => {
                         <option value="prenzlaur burg">Prenzlaur Burg</option>
                     </select>
                 </div>
-                <button onClick={createEvent}>Create Event</button>
+                <button onClick={submitEvent}>Create Event</button>
             </form>
         </div>
     )

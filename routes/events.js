@@ -1,9 +1,5 @@
 const express = require('express');
-const BeachVolleyballEvent = require('../models/SportEvents/BeachVolleyballEvent');
-const BasketballEvent = require('../models/SportEvents/BasketballEvent');
-const FootballEvent = require('../models/SportEvents/FootballEvent');
 const Event = require('../models/Event');
-const helper = require('../utils/helpers');
 
 const eventRouter = express.Router();
 
@@ -36,44 +32,6 @@ eventRouter.get('', async (req, res) => {
 //   }
 // });
 
-// eventRouter.get('/beachvolleyball', async (req, res) => {
-//     try {
-//       const getBeachVolleyballEvents = await Event.find({ sport: 'beach volleyball'});
-//       if (getBeachVolleyballEvents) {
-//         res.send(getBeachVolleyballEvents);
-//       } else {
-//         res.send('No Data')
-//       }
-//     } catch (err) {
-//       res.status(422).send(err)
-//     }
-// });
-
-// eventRouter.get('/basketball', async (req, res) => {
-//   try {
-//     const getBasketballEvents = await Event.find({ sport: 'basketball'});
-//     if (getBasketballEvents) {
-//       res.send(getBasketballEvents);
-//     } else {
-//       res.send('No Data')
-//     }
-//   } catch (err) {
-//     res.status(422).send(err)
-//   }
-// });
-
-// eventRouter.get('/football', async (req, res) => {
-//   try {
-//     const getFootballEvents = await Event.find({ sport: 'football'});
-//     if (getFootballEvents) {
-//       res.send(getFootballEvents);
-//     } else {
-//       res.send('No Data')
-//     }
-//   } catch (err) {
-//     res.status(422).send(err)
-//   }
-// });
 
 
 eventRouter.put('/joinevent', async (req, res) => {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect, useSelector } from "react-redux";
-import { getSpecificEvent } from '../actions/event';
-import * as apiUtil from '../util/event';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = ({ event, session }) => ({
     event,
@@ -40,6 +39,18 @@ const EventPage = ({ session, match }) => {
           console.log(info)
       }
     }
+
+    let isMember = false;
+    const memberCheck = event.teammates.filter((teammate) => {
+      const memberMatch = teammate._id.includes(session.userId)
+      return memberMatch
+    })
+
+    if (memberCheck.length === 1) {
+      isMember = true
+    }
+
+
     return (
         <div>
             <h3>{event.title}</h3>
@@ -51,11 +62,12 @@ const EventPage = ({ session, match }) => {
             <p>Current teammates include: </p>
               <ul>
                 {event.teammates && event.teammates.map((user) => {
-                  return <li key={user.userId}>{user.username}</li>
+                  return <li key={user._id}>{user.username}</li>
                 })}
               </ul>
             {event.equipment? <p>All required equipment will be supplied</p>: <p>*Please note equipment for the event is still required</p>}
-            {event.teammates && event.teammates.includes(session.userId)? <button>Leave Event</button>: <button onClick={joinEvent}>Join Event</button>}
+            {isMember? <button>Leave Event</button>: <button onClick={joinEvent}>Join Event</button>}
+            {isMember? <p>Click <Link to={'/event/' + event._id + '/chat'}>here</Link> to discuss the details</p>: <p>Join Event to meet your new teammates!</p>}
         </div>
     )
 }

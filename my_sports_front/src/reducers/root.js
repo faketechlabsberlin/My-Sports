@@ -3,10 +3,14 @@ import errors from './errors/errors';
 import session from './session/session';
 import event from './event/event';
 import filters from './event/filter';
+import socket from './socket/socket';
+import message from './messages/message';
 
 export default combineReducers({
   session,
   errors,
   event,
-  filters
+  filters,
+  socket, //might not need
+  message
 });
