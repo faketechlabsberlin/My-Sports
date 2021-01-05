@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { logout } from "../actions/session";
 import { getEvents } from '../actions/event';
 import { Link } from 'react-router-dom';
-import e from "cors";
 
 
 const mapStateToProps = ({ session, event }) => ({

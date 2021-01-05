@@ -10,6 +10,20 @@ export const createEvent = event => (
   })
   );
 
+export const deleteEvent = async (id) => {
+  const response = await fetch('/api/event', {
+    method: 'DELETE',
+    body: JSON.stringify(id),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const info = await response.json();
+  if (response.ok) {
+      console.log(info)
+  }
+}
+
 export const getAllEvents = async () => {
   const response = await fetch('api/event')
   const data = await response.json()

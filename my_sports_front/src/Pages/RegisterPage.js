@@ -20,6 +20,7 @@ const RegisterPage = ({ errors, signup }) => {
     const dobRef = React.createRef();
     const genderRef = React.createRef();
     const locationRef = React.createRef();
+    const lastNameRef = React.createRef();
 
     const registerUser = (e) => {
         e.preventDefault();
@@ -30,7 +31,8 @@ const RegisterPage = ({ errors, signup }) => {
             name: nameRef.current.value,
             dob: dobRef.current.value,
             gender: genderRef.current.value,
-            location: locationRef.current.value
+            location: locationRef.current.value,
+            lastName: lastNameRef.current.value
         }
         signup(user);
     }
@@ -39,22 +41,26 @@ const RegisterPage = ({ errors, signup }) => {
         <div>
         <h1>MY SPORTS</h1>
         <h4>Register</h4>
-        <form>
+        <form onSubmit={registerUser}>
             <div>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="username" ref={usernameRef} required />           
+                <label htmlFor="username">Username (only letters and number inputs accepted):</label>
+                <input type="text" id="username" name="username" placeholder="username" pattern="[A-Za-z0-9]+" ref={usernameRef} required />           
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="email" ref={emailRef} required />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="password" ref={passwordRef} required />
+                <label htmlFor="password">Password (8 characters minimum, 12 characters maximum. Must contain atleast 1 letter and 1 number):</label>
+                <input type="password" id="password" name="password" placeholder="password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" ref={passwordRef} required />
             </div>
             <div>
                 <label htmlFor="name">First Name:</label>
-                <input type="text" id="name" name="name" placeholder="name" ref={nameRef} required />
+                <input type="text" id="name" name="name" placeholder="name" pattern="[A-Za-z]+" ref={nameRef} required />
+            </div>
+            <div>
+                <label htmlFor="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="lastName" pattern="[A-Za-z]+" ref={lastNameRef} required />
             </div>
             <div>
                 <label htmlFor="dob">Date Of Birth:</label>
@@ -76,7 +82,7 @@ const RegisterPage = ({ errors, signup }) => {
                     <option value="berlin">Berlin</option>
                 </select>
             </div>
-            <button onClick={registerUser}>Register Now</button>
+            <button>Register Now</button>
         </form>
         </div>
     )

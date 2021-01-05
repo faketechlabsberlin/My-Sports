@@ -24,13 +24,31 @@ eventRouter.get('', async (req, res) => {
   }
 });
 
-// eventRouter.delete('', (req, res) => {
-//   try {
-//
-//   } catch (err) {
-//     res.status(422).send(err);
-//   }
-// });
+eventRouter.put('', async (req, res) => {
+  try {
+    const { eventId, title, size, date, time, location } = req.body;
+    const event = await Event.findById(eventId);
+    event.title = title;
+    event.size = size;
+    event.date = date;
+    event.time = time;
+    event.location = location;
+    await event.save();
+    res.send(event)
+  } catch (err) {
+    res.status(401).send(err);
+  }
+});
+
+eventRouter.delete('', async (req, res) => {
+  try {
+    const { id } = req.body
+    const deletedEvent = await Event.findByIdAndDelete(id)
+    res.send(deletedEvent)
+  } catch (err) {
+    res.status(422).send(err);
+  }
+});
 
 
 
@@ -39,6 +57,38 @@ eventRouter.put('/joinevent', async (req, res) => {
     const { teammateId, eventId } = req.body
     const event = await Event.findById(eventId);
     event.teammates.push(teammateId)
+    await event.save();
+    res.send(event)
+  } catch (err) {
+    res.status(401).send(err);
+  }
+});
+
+eventRouter.put('/leaveevent', async (req, res) => {
+  try {
+    const { teammateId, eventId } = req.body
+    const event = await Event.findById(eventId);
+    for (let i = 0; i < event.teammates.length; i++){ 
+      if (event.teammates[i].toString() === teammateId) { 
+        event.teammates.splice(i, 1); 
+      }
+    }
+    await event.save();
+    res.send(event)
+  } catch (err) {
+    res.status(401).send(err);
+  }
+});
+
+eventRouter.put('/removeplayer', async (req, res) => {
+  try {
+    const { teammateId, eventId } = req.body
+    const event = await Event.findById(eventId);
+    for (let i = 0; i < event.teammates.length; i++){ 
+      if (event.teammates[i].toString() === teammateId) { 
+        event.teammates.splice(i, 1); 
+      }
+    }
     await event.save();
     res.send(event)
   } catch (err) {
