@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: 'Location is required'
     },
+    accountConfirmed: {
+        type: Boolean,
+        default: true
+    },
     favSports: [{
         sport: String,
         skill: Number

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation } from '../actions/filter';
+import { filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation, filterByMinSkill, filterByMaxSkill } from '../actions/filter';
 
 const getVisibleEvents = (events, filters) => {
     return events.filter((event) => {
@@ -11,12 +11,19 @@ const getVisibleEvents = (events, filters) => {
       const timeMatch = event.time.includes(filters.time);
       const locationMatch = event.location.includes(filters.location);
       let sizeMatch = true;
-      if (event.size <= filters.minSize) {
+      if (event.size < filters.minSize) {
           sizeMatch = false
       }
-      if (event.size >= filters.maxSize) {
+      if (event.size > filters.maxSize) {
           sizeMatch = false
       }
+      let skillMatch = true;
+      if (event.skill < filters.minSkill) {
+          skillMatch = false
+        }
+      if (event.skill > filters.maxSkill) {
+          skillMatch = false
+    }
       return nameMatch && sportMatch && dateMatch && timeMatch && locationMatch && sizeMatch;
     });
   };
@@ -34,10 +41,12 @@ const mapDispatchToProps = dispatch => ({
     filterByTime: (payload) => dispatch(filterByTime(payload)),
     filterByMinSize: (payload) => dispatch(filterByMinSize(payload)),
     filterByMaxSize: (payload) => dispatch(filterByMaxSize(payload)),
+    filterByMinSkill: (payload) => dispatch(filterByMinSkill(payload)),
+    filterByMaxSkill: (payload) => dispatch(filterByMaxSkill(payload)),
     filterByLocation: (payload) => dispatch(filterByLocation(payload))
 });
 
-const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation }) => {
+const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation, filterByMinSkill, filterByMaxSkill }) => {
 
     const visibleEvents = getVisibleEvents(event, filters);
 
@@ -92,6 +101,18 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
         filterByMaxSize(input);
     }
 
+    const filterMinSkill = (e) => {
+        e.preventDefault();
+        const input = e.target.value
+        filterByMinSkill(input);
+    }
+
+    const filterMaxSkill = (e) => {
+        e.preventDefault();
+        const input = e.target.value
+        filterByMaxSkill(input);
+    }
+
     return (
         <div>
             <p>What are you looking for?</p>
@@ -135,6 +156,12 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
                     <input onChange={e => {filterMinSize(e)}} id="min-size" type="number" name="min-size" min="2" max="20" value={filters.minSize}></input>
                     <label htmlFor="max-size">Maximum amount of teammates</label>
                     <input onChange={e => {filterMaxSize(e)}} id="min-size" type="number" name="max-size" min="2" max="20" value={filters.maxSize}></input>
+                </p>
+                <p>
+                    <label htmlFor="min-skill">Minimum skill level:</label>
+                    <input onChange={e => {filterMinSkill(e)}} id="min-skill" type="number" name="min-skill" min="1" max="5" value={filters.minSkill}></input>
+                    <label htmlFor="max-skill">Maximum skill level:</label>
+                    <input onChange={e => {filterMaxSkill(e)}} id="min-skill" type="number" name="max-skill" min="1" max="5" value={filters.maxSkill}></input>
                 </p>
             </div>
             {visibleEvents && visibleEvents.map((e) => {

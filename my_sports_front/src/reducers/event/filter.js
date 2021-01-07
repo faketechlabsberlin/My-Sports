@@ -1,4 +1,4 @@
-import { FILTER_BY_SPORT, FILTER_BY_NAME, FILTER_BY_DATE, FILTER_BY_TIME, FILTER_BY_MIN_SIZE, FILTER_BY_MAX_SIZE, FILTER_BY_MIN_SKILL, FILTER_BY_MAX_SKILL, FILTER_BY_LOCATION } from "../../actions/filter";
+import { FILTER_BY_SPORT, FILTER_BY_NAME, FILTER_BY_DATE, FILTER_BY_TIME, FILTER_BY_MIN_SIZE, FILTER_BY_MAX_SIZE, FILTER_BY_MIN_SKILL, FILTER_BY_MAX_SKILL, FILTER_BY_LOCATION, RESET_FILTERS } from "../../actions/filter";
 
 const filtersReducerDefaultState = {
     name: '',
@@ -7,12 +7,16 @@ const filtersReducerDefaultState = {
     time: '',
     location: '',
     minSize: 2,
-    maxSize: 20
+    maxSize: 20,
+    minSkill: 1,
+    maxSkill: 5
   }
 
 export default (state = filtersReducerDefaultState, action) => {
     Object.freeze(state);
     switch (action.type) {
+        case RESET_FILTERS:
+            return filtersReducerDefaultState;
         case FILTER_BY_SPORT:
             return {
                 ...state,
@@ -49,11 +53,15 @@ export default (state = filtersReducerDefaultState, action) => {
                 location: action.payload
             };
         case FILTER_BY_MIN_SKILL:
-            //filter by min skill
-            return state;
+            return {
+                ...state,
+                minSkill: action.payload
+            };
         case FILTER_BY_MAX_SKILL:
-           //filter by max skill
-           return state;
+            return {
+                ...state,
+                maxSkill: action.payload
+            };
         default:
            return state;
    }

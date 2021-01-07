@@ -10,9 +10,13 @@ sessionRouter.post('', passport.authenticate('local'), async (req, res) => {
       const { username, password } = req.body
       const user = await User.findOne({ username });
       if (user) {
+        // if (user.accountConfirmed) {
         const sessionUser = helper.sessionizeUser(user);
         req.session.user = sessionUser
         res.send(sessionUser);
+        // } else {
+        //   throw new Error('Please confirm email');
+        // }
       } else {
         throw new Error('Invalid login credentials');
       }
