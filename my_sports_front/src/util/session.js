@@ -1,5 +1,5 @@
 export const signup = user => (
-    fetch('api/users', {
+    fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
