@@ -13,14 +13,11 @@ const mapDispatchToProps = dispatch => ({
   
 
 const LoginPage = ({ errors, login }) => {
-    const usernameRef = React.createRef();
-    const passwordRef = React.createRef();
-
     const loginUser = (e) => {
         e.preventDefault();
         const user = {
-            username: usernameRef.current.value,
-            password: passwordRef.current.value
+            username: e.target.username.value,
+            password: e.target.password.value
         }
         login(user);
     }
@@ -31,11 +28,11 @@ const LoginPage = ({ errors, login }) => {
             <form>
                 <div>
                     <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="username" ref={usernameRef} required />
+                    <input type="text" id="username" name="username" placeholder="username" required />
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="password" ref={passwordRef} required />
+                    <input type="password" id="password" name="password" placeholder="password" required />
                 </div>
                 <button onClick={loginUser}>Login</button>
             </form>

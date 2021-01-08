@@ -13,26 +13,18 @@ const mapDispatchToProps = dispatch => ({
 
 
 const RegisterPage = ({ errors, signup }) => {   
-    const usernameRef = React.createRef();
-    const emailRef = React.createRef();
-    const passwordRef = React.createRef();
-    const nameRef = React.createRef();
-    const dobRef = React.createRef();
-    const genderRef = React.createRef();
-    const locationRef = React.createRef();
-    const lastNameRef = React.createRef();
-
+    
     const registerUser = (e) => {
         e.preventDefault();
         const user = {
-            username: usernameRef.current.value,
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-            name: nameRef.current.value,
-            dob: dobRef.current.value,
-            gender: genderRef.current.value,
-            location: locationRef.current.value,
-            lastName: lastNameRef.current.value
+            username: e.target.username.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
+            name: e.target.name.value,
+            dob: e.target.dob.value,
+            gender: e.target.gender.value,
+            location: e.target.location.value,
+            lastName: e.target.lastName.value
         }
         signup(user);
     }
@@ -44,31 +36,31 @@ const RegisterPage = ({ errors, signup }) => {
         <form onSubmit={registerUser}>
             <div>
                 <label htmlFor="username">Username (only letters and number inputs accepted):</label>
-                <input type="text" id="username" name="username" placeholder="username" pattern="[A-Za-z0-9]+" ref={usernameRef} required />           
+                <input type="text" id="username" name="username" placeholder="username" pattern="[A-Za-z0-9]+" required />           
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="email" ref={emailRef} required />
+                <input type="email" id="email" name="email" placeholder="email" required />
             </div>
             <div>
                 <label htmlFor="password">Password (8 characters minimum, 12 characters maximum. Must contain atleast 1 letter and 1 number):</label>
-                <input type="password" id="password" name="password" placeholder="password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" ref={passwordRef} required />
+                <input type="password" id="password" name="password" placeholder="password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" required />
             </div>
             <div>
                 <label htmlFor="name">First Name:</label>
-                <input type="text" id="name" name="name" placeholder="name" pattern="[A-Za-z]+" ref={nameRef} required />
+                <input type="text" id="name" name="name" placeholder="name" pattern="[A-Za-z]+" required />
             </div>
             <div>
                 <label htmlFor="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="lastName" pattern="[A-Za-z]+" ref={lastNameRef} required />
+                <input type="text" id="lastName" name="lastName" placeholder="lastName" pattern="[A-Za-z]+" required />
             </div>
             <div>
                 <label htmlFor="dob">Date Of Birth:</label>
-                <input type="date" id="dob" name="dob" min="1920-01-01" ref={dobRef} required />
+                <input type="date" id="dob" name="dob" min="1920-01-01" required />
             </div>
             <div>
                 <label htmlFor="gender">Gender:</label>
-                <select id="gender" name="gender" ref={genderRef} required>
+                <select id="gender" name="gender" required>
                     <option value="">--Please choose an option--</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -77,7 +69,7 @@ const RegisterPage = ({ errors, signup }) => {
             </div>
             <div>
                 <label htmlFor="location">Location:</label>
-                <select id="location" name="location" ref={locationRef} required>
+                <select id="location" name="location" required>
                     <option value="">--Please choose an option--</option>
                     <option value="berlin">Berlin</option>
                 </select>
