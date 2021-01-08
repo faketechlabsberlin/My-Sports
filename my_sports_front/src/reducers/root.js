@@ -5,6 +5,7 @@ import event from './event/event';
 import filters from './event/filter';
 import socket from './socket/socket';
 import message from './messages/message';
+import resetPassword from './resetPassword/resetPassword';
 
 export default combineReducers({
   session,
@@ -12,5 +13,6 @@ export default combineReducers({
   event,
   filters,
   socket, //might not need
-  message
+  message,
+  resetPassword
 });
