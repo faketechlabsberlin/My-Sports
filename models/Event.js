@@ -35,7 +35,8 @@ const eventSchema = new mongoose.Schema({
         ref: 'User'
     }],
     skill: {
-        type: Number
+        type: Number,
+        default: 3
     },
     equipment : {
         type: Boolean,

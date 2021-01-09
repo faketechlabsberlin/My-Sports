@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../actions/session";
 import { getEvents } from '../actions/event';
+import { resetFilters } from '../actions/filter';
 import { Link } from 'react-router-dom';
 
 
@@ -12,12 +13,14 @@ const mapStateToProps = ({ session, event }) => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  getEvents: () => dispatch(getEvents())
+  getEvents: () => dispatch(getEvents()),
+  resetFilters: () => dispatch(resetFilters())
 });
 
 class DashboardPage extends React.Component {
   componentDidMount() {
     this.props.getEvents();
+    this.props.resetFilters();
   }
   
   render() {

@@ -11,22 +11,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const CreateEventPage = ({ session, createEvent, history }) => {
-    const titleRef = React.createRef();
-    const sportRef = React.createRef();
-    const sizeRef = React.createRef();
-    const dateRef = React.createRef();
-    const timeRef = React.createRef();
-    const locationRef = React.createRef();
-
     const submitEvent = async (e) => {
         e.preventDefault();
         const event = {
-            title: titleRef.current.value,
-            sport: sportRef.current.value,
-            size: sizeRef.current.value,
-            date: dateRef.current.value,
-            time: timeRef.current.value,
-            location: locationRef.current.value,
+            title: e.target.title.value,
+            sport: e.target.sport.value,
+            size: e.target.size.value,
+            date: e.target.date.value,
+            time: e.target.time.value,
+            location: e.target.location.value,
             host: session.userId
         }
         const response = await fetch('api/event', {
@@ -49,11 +42,11 @@ const CreateEventPage = ({ session, createEvent, history }) => {
             <form onSubmit={submitEvent}>
                 <div> 
                     <label htmlFor="title">Event Title:</label>
-                    <input id="title" name="title" type="text" required ref={titleRef} />
+                    <input id="title" name="title" type="text" required/>
                 </div>
                 <div>
                     <label htmlFor="sport">Sport:</label>
-                    <select id="sport" name="sport" required ref={sportRef}>
+                    <select id="sport" name="sport" required>
                         <option value="">Please select one</option>
                         <option value="basketball">Basketball</option>
                         <option value="beach volleyball">Beach Volleyball</option>
@@ -62,15 +55,15 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                 </div>
                 <div> 
                     <label htmlFor="size">Maximum Number of Athelets:</label>
-                    <input id="size" name="size" type="number" min="2" max="20" step="1" required ref={sizeRef} />
+                    <input id="size" name="size" type="number" min="2" max="20" step="1" required/>
                 </div>
                 <div>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" min="2020-12-12" required ref={dateRef}/>
+                    <input type="date" id="date" name="date" min="2020-12-12" required/>
                 </div>
                 <div>
                     <label htmlFor="time">Event Time:</label>
-                    <select id="time" name="time" required ref={timeRef}>
+                    <select id="time" name="time" required>
                         <option value="">Please select one</option>
                         <option value="morning">Morning</option>
                         <option value="afternoon">Afternoon</option>
@@ -80,7 +73,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                 </div>
                 <div>
                     <label htmlFor="location">Event Location:</label>
-                    <select id="location" name="location" required ref={locationRef}>
+                    <select id="location" name="location" required>
                         <option value="">Please select one</option>
                         <option value="friedrichshain">Friedrichshain</option>
                         <option value="neukolln">Neukolln</option>

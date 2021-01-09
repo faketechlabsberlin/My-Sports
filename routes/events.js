@@ -17,7 +17,11 @@ eventRouter.post('', async (req, res) => {
 
 eventRouter.get('', async (req, res) => {
   try {
-    const allEvents = await Event.find({ active: true }).populate('teammates');
+    let cutoff = new Date();
+    cutoff.setDate(cutoff.getDate()-1);
+    console.log(cutoff)
+    // MyModel.find({modificationDate: {$lt: cutoff}}
+    const allEvents = await Event.find({ date: { $gte: cutoff } }).populate('teammates');
     res.send(allEvents);
   } catch (err) {
     res.status(422).send(err)
@@ -96,14 +100,15 @@ eventRouter.put('/removeplayer', async (req, res) => {
   }
 });
 
-// eventRouter.get('/:id', async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const event = await Event.findById(id)
-//     res.send(event)
-//   } catch (err) {
-//     res.status(401).send(err)
-//   }
-// })
+eventRouter.get('/myevents', async (req, res) => {
+  try {
+    const { myId } = req.body
+    const events = await Event.find().populate('teammates');
+    const myEvents = events.filter((event) => {event.teammates.some(teammate => teammate._id === myId)});
+    res.send(myEvents);
+  } catch (err) {
+    res.status(401).send(err)
+  }
+})
 
 module.exports = eventRouter;

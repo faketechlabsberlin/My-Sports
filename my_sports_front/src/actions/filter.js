@@ -7,6 +7,11 @@ export const FILTER_BY_DATE = 'FILTER_BY_DATE';
 export const FILTER_BY_TIME = 'FILTER_BY_TIME';
 export const FILTER_BY_NAME = 'FILTER_BY_NAME';
 export const FILTER_BY_LOCATION = 'FILTER_BY_LOCATION';
+export const RESET_FILTERS = 'RESET_FILTERS';
+
+export const resetFilters = () => ({
+   type: RESET_FILTERS
+});
 
 export const filterByName = payload => ({
    type: FILTER_BY_NAME,
@@ -43,12 +48,12 @@ export const filterByLocation = payload => ({
    payload
 });
 
-// const filterByMaxSkill = payload => ({
-//    type: FILTER_BY_MAX_SKILL,
-//    payload
-// });
+export const filterByMaxSkill = payload => ({
+   type: FILTER_BY_MAX_SKILL,
+   payload
+});
 
-// const filterByMinSkill = payload => ({
-//    type: FILTER_BY_MIN_SKILL,
-//    payload
-// });
+export const filterByMinSkill = payload => ({
+   type: FILTER_BY_MIN_SKILL,
+   payload
+});
