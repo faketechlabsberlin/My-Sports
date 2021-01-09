@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { createEvent } from '../actions/event';
+import DatePicker from 'react-datepicker/dist/react-datepicker';
+import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 const mapStateToProps = ({ session }) => ({
     session
-  });
+});
 
 const mapDispatchToProps = dispatch => ({
     createEvent: payload => dispatch(createEvent(payload))
@@ -26,7 +28,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
             method: 'POST',
             body: JSON.stringify(event),
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             }
         })
         const data = await response.json();
@@ -35,14 +37,14 @@ const CreateEventPage = ({ session, createEvent, history }) => {
             history.push('/dashboard')
         }
     }
-// add min date as today with JS
+    const [startDate, setStartDate] = useState(new Date());
     return (
         <div>
             <p>Create an event here:</p>
             <form onSubmit={submitEvent}>
-                <div> 
+                <div>
                     <label htmlFor="title">Event Title:</label>
-                    <input id="title" name="title" type="text" required/>
+                    <input id="title" name="title" type="text" required />
                 </div>
                 <div>
                     <label htmlFor="sport">Sport:</label>
@@ -53,13 +55,21 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                         <option value="football">Football</option>
                     </select>
                 </div>
-                <div> 
+                <div>
                     <label htmlFor="size">Maximum Number of Athelets:</label>
-                    <input id="size" name="size" type="number" min="2" max="20" step="1" required/>
+                    <input id="size" name="size" type="number" min="2" max="20" step="1" required />
                 </div>
                 <div>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" min="2020-12-12" required/>
+                    <DatePicker
+                        id="date"
+                        name="date"
+                        placeholderText="Select a date "
+                        selected={startDate}
+                        minDate={startDate}
+                        onChange={date => setStartDate(date)}
+                        shouldCloseOnSelect={true}
+                    />
                 </div>
                 <div>
                     <label htmlFor="time">Event Time:</label>
