@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'; //maybe implement
 import { connect } from "react-redux";
 import { signup } from "../actions/session";
@@ -14,14 +14,7 @@ const mapDispatchToProps = dispatch => ({
     signup: user => dispatch(signup(user))
 });
 
-var startDate = moment().subtract(18, 'years')._d;
 
-const setSelectedDate = date => {
-    const valueOfInput = date;
-    console.log(valueOfInput);
-    startDate = moment(date);
-    console.log(startDate)
-};
 
 const RegisterPage = ({ errors, signup }) => {
 
@@ -39,6 +32,8 @@ const RegisterPage = ({ errors, signup }) => {
         }
         signup(user);
     }
+
+    const [startDate, setStartDate] = useState(null);
 
     return (
         <div>
@@ -71,8 +66,9 @@ const RegisterPage = ({ errors, signup }) => {
                         id="dob"
                         name="dob"
                         placeholderText="Select a date "
-                        selectedDate={startDate}
-                        onChange={date => setSelectedDate(date)}
+                        selected={startDate}
+                        onChange={date => setStartDate(date)}
+                        startDate={moment().subtract(18, 'years')._d}
                         maxDate={moment().subtract(18, 'years')._d}
                         showYearDropdown
                         scrollableYearDropdown
