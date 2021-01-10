@@ -107,8 +107,6 @@ print(weights)
 
 #Unify all list in the DataFrame
 
-# Reminder of all user variables: mail, username, password, name, dob, gender, location, lastName, heights, weights
-
 df = pd.DataFrame({'mail': mail, 'username': username, 'password':password, 'name':names_list, 'dob':dob, 'gender':genders,
                    'location':location, 'lastName':lastName, 'heights':heights, 'weights':weights},
                   columns=['mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights'])
