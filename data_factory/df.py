@@ -6,7 +6,7 @@ import pandas as pd
 # Reminder of all user variables: mail, username, password, name, dob, gender, location, lastName
 
 # set lists
-districts = ['Berlin-Mitte', 'Charlottenburg', 'Prenzlauer Berg', 'Friedrichshain', 'Kreuzberg', 'Neukölln']
+districts = ['Berlin-Mitte', 'Charlottenburg', 'Prenzlauer Berg', 'Friedrichshain', 'Kreuzberg', 'Neukolln']
 genders = []
 username = []
 names_list = []
@@ -19,8 +19,8 @@ weights = []
 mail = []
 
 # set number of users we want to generate
-x = 25
-i1, i2, i3, i4, i5, i6, i7, i8 =0, 0, 0, 0, 0, 0, 0, 0
+x = int(input('Select a number of fake user you want to generate:'))
+i1, i2, i3, i4, i5, i6, i7, i8 = 0, 0, 0, 0, 0, 0, 0, 0
 
 #creating a DataFrame for the userbase
 userbase = pd.DataFrame()
@@ -77,14 +77,15 @@ def create_random_datetime(from_date, to_date, rand_type='uniform'):
                                   .format(rand_type))
     return from_date + rand * delta
 
-while i6<0:
-    dob.append(create_random_datetime(datetime(1950,1,1), datetime(2003,1,1)))
+while i6 < x:
+    dtime = create_random_datetime(datetime(1950,1,1), datetime(2003,1,1))
+    dob.append(dtime)
     i6 += 1
 print(dob)
 
 #Generate location
-while i7<0:
-    loca = districts[rd.randint(0,(len(districts-1)))]
+while i7 < x:
+    loca = districts[rd.randint(0,(len(districts)-1))]
     location.append(loca)
     i7 += 1
 print(location)
@@ -109,8 +110,14 @@ print(weights)
 # Reminder of all user variables: mail, username, password, name, dob, gender, location, lastName, heights, weights
 
 df = pd.DataFrame({'mail': mail, 'username': username, 'password':password, 'name':names_list, 'dob':dob, 'gender':genders,
-                   'location':location, },
-                  columns=['mail', 'username', 'password'])
+                   'location':location, 'lastName':lastName, 'heights':heights, 'weights':weights},
+                  columns=['mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights'])
 print(df.head(5))
+print(df.describe)
 
-#Export it in csv
+#Export it in csv and json
+df.to_csv('generated_userbase.csv')
+df.to_json('generated_userbase.json')
+
+print('USERBASE SUCCESSFULLY CREATED WITH ' + str(x) + ' FAKE USERS')
+print('FILES SUCCESSFULLY CREATED IN CSV AND JSON FORMAT')
