@@ -13,6 +13,3 @@ export default (state = [], action) => {
             return state;
     }
 };
-
-// export const createEvent = state => state.upcomingEvents;
-// export const findEvents = state => state.availableEvents;

@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'; //maybe implement
 import { connect } from "react-redux";
 import { signup } from "../actions/session";
 
