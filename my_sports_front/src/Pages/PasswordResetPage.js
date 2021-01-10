@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { toggleCodeOk, getUsername, updateSuccessToggle } from '../actions/resetPassword';
+import { receiveErrors } from '../actions/error';
 import axios from 'axios';
 
 const mapDispatchToProps = dispatch => ({
     toggleCodeOk: () => dispatch(toggleCodeOk()),
     updateSuccessToggle: () => dispatch(updateSuccessToggle()),
-    getUsername: (payload) => dispatch(getUsername(payload))
+    getUsername: (payload) => dispatch(getUsername(payload)),
+    receiveErrors: (payload) => dispatch(receiveErrors(payload))
 });
 
-const mapStateToProps = ({ resetPassword }) => ({
-    resetPassword
+const mapStateToProps = ({ resetPassword, errors }) => ({
+    resetPassword,
+    errors
 })
 
-const PasswordResetPage = ({ match, getUsername, toggleCodeOk, resetPassword, updateSuccessToggle, history }) => {
+const PasswordResetPage = ({ match, getUsername, toggleCodeOk, resetPassword, updateSuccessToggle, history, receiveErrors, errors }) => {
     useEffect(async() => {
         const { code } = match.params;
         await axios
@@ -21,6 +24,9 @@ const PasswordResetPage = ({ match, getUsername, toggleCodeOk, resetPassword, up
             .then((response) => {
                 getUsername(response.data);
                 toggleCodeOk();
+            })
+            .catch((error) => {
+                receiveErrors(error.response.data.message)
             })
       }, [])
 
@@ -32,12 +38,22 @@ const PasswordResetPage = ({ match, getUsername, toggleCodeOk, resetPassword, up
             password: e.target.password.value
         })
         .then((response) => {
-            console.log(response)
             if (response.data.message === 'password updated') {
                 updateSuccessToggle();
                 history.push('/login')
             }
         })
+        .catch((error) => {
+            receiveErrors(error.response.data.message);
+        })
+    }
+
+    if (errors) {
+        return (
+            <div>
+                <h4>Oops! {errors}</h4>
+            </div>
+        )
     }
 
     return (
