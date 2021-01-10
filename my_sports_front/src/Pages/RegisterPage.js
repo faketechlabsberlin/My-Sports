@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios'; //maybe implement
 import { connect } from "react-redux";
 import { signup } from "../actions/session";
+import Modal from "../components/TermsConditions";
+import '../styles/common.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as moment from 'moment';
@@ -34,6 +36,9 @@ const RegisterPage = ({ errors, signup }) => {
     }
 
     const [startDate, setStartDate] = useState(null);
+
+    const [isTermsVisible, setIsTermsVisible] = useState(false);
+
 
     return (
         <div>
@@ -92,6 +97,25 @@ const RegisterPage = ({ errors, signup }) => {
                         <option value="">--Please choose an option--</option>
                         <option value="berlin">Berlin</option>
                     </select>
+                </div>
+                <div className="Terms">
+                    <button onClick={() => setIsTermsVisible(true)}>Terms & Conditions</button>
+                    {isTermsVisible ? (
+                        <Modal onClose={() => setIsTermsVisible(false)}>
+                            <h2>Terms & Conditions</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled it to make a type
+                                specimen book. It has survived not only five centuries, but also the leap into e
+                                lectronic typesetting, remaining essentially unchanged. It was popularised in t
+                                he 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                and more recently with desktop publishing software like Aldus PageMaker including
+                                versions of Lorem Ipsum.
+                            </p>
+                        </Modal>
+                    ) : null}
+                    <input type="checkbox" id="checkbox" required />
                 </div>
                 <button>Register Now</button>
             </form>
