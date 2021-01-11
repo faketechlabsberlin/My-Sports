@@ -1,22 +1,14 @@
 import React from 'react'
+import { requestEmail } from '../util/password';
 
-export default function ForgotPasswordPage() {
+export default function ForgotPasswordPage({ history }) {
     const sendEmail = async (e) => {
         e.preventDefault();
         const input = {
             email: e.target.email.value
         }
-        const response = await fetch('/api/users/forgotpassword', {
-            method: 'POST',
-            body: JSON.stringify(input),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-        })
-        const data = response;
-        if (response.ok) {
-            console.log(data)
-        }
+        await requestEmail(input)
+        history.push('/login')
     }
     
     return (

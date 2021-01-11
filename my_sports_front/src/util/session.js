@@ -1,38 +1,39 @@
-export const signup = user => (
-    fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  );
+import axios from 'axios';
+import { receiveErrorsFunc } from '../actions/error'; //need to implement somehow for front end error display
 
-  export const login = user => (
-    fetch('api/session', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  );
-  
-  export const logout = () => (
-    fetch('api/session', { method: 'DELETE' })
-  );
-
-  export const checkLoggedIn = async (x) => {
-    const response = await fetch('/api/session');
-    const { user } = await response.json();
-    console.log(user)
-    let preloadedState = {};
-    if (user) {
-      preloadedState = {
-        session: user
-      };
-    }
-    return preloadedState;
+export const signup = async user => {
+  return await axios
+    .post('/api/users', user)
+    .catch((error) => {
+      if(error.response.data.message){
+      alert(error.response.data.message); //temporary solution
+    }})
   };
 
-  //axios??
+export const login = async user => {
+  return await axios
+    .post('/api/session', user)
+    .catch((error) => {
+      console.log(error);
+    })
+  };
+  
+export const logout = async() => {
+  return await axios
+    .delete('/api/session')
+    .catch((error) => {
+      console.log(error);
+    })
+  };
+
+export const checkLoggedIn = async (x) => {
+  const response = await axios.get('/api/session');
+  const { user } = response.data;
+  let preloadedState = {};
+  if (user) {
+    preloadedState = {
+      session: user
+    };
+  }
+  return preloadedState;
+};

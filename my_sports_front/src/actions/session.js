@@ -4,7 +4,7 @@ import { receiveErrors } from "./error"; //need to implement
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 
-const receiveCurrentUser = user => ({
+export const receiveCurrentUser = user => ({
   type: RECEIVE_CURRENT_USER,
   user
 });
@@ -15,26 +15,23 @@ const logoutCurrentUser = () => ({
 
 export const login = user => async dispatch => {
   const response = await apiUtil.login(user);
-  const data = await response.json();
-if (response.ok) {
-    return dispatch(receiveCurrentUser(data));
+  if (response) {
+    return dispatch(receiveCurrentUser(response.data));
   }
  // return dispatch(receiveErrors(data));
 };
 
 export const signup = user => async dispatch => {
-  const response = await apiUtil.signup(user);
-  const data = await response.json();
-  if (response.ok) {
-    return dispatch(receiveCurrentUser(data));
+  const response = await apiUtil.signup(user)
+  if (response) {
+    return dispatch(receiveCurrentUser(response.data));
   }
  //return dispatch(receiveErrors(data));
 };
 
 export const logout = () => async dispatch => {
   const response = await apiUtil.logout();
-  const data = await response.json();
-if (response.ok) {
+  if (response) {
     return dispatch(logoutCurrentUser());
   }
   //return dispatch(receiveErrors(data));
