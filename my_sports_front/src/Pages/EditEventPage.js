@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect, useSelector } from "react-redux";
+
 
 const mapStateToProps = ({ session, event }) => ({
     session,
     event
-  });
+});
 
 const EditEventPage = ({ session, history, match }) => {
     const { id } = match.params
     const event = useSelector(state =>
-    state.event.find(event => event._id === id)
+        state.event.find(event => event._id === id)
     )
 
     let isHost = false;
     if (event.host === session.userId) {
-      isHost = true;
+        isHost = true;
     }
 
     if (!isHost) {
@@ -24,7 +25,7 @@ const EditEventPage = ({ session, history, match }) => {
             </div>
         )
     }
- 
+
     const editEvent = async (e) => {
         e.preventDefault();
         const eventToEdit = {
@@ -39,7 +40,7 @@ const EditEventPage = ({ session, history, match }) => {
             method: 'PUT',
             body: JSON.stringify(eventToEdit),
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             }
         })
         const data = await response.json();
@@ -48,22 +49,22 @@ const EditEventPage = ({ session, history, match }) => {
             history.push('/dashboard')
         }
     }
-// add min date as today with JS
+    // add min date as today with JS
     return (
         <div>
             <p>Create an event here:</p>
             <form onSubmit={editEvent}>
-                <div> 
+                <div>
                     <label htmlFor="title">Event Title:</label>
                     <input id="title" name="title" type="text" defaultValue={event.title} required />
                 </div>
-                <div> 
+                <div>
                     <label htmlFor="size">Maximum Number of Athelets:</label>
                     <input id="size" name="size" type="number" min="2" max="20" step="1" defaultValue={event.size} required />
                 </div>
                 <div>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" min="2020-12-12" defaultValue={event.date.slice(0,10)} required />
+                    <input type="date" id="date" name="date" min="2020-12-12" defaultValue={event.date.slice(0, 10)} required />
                 </div>
                 <div>
                     <label htmlFor="time">Event Time:</label>
