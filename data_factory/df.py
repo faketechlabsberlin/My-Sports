@@ -22,9 +22,6 @@ mail = []
 x = int(input('Select a number of fake user you want to generate:'))
 i1, i2, i3, i4, i5, i6, i7, i8 = 0, 0, 0, 0, 0, 0, 0, 0
 
-#creating a DataFrame for the userbase
-userbase = pd.DataFrame()
-
 #Generate genders for x users
 while i1 < x:
     g = rd.randint(0,1)
@@ -92,7 +89,10 @@ print(location)
 
 #Generate Heights using gaussian distribution
 while i3 < x:
-    heights.append(rd.gauss(1.75, 0.25))
+    if genders[i3] == 'male':
+        heights.append(rd.gauss(1.754, 0.20))
+    else:
+        heights.append(rd.gauss(1.62, 0.20))
     i3 += 1
 print(heights)
 
