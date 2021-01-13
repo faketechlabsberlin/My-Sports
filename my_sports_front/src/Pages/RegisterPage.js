@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios'; //maybe implement
 import { connect } from "react-redux";
@@ -7,7 +6,7 @@ import Modal from "../components/TermsConditions";
 import '../styles/common.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import * as moment from 'moment';
+import moment from 'moment';
 
 const mapStateToProps = ({ errors }) => ({
     errors
@@ -28,7 +27,7 @@ const RegisterPage = ({ errors, signup }) => {
             email: e.target.email.value,
             password: e.target.password.value,
             name: e.target.name.value,
-            dob: e.target.dob.value,
+            dob: moment.parseZone(e.target.dob.value),
             gender: e.target.gender.value,
             location: e.target.location.value,
             lastName: e.target.lastName.value

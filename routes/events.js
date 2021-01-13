@@ -19,8 +19,6 @@ eventRouter.get('', async (req, res) => {
   try {
     let cutoff = new Date();
     cutoff.setDate(cutoff.getDate()-1);
-    console.log(cutoff)
-    // MyModel.find({modificationDate: {$lt: cutoff}}
     const allEvents = await Event.find({ date: { $gte: cutoff } }).populate('teammates');
     res.send(allEvents);
   } catch (err) {

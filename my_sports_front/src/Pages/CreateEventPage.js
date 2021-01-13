@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { createEvent } from '../actions/event';
-import DatePicker from 'react-datepicker/dist/react-datepicker';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 const mapStateToProps = ({ session }) => ({
@@ -19,7 +20,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
             title: e.target.title.value,
             sport: e.target.sport.value,
             size: e.target.size.value,
-            date: e.target.date.value,
+            date: moment.parseZone(e.target.date.value),
             time: e.target.time.value,
             location: e.target.location.value,
             host: session.userId
@@ -64,10 +65,12 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                     <DatePicker
                         id="date"
                         name="date"
-                        placeholderText="Select a date "
+                        utcOffset={0}
+                        placeholderText="Select a date"
                         selected={startDate}
                         minDate={startDate}
                         onChange={date => setStartDate(date)}
+                        dateFormat="MMMM d, yyyy"
                         shouldCloseOnSelect={true}
                     />
                 </div>

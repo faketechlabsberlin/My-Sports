@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const mapStateToProps = ({ event, session }) => ({
     event,
@@ -113,13 +114,13 @@ const EventPage = ({ session, match, history }) => {
       isHost = true;
     }
 
-
+    //use momentjs to display date in a better format
     return (
         <div>
             <h3>{event.title}</h3>
             <p>This is a MySports <b>{event.sport}</b> event.</p>
             <p>Spots Left: <b>{event.teammates? event.size - event.teammates.length: 0}</b></p>
-            <p>To be played in: <b>{event.location}</b> on <b>{event.date?event.date.slice(0, 10): 0}</b> in the <b>{event.time}</b>.</p>
+            <p>To be played in: <b>{event.location}</b> on <b>{event.date? moment(event.date).format("dddd, MMMM Do"): 0}</b> in the <b>{event.time}</b>.</p> 
             <p>Please confirm exact time in the chat.</p>
             <p>Average Player Skill Level for this event:</p>
             <p>Current teammates include: </p>

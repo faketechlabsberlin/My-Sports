@@ -4,6 +4,7 @@ import { logout } from "../actions/session";
 import { getEvents } from '../actions/event';
 import { resetFilters } from '../actions/filter';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 
 const mapStateToProps = ({ session, event }) => ({
@@ -34,7 +35,7 @@ class DashboardPage extends React.Component {
           <p>Your upcoming matches:</p>
             <ul>
               {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
-                return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {myEvents.date.slice(0,10)}</li>
+                return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {moment(myEvents.date).format("dddd, MMMM Do")}</li> 
               })}
             </ul>
           <p><Link to="/find-event">Find Match</Link></p>

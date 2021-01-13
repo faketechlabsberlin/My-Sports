@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect, useSelector } from "react-redux";
-
+import DatePicker from 'react-datepicker';
+import "../../node_modules/react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
 
 const mapStateToProps = ({ session, event }) => ({
     session,
@@ -12,6 +14,8 @@ const EditEventPage = ({ session, history, match }) => {
     const event = useSelector(state =>
         state.event.find(event => event._id === id)
     )
+
+    const [startDate, setStartDate] = useState(new Date(event.date));
 
     let isHost = false;
     if (event.host === session.userId) {
@@ -32,7 +36,7 @@ const EditEventPage = ({ session, history, match }) => {
             eventId: id,
             title: e.target.title.value,
             size: e.target.size.value,
-            date: e.target.date.value,
+            date: moment.parseZone(e.target.date.value),
             time: e.target.time.value,
             location: e.target.location.value,
         }
@@ -49,7 +53,7 @@ const EditEventPage = ({ session, history, match }) => {
             history.push('/dashboard')
         }
     }
-    // add min date as today with JS
+
     return (
         <div>
             <p>Create an event here:</p>
@@ -64,7 +68,16 @@ const EditEventPage = ({ session, history, match }) => {
                 </div>
                 <div>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" min="2020-12-12" defaultValue={event.date.slice(0, 10)} required />
+                    <DatePicker
+                        id="date"
+                        name="date"
+                        placeholderText="Select a date "
+                        selected={startDate}
+                        minDate={new Date()}
+                        onChange={date => setStartDate(date)}
+                        dateFormat="MMMM d, yyyy"
+                        shouldCloseOnSelect={true}
+                    />
                 </div>
                 <div>
                     <label htmlFor="time">Event Time:</label>
