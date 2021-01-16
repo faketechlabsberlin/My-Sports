@@ -17,8 +17,10 @@ export const login = user => async dispatch => {
   const response = await apiUtil.login(user);
   if (response) {
     return dispatch(receiveCurrentUser(response.data));
+  } else {
+    const errorMessage = 'Wrong username or password'
+    return dispatch(receiveErrors(errorMessage));
   }
- // return dispatch(receiveErrors(data));
 };
 
 export const signup = user => async dispatch => {

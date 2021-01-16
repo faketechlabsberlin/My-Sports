@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { receiveErrorsFunc } from '../actions/error'; //need to implement somehow for front end error display
 
 export const signup = async user => {
   return await axios

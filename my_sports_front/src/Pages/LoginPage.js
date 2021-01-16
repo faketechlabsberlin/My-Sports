@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'; //maybe implement
 import { connect } from "react-redux";
 import { login } from "../actions/session";
 import { Link } from 'react-router-dom';
@@ -35,6 +34,7 @@ const LoginPage = ({ errors, login }) => {
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="password" required />
                 </div>
+                {errors && <p>{errors}</p>}
                 <button>Login</button>
             </form>
             <p>Don't have an account?</p>
