@@ -11,6 +11,8 @@ const mapDispatchToProps = dispatch => ({
     login: user => dispatch(login(user))
 });
 
+
+
 const LoginPage = ({ errors, login }) => {
     const loginUser = (e) => {
         e.preventDefault();
@@ -24,6 +26,7 @@ const LoginPage = ({ errors, login }) => {
     const [isLoginVisible, setIsLoginVisible] = useState(false);
 
     return (
+
         <div>
             {!isLoginVisible ? (
                 <button onClick={() => setIsLoginVisible(true)}>Login</button>
