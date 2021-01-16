@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { login } from "../actions/session";
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
+
 const LoginPage = ({ errors, login }) => {
     const loginUser = (e) => {
         e.preventDefault();
@@ -21,22 +22,34 @@ const LoginPage = ({ errors, login }) => {
         }
         login(user);
     }
+
+    const [isLoginVisible, setIsLoginVisible] = useState(false);
+
     return (
-        <div id="loginPage">
-            <h1>MY SPORTS</h1>
-            <h4>Login</h4>
-            <form onSubmit={loginUser}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="username" required />
+
+        <div>
+            {!isLoginVisible ? (
+                <button onClick={() => setIsLoginVisible(true)}>Login</button>
+            ) : null}
+            {isLoginVisible ? (
+                <div id="doLogin" onClose={() => setIsLoginVisible(false)}>
+                    <h1>MY SPORTS</h1>
+
+                    <h4>Login</h4>
+                    <form onSubmit={loginUser}>
+                        <div>
+                            <label htmlFor="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="username" required />
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="password" required />
+                        </div>
+                        {errors && <p>{errors}</p>}
+                        <button>Login</button>
+                    </form>
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="password" required />
-                </div>
-                {errors && <p>{errors}</p>}
-                <button>Login</button>
-            </form>
+            ) : null}
             <p>Don't have an account?</p>
             <p><Link to="/register">Register here</Link></p>
             <p><Link to="/forgotpassword">Forgot your password?</Link></p>
