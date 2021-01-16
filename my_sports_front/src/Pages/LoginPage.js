@@ -11,6 +11,8 @@ const mapDispatchToProps = dispatch => ({
     login: user => dispatch(login(user))
 });
 
+
+
 const LoginPage = ({ errors, login }) => {
     const loginUser = (e) => {
         e.preventDefault();
@@ -24,6 +26,7 @@ const LoginPage = ({ errors, login }) => {
     const [isLoginVisible, setIsLoginVisible] = useState(false);
 
     return (
+
         <div>
             {isLoginVisible? <div className="login-page-top-space-true"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div>: <div className="login-page-top-space-false"></div>}
             <h1>MY SPORTS</h1>
