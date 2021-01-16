@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => ({
 const mapDispatchToProps = dispatch => ({
     login: user => dispatch(login(user))
 });
-  
+
 
 const LoginPage = ({ errors, login }) => {
     const loginUser = (e) => {
@@ -22,7 +22,7 @@ const LoginPage = ({ errors, login }) => {
         login(user);
     }
     return (
-        <div>
+        <div id="loginPage">
             <h1>MY SPORTS</h1>
             <h4>Login</h4>
             <form onSubmit={loginUser}>
@@ -47,4 +47,4 @@ const LoginPage = ({ errors, login }) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(LoginPage);
+)(LoginPage);
