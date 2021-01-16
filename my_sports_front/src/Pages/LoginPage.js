@@ -25,31 +25,35 @@ const LoginPage = ({ errors, login }) => {
 
     return (
         <div>
-            {!isLoginVisible ? (
-                <button onClick={() => setIsLoginVisible(true)}>Login</button>
-            ) : null}
+            {isLoginVisible? <div className="login-page-top-space-true"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div>: <div className="login-page-top-space-false"></div>}
+            <h1>MY SPORTS</h1>
+            {!isLoginVisible ? <button onClick={() => setIsLoginVisible(true)}>Login</button>: null}
             {isLoginVisible ? (
-                <div id="doLogin" onClose={() => setIsLoginVisible(false)}>
-                    <h1>MY SPORTS</h1>
-
-                    <h4>Login</h4>
+                <div>
                     <form onSubmit={loginUser}>
-                        <div>
-                            <label htmlFor="username">Username:</label>
-                            <input type="text" id="username" name="username" placeholder="username" required />
+                        <div className="login-form">
+                            <div>
+                                <label htmlFor="username"><i className="material-icons md-36">account_circle</i></label>
+                                <input type="text" id="username" name="username" placeholder="username" required />
+                            </div>
+                            {errors && <p>{errors}</p>}
+                            <div>
+                                <label htmlFor="password"><i className="material-icons md-36">lock_outline</i></label>
+                                <input type="password" id="password" name="password" placeholder="password" required />
+                            </div>
+                            {errors && <p><Link to="/forgotpassword">Forgot your password?</Link></p>}
                         </div>
-                        <div>
-                            <label htmlFor="password">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="password" required />
-                        </div>
-                        {errors && <p>{errors}</p>}
                         <button>Login</button>
                     </form>
                 </div>
             ) : null}
-            <p>Don't have an account?</p>
-            <p><Link to="/register">Register here</Link></p>
-            <p><Link to="/forgotpassword">Forgot your password?</Link></p>
+            {!isLoginVisible ? (
+                <div>
+                    <p>New to MySports?</p>
+                    <p><Link to="/register"><button>Sign Up</button></Link></p>
+                </div>
+            ) : null}
+            
         </div>
     )
 }
