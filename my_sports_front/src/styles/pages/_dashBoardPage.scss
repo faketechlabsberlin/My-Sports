@@ -1,0 +1,40 @@
+body {
+    background-color: $dark-grey;
+    background-size:cover;
+}
+
+h2 {
+    text-align: center;
+    color: $yellow;
+    font-size: 2 rem;
+    letter-spacing: 0.185rem;
+    padding-top: 1.5rem;
+}
+
+#welcome{
+    position: sticky;
+    background-color: $dark-grey;
+    align-content:flex-start;
+    margin-top: 20%;
+    height: 170px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#pref-link{
+    background-color: $sky-blue;
+    border-radius: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0px;
+    color: white;
+    text-decoration: none;
+}
+
+#dashcontent{
+    position:absolute;
+}
+

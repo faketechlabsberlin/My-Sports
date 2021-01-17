@@ -23,29 +23,36 @@ class DashboardPage extends React.Component {
     this.props.getEvents();
     this.props.resetFilters();
   }
-  
+
   render() {
-    const  { logout, session, event } = this.props
+    const { logout, session, event } = this.props
     return (
       <div>
-          <h1>Hi {session.username} </h1>
-          <p>Welcome to the My Sports Dashboard Page! What next? Complete your profile and then go ahead and find your team!</p>
-          <p><Link to={"/profile/" + session.userId}>View Profile</Link></p>
+        <nav id="navbar">
+          <h2 id="logo">MY SPORTS</h2>
+        </nav>
+        <div id="welcome">
+          <p>Welcome {session.username}! </p>
+          <p>You can now join a match, create an event or tell us your preferencies and have a look at matches we found for you.</p>
+          <Link id="pref-link" to={"/profile/" + session.userId}>Edit preferencies</Link>
+        </div>
+        <div id="dashcontent">
           <p>View former Events here: * Short list of recent events *</p>
           <p>Your upcoming matches:</p>
-            <ul>
-              {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
-                return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {moment(myEvents.date).format("dddd, MMMM Do")}</li> 
-              })}
-            </ul>
+          <ul>
+            {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
+              return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {moment(myEvents.date).format("dddd, MMMM Do")}</li>
+            })}
+          </ul>
           <p><Link to="/find-event">Find Match</Link></p>
           <p><button onClick={logout}>Logout</button></p>
+        </div>
       </div>
     )
   }
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DashboardPage);
+  mapStateToProps,
+  mapDispatchToProps
+)(DashboardPage);
