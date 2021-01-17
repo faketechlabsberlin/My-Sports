@@ -29,7 +29,9 @@ class DashboardPage extends React.Component {
     return (
       <div>
         <nav id="navbar">
+          <button class="material-icons" id="menu-icon">menu</button>
           <h2 id="logo">MY SPORTS</h2>
+          <span class="material-icons" id="filter-icon">filter_alt</span>
         </nav>
         <div id="welcome">
           <p>Welcome {session.username}! </p>

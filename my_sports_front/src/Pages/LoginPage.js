@@ -27,10 +27,10 @@ const LoginPage = ({ errors, login }) => {
 
     return (
 
-        <div className="login-page container-fluid">
-            {isLoginVisible? <div className="row"><div className="login-page-top-space-true col"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div></div>: <div className="row"><div className="login-page-top-space-false col"></div></div>}
+        <div id="background-image" className="login-page container-fluid">
+            {isLoginVisible ? <div className="row"><div className="login-page-top-space-true col"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div></div> : <div className="row"><div className="login-page-top-space-false col"></div></div>}
             <h1>MYSPORTS</h1>
-            {!isLoginVisible ? <div className="row justify-content-center"><button className="login-button col" onClick={() => setIsLoginVisible(true)}>Login</button></div>: null}
+            {!isLoginVisible ? <div className="row justify-content-center"><button className="login-button col" onClick={() => setIsLoginVisible(true)}>Login</button></div> : null}
             {isLoginVisible ? (
                 <div>
                     <form onSubmit={loginUser}>
@@ -60,7 +60,7 @@ const LoginPage = ({ errors, login }) => {
                     </div>
                 </div>
             ) : null}
-            
+
         </div>
     )
 }
