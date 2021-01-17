@@ -1,9 +1,16 @@
 body {
     background-image: url('https://s3-alpha-sig.figma.com/img/8415/f082/e99e854c32f637b57bfcbbd86912b23f?Expires=1611532800&Signature=Ls6EuG-T5dReVnP9LUZtiPDWef-qFYAxOaQdocUOSoeeOVmYGCS56nDc1hKQo9Hi5vNs6agJkYPKJ~sfZuh45G9RCz7GqfY9ADD8pzqJvTqvo3nkYmdhbRC9Ky5m9MwlWjT5IWWTXO~ZdOr-aEnFPuATmOEPrQUq~mTDlIFThECuCRY-8efeKj7BkjuMV0UUmVDPuqq4XBouNtz3ixYpvyrXygqwgyueHrciZOxNaATLzbry3qVfbOwPaPQzgX70MUr0oKTbbuitfLVxYtRzHLppbg6sZhobaOaKzq1HwUVms9NptBhXCRM5xvDR4tpb1hHxU81gjAhBw~111NwwaA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
-    background-size: cover;
+    background: $backgroud center center fixed;
     background-repeat: no-repeat;
-    background-position: center;
+    background-size:cover;
 }
+
+
+body {
+    font-family: 'Alef', sans-serif;
+    
+}
+
 
 .login-page-top-space-false {
     height: 30vh;
