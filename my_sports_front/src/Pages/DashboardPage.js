@@ -28,6 +28,7 @@ class DashboardPage extends React.Component {
     const { logout, session, event } = this.props
     return (
       <div>
+<<<<<<< Updated upstream
         <nav id="navbar">
           <h2 id="logo">MY SPORTS</h2>
         </nav>
@@ -47,6 +48,28 @@ class DashboardPage extends React.Component {
           <p><Link to="/find-event">Find Match</Link></p>
           <p><button onClick={logout}>Logout</button></p>
         </div>
+=======
+        <div>
+          <nav className={("navbar")}>
+
+            <p id="logo">MY SPORTS</p>
+
+
+          </nav>
+        </div>
+        <h1>Welcome, {session.username}! </h1>
+        <p>You can now join a match, create an event or tell us your preferencies and have a look at matches we found for you.</p>
+        <button><Link to={"/profile/" + session.userId}>Edit preferencies</Link></button>
+        <p>View former Events here: * Short list of recent events *</p>
+        <p>Your upcoming matches:</p>
+        <ul>
+          {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
+            return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {moment(myEvents.date).format("dddd, MMMM Do")}</li>
+          })}
+        </ul>
+        <p><Link to="/find-event">Find Match</Link></p>
+        <p><button onClick={logout}>Logout</button></p>
+>>>>>>> Stashed changes
       </div>
     )
   }
