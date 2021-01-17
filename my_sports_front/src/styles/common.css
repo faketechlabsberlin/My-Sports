@@ -100,11 +100,3 @@ section {
       .close:after {
         transform: rotate(-45deg);
       }
-
-body {
-    font-family: 'Alef', sans-serif;
-}
-
-.pointer {
-    cursor: pointer;
-}

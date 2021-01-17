@@ -27,10 +27,10 @@ const LoginPage = ({ errors, login }) => {
 
     return (
 
-        <div>
-            {isLoginVisible? <div className="login-page-top-space-true"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div>: <div className="login-page-top-space-false"></div>}
-            <h1>MY SPORTS</h1>
-            {!isLoginVisible ? <button onClick={() => setIsLoginVisible(true)}>Login</button>: null}
+        <div className="login-page container-fluid">
+            {isLoginVisible? <div className="row"><div className="login-page-top-space-true col"><i onClick={() => setIsLoginVisible(false)} className="material-icons md-36 pointer">arrow_back</i></div></div>: <div className="row"><div className="login-page-top-space-false col"></div></div>}
+            <h1>MYSPORTS</h1>
+            {!isLoginVisible ? <div className="row justify-content-center"><button className="login-button col" onClick={() => setIsLoginVisible(true)}>Login</button></div>: null}
             {isLoginVisible ? (
                 <div>
                     <form onSubmit={loginUser}>
@@ -52,8 +52,12 @@ const LoginPage = ({ errors, login }) => {
             ) : null}
             {!isLoginVisible ? (
                 <div>
-                    <p>New to MySports?</p>
-                    <p><Link to="/register"><button>Sign Up</button></Link></p>
+                    <div className="row justify-content-center">
+                        <p className="col white-font">New to MySports?</p>
+                    </div>
+                    <div className="row justify-content-center">
+                        <p className="col"><Link class="signup-button" to="/register">Sign Up</Link></p>
+                    </div>
                 </div>
             ) : null}
             

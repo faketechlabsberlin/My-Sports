@@ -1,3 +1,68 @@
-#loginPage{
+body {
+    background-image: url('https://s3-alpha-sig.figma.com/img/8415/f082/e99e854c32f637b57bfcbbd86912b23f?Expires=1611532800&Signature=Ls6EuG-T5dReVnP9LUZtiPDWef-qFYAxOaQdocUOSoeeOVmYGCS56nDc1hKQo9Hi5vNs6agJkYPKJ~sfZuh45G9RCz7GqfY9ADD8pzqJvTqvo3nkYmdhbRC9Ky5m9MwlWjT5IWWTXO~ZdOr-aEnFPuATmOEPrQUq~mTDlIFThECuCRY-8efeKj7BkjuMV0UUmVDPuqq4XBouNtz3ixYpvyrXygqwgyueHrciZOxNaATLzbry3qVfbOwPaPQzgX70MUr0oKTbbuitfLVxYtRzHLppbg6sZhobaOaKzq1HwUVms9NptBhXCRM5xvDR4tpb1hHxU81gjAhBw~111NwwaA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login-page-top-space-false {
+    height: 30vh;
+    width: 100%
+}
+
+.login-page-top-space-true {
+    height: 10vh;
+    width: 100%
+}
+
+h1 {
+    text-align: center;
+    color: $yellow;
+    font-size: 3.2rem;
+    letter-spacing: 0.185em;
+    padding-top: 1.5rem;
+    border-top: solid #FBEF4E;
+}
+
+.login-button {
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    margin-left: 50%;
+    margin-right: 50%;
     background-color: $yellow;
+    border-radius: 24px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0px;
+    color: $dark-grey;
+    box-shadow: 2px 5px 5px grey;
+}
+
+p.col {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.signup-button {
+    border-radius: 24px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-decoration: none;
+    border: solid white;
+    border-width: 2px;
+    appearance: button;
+    color: white;
+    margin-bottom: 30%;
+}
+
+.signup-button:hover {
+    color: white;
+}
+
+.white-font {
+    color: white;
 }

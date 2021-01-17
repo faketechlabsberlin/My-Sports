@@ -18,7 +18,6 @@ import EditEventPage from './Pages/EditEventPage';
 
 function App() {
   return <BrowserRouter>
-    <Header />
     <Switch>
       <AuthRoute path="/login" component={LoginPage}/>
       <AuthRoute path="/register" component={RegisterPage}/>
