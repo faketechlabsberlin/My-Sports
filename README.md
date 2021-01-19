@@ -6,7 +6,7 @@ MySports is the final group project which was created in order to complete the B
 
 ### Screenshots
 
-<img width="354" alt="Screenshot 2021-01-19 at 12 21 44" src="https://user-images.githubusercontent.com/70976690/105028291-24222380-5a51-11eb-92e4-71c110e89ace.png">
+<img width="354" alt="Screenshot 2021-01-19 at 12 21 44" src="https://user-images.githubusercontent.com/70976690/105028291-24222380-5a51-11eb-92e4-71c110e89ace.png"> <img width="351" alt="Screenshot 2021-01-19 at 12 22 25" src="https://user-images.githubusercontent.com/70976690/105028436-503da480-5a51-11eb-97d9-a6d8ee013b4c.png"> <img width="351" alt="Screenshot 2021-01-19 at 12 22 56" src="https://user-images.githubusercontent.com/70976690/105028486-60558400-5a51-11eb-93fd-54e56abdfc2f.png"> <img width="354" alt="Screenshot 2021-01-19 at 12 23 20" src="https://user-images.githubusercontent.com/70976690/105028528-6e0b0980-5a51-11eb-8df2-df56c817dab1.png">
 
 ### Project Status
 
