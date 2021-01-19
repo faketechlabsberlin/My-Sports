@@ -6,6 +6,8 @@ MySports is the final group project which was created in order to complete the B
 
 ### Screenshots
 
+<img width="354" alt="Screenshot 2021-01-19 at 12 21 44" src="https://user-images.githubusercontent.com/70976690/105028291-24222380-5a51-11eb-92e4-71c110e89ace.png">
+
 ### Project Status
 
 The project is still in production. MVP restrictions include: 
