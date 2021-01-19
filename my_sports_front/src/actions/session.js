@@ -25,10 +25,11 @@ export const login = user => async dispatch => {
 
 export const signup = user => async dispatch => {
   const response = await apiUtil.signup(user)
-  if (response) {
+  if (response.response) {
+    return dispatch(receiveErrors(response.response.data.message));
+  } else {
     return dispatch(receiveCurrentUser(response.data));
-  }
- //return dispatch(receiveErrors(data));
+  } 
 };
 
 export const logout = () => async dispatch => {

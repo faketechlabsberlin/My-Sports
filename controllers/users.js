@@ -10,11 +10,11 @@ module.exports.newUser = async(req, res, next) => {
         const { email, username, password, name, dob, gender, location, lastName } = req.body;
         const emailCheck = await User.findOne({ email });
         if (emailCheck) {
-            res.status(401).send({ message: 'The email address entered is already registered'});
+            res.status(401).send({ message: 'email taken'});
         } else {
             const usernameCheck = await User.findOne({ username });
             if (usernameCheck) {
-                res.status(401).send({ message: 'The username entered is already registered'});
+                res.status(401).send({ message: 'username taken'});
             } else {
                 const newUser = new User({email, username, name, dob, gender, location, lastName});
                 const registeredUser = await User.register(newUser, password);

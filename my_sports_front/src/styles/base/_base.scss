@@ -40,7 +40,13 @@ i {
 .basketball-rim-background-blurred {
     background: url('../../images/basketball_background_blur.jpg') center center ;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
+}
+
+.silver-background {
+    background-color: $silver;
+    height: 100%;
+    background-size: cover;
 }
 
 h1 {
@@ -55,7 +61,15 @@ h1 {
     margin-top: 4rem;
 }
 
+.form-box-white {
+    background-color: white;
+}
+
 .form-box input:focus {
+    outline: none;
+}
+
+.form-box-white input:focus {
     outline: none;
 }
 
@@ -67,6 +81,19 @@ h1 {
     font-size: 1.2em;
     padding-left:1em;
     width: 80%;
+    text-align: center;
+}
+
+.form-box-white input {
+    background: transparent;
+    border: none;
+    border-bottom: solid #5C5C5C;
+    color: $dark-grey;
+    font-size: 1.2em;
+    padding-left:1em;
+    width: 80%;
+    margin-bottom: 1em;
+    text-align: center;
 }
 
 input::placeholder {
@@ -79,10 +106,30 @@ input::placeholder {
     border-bottom: solid #FBEF4E;
 }
 
+.form-box-white label {
+    padding-bottom: 0.13rem;
+    border-bottom: solid #5C5C5C;
+}
+
 .success-symbol {
     color: #00FFD5;
 }
 
 .error-symbol {
     color: red;
+}
+
+.grey-icon {
+    color: $dark-grey;
+}
+
+.error-text {
+    margin-top: 0%;
+    padding-top: 0%;
+    color: #FF6E33;
+    text-align: center;
+}
+
+.error-border {
+    border: 2px solid red !important;
 }

@@ -5,7 +5,7 @@ export const signup = async user => {
     .post('/api/users', user)
     .catch((error) => {
       if(error.response.data.message){
-      alert(error.response.data.message); //temporary solution
+        return error;
     }})
   };
 

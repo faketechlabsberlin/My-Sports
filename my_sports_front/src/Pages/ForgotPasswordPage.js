@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
 const ForgotPasswordPage = ({ history, errors, success, receiveSuccessFunc, clearErrors, clearSuccess, receiveErrorsFunc }) => {
     useEffect(() => {
         return () => {
-            clearErrors()
+            clearErrors();
             clearSuccess();
         }
     }, [])
@@ -37,8 +37,7 @@ const ForgotPasswordPage = ({ history, errors, success, receiveSuccessFunc, clea
         } else {
             const payload = 'The email you entered is not registered.';
             return receiveErrorsFunc(payload);
-        }
-        
+        }  
     }
     
     return (

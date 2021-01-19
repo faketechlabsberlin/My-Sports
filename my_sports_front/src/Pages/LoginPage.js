@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { login } from "../actions/session";
 import { Link } from 'react-router-dom';
 import { clearErrors } from '../actions/error';
+import { clearSuccess } from '../actions/success';
 
 const mapStateToProps = ({ errors }) => ({
     errors
@@ -10,13 +11,16 @@ const mapStateToProps = ({ errors }) => ({
 
 const mapDispatchToProps = dispatch => ({
     login: user => dispatch(login(user)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    clearSuccess: () => dispatch(clearSuccess())
 });
 
 
 
-const LoginPage = ({ errors, login, clearErrors }) => {
+const LoginPage = ({ errors, login, clearErrors, clearSuccess }) => {
     useEffect(() => {
+        clearErrors();
+        clearSuccess();
         return () => {
             clearErrors()
         }

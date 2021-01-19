@@ -1,7 +1,3 @@
-// .blur {
-//     filter: blur(3px);
-// }
-
 .login-page-top-space-false {
     height: 30vh;
     width: 100%
@@ -82,6 +78,7 @@ p.col {
     font-size: 1.2em;
     padding-left:1em;
     width: 80%;
+    text-align: center;
 }
 
 #eye {
@@ -133,13 +130,6 @@ p.col {
     margin-bottom: 0%;
     padding-bottom: 0%;
     margin-left: 45%;
-}
-
-.error-text {
-    margin-top: 0%;
-    padding-top: 0%;
-    color: #FF6E33;
-    text-align: center;
 }
 
 .forgot-password-box {
