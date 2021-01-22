@@ -26,7 +26,6 @@ function App() {
       <ProtectedRoute path="/dashboard" component={DashboardPage}/>
       <ProtectedRoute path="/find-event" component={FindEventPage}/>
       <ProtectedRoute path="/create-event" component={CreateEventPage}/>
-      <ProtectedRoute path="/event/:id/chat" component={EventChatPage}/>
       <ProtectedRoute path="/event/:id/edit" component={EditEventPage}/>
       <ProtectedRoute path="/event/:id" component={EventPage}/>
       <ProtectedRoute path="/profile/:id" component={ProfilePage}/>

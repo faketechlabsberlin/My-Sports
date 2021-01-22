@@ -111,7 +111,7 @@ const ProfilePage = ({ match, session, clearErrors, receiveErrors, errors }) => 
                             <p>{age || <span>N/A</span>}</p> 
                             </div>
                             <div className="col container-fluid row justify-content-end profile-right-spacing">
-                                <p className="profile-favsports-title">My Sports</p>
+                                <p className="profile-favsports-title">My Top 3 Sports</p>
                                 <img className="favsport" src={`../images/sport-images/${firstSport}.png`} />
                                 <StarRatings
                                     rating={firstSportRating}
