@@ -10,22 +10,22 @@ i {
     color: $yellow;
 }
 
-.material-icons.md-18 {
+.md-18 {
     font-size: 18px !important;
     height: 18px !important;
     width: 18px !important;
 }
-.material-icons.md-24 {
+.md-24 {
     font-size: 24px !important;
     height: 24px !important;
     width: 24px !important;
 }
-.material-icons.md-36 {
+.md-36 {
     font-size: 36px !important;
     height: 36px !important;
     width: 36px !important;
 }
-.material-icons.md-48 {
+.md-48 {
     font-size: 48px !important;
     height: 48px !important;
     width: 48px !important;
@@ -54,6 +54,10 @@ h1 {
     color: $yellow;
     font-size: 3.2rem;
     letter-spacing: 0.185em;
+}
+
+h2 {
+    color: $yellow;
 }
 
 .form-box {

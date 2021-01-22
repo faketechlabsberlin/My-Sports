@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { emailNotFound } from '../actions/error';
 
 export const requestEmail = async input => {
   return await axios

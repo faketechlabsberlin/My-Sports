@@ -13,8 +13,8 @@ import ForgotPasswordPage from './Pages/ForgotPasswordPage';
 import PasswordResetPage from './Pages/PasswordResetPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import { AuthRoute, ProtectedRoute } from "./util/route";
-import Header from './components/Header';
 import EditEventPage from './Pages/EditEventPage';
+import AddFavSportsPage from './Pages/AddFavSportsPage';
 
 function App() {
   return <BrowserRouter>
@@ -30,7 +30,8 @@ function App() {
       <ProtectedRoute path="/event/:id/edit" component={EditEventPage}/>
       <ProtectedRoute path="/event/:id" component={EventPage}/>
       <ProtectedRoute path="/profile/:id" component={ProfilePage}/>
-      <ProtectedRoute path="/edit-profile" component={EditProfilePage}/>
+      <ProtectedRoute path="/edit-profile/:id" component={EditProfilePage}/>
+      <ProtectedRoute path="/add-sports/:id" component={AddFavSportsPage}/>
       <Route path="*" component={NotFoundPage}/>
     </Switch>
   </BrowserRouter>

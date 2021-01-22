@@ -136,15 +136,25 @@ const RegisterPage = ({ errors, signup, receiveSuccessFunc, clearErrors, receive
                     <div>
                         <select id="gender" name="gender" className="reg-select" required>
                             <option value="">--Please choose a Gender--</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                             <option value="N/A">Prefer Not To Say</option>
                         </select>
                     </div>
                     <div>
                         <select id="location" name="location" className="reg-select" required>
                             <option value="">--Please choose a Location--</option>
-                            <option value="berlin">Berlin</option>
+                            <option value="Charlottenburg">Charlottenburg</option>
+                            <option value="Friedrichshain">Friedrichshain</option>
+                            <option value="Kreuzberg">Kreuzberg</option>
+                            <option value="Mitte">Mitte</option>
+                            <option value="Moabit">Moabit</option>
+                            <option value="Neukolln">Neukolln</option>
+                            <option value="Prenzlauer Berg">PrenzLauer Berg</option>
+                            <option value="Schoneberg">Schoneberg</option>
+                            <option value="Tempelhof">Tempelhof</option>
+                            <option value="Tiergarten">Tiergarten</option>
+                            <option value="Wilmersdorf">Wilmersdorf</option>
                         </select>
                     </div>
                     <button className="send-registration-button">Sign Up</button>

@@ -113,8 +113,7 @@ const EventPage = ({ session, match, history }) => {
     if (event.host === session.userId) {
       isHost = true;
     }
-
-    //use momentjs to display date in a better format
+    
     return (
         <div>
             <h3>{event.title}</h3>
