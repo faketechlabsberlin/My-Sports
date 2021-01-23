@@ -1,5 +1,5 @@
 import * as apiUtil from '../util/session';
-import { receiveErrors } from "./error"; //need to implement
+import { receiveErrors } from "./error"; 
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -25,10 +25,11 @@ export const login = user => async dispatch => {
 
 export const signup = user => async dispatch => {
   const response = await apiUtil.signup(user)
-  if (response) {
+  if (response.response) {
+    return dispatch(receiveErrors(response.response.data.message));
+  } else {
     return dispatch(receiveCurrentUser(response.data));
-  }
- //return dispatch(receiveErrors(data));
+  } 
 };
 
 export const logout = () => async dispatch => {

@@ -5,6 +5,6 @@ export const requestEmail = async input => {
     .post('/api/users/forgotpassword', input)
     .catch((error) => {
       if(error.response.data.message){
-      alert(error.response.data.message); //temporary solution
+        console.log(error.response.data.message)
     }})
   };
