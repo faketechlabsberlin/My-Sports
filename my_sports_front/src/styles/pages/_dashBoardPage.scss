@@ -1,22 +1,17 @@
-h2 {
-    text-align: center;
-    color: $yellow;
-    font-size: 2,5 rem;
-    letter-spacing: 0.185rem;
-    padding-top: 1.5rem;
-    font-family: 'Alef', sans-serif;
-}
-
 #welcome{
     position: sticky;
+    overflow:visible;
     background-color: $dark-grey;
     align-content:flex-start;
     margin-top: 10%;
-    height: 170px;
+    height: 200px;
     width: 100%;
     text-align: center;
     color: white;
     font-family: 'Alef', sans-serif;
+    padding: 3%;
+    border-width: thick;
+    border: $dark-grey;
 }
 
 #pref-link{
@@ -35,23 +30,57 @@ h2 {
 
 #dashcontent{
     position:absolute;
+    overflow: hidden;
 }
 
-.material-icons{
-    color: $yellow;
-    font-size: 36px;
-    background-color: $dark-grey;
-    border: none;
+#card{
+    margin: 15px;
+    border-color: $dark-grey;
 }
 
-#navbar{
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#cardHeader{
+  color: $dark-grey;
+  background-color: white;
+  font-size: 20px;
+  border: none;
+}
+
+#dateLocation{
+    font-size: 15px;
+    margin: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+
+#icon{
+    float: right; 
+    position: static;
+    color: $dark-grey;
+    
+}
+
+#eventInfo{
+    display: inline-block;
+    
+}
+
+.sport-icon{
+    background: $football;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    right: 30px;
+}
+
+#cardFooter{
+    display:flex;
+    align-items: flex-start;
     justify-content: space-between;
-    background-color: $dark-grey;
-    font-family: 'Alef', sans-serif;
-    letter-spacing: 0.185em;
+    font-size: 15px;
+    border: blue;
 }
+

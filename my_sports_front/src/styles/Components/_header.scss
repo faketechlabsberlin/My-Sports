@@ -1,0 +1,27 @@
+h2 {
+    text-align: center;
+    color: $yellow;
+    font-size: 2,5 rem;
+    letter-spacing: 0.185rem;
+    padding-top: 1.5rem;
+    font-family: 'Alef', sans-serif;
+}
+
+.material-icons{
+    color: $yellow;
+    font-size: 36px;
+    background-color: $dark-grey;
+    border: none;
+}
+
+#navbar{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $dark-grey;
+    font-family: 'Alef', sans-serif;
+    letter-spacing: 0.185em;
+}

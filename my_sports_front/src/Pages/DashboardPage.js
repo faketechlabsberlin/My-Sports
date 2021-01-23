@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { logout } from "../actions/session";
 import { getEvents } from '../actions/event';
 import { resetFilters } from '../actions/filter';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { Card } from 'react-bootstrap';
+import Header from '../components/Header';
+import footballicon from '../images/Button_styles/football.png';
+
 
 
 const mapStateToProps = ({ session, event }) => ({
@@ -28,11 +32,7 @@ class DashboardPage extends React.Component {
     const { logout, session, event } = this.props
     return (
       <div>
-        <nav id="navbar">
-          <button class="material-icons" id="menu-icon">menu</button>
-          <h2 id="logo">MY SPORTS</h2>
-          <span class="material-icons" id="filter-icon">filter_alt</span>
-        </nav>
+        <Header />
         <div id="welcome">
           <p>Welcome {session.username}! </p>
           <p>You can now join a match, create an event or tell us your preferencies and have a look at matches we found for you.</p>
@@ -41,11 +41,42 @@ class DashboardPage extends React.Component {
         <div id="dashcontent">
           <p>View former Events here: * Short list of recent events *</p>
           <p>Your upcoming matches:</p>
-          <ul>
+
+          <div>
+
             {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
-              return <li><Link to={"/event/" + myEvents._id}>{myEvents.title}</Link> on {moment(myEvents.date).format("dddd, MMMM Do")}</li>
+              return <div>
+                <div id="card">
+                  <Card>
+                    <Link to={"/event/" + myEvents._id}>
+                      <Card.Header id="cardHeader">{myEvents.title}</Card.Header>
+                    </Link>
+                    <Card.Body>
+                      <blockquote className="blockquote mb-0" id="eventInfo">
+                        <div id="dateLocation">
+                          <p>
+                            {' '}
+                            {moment(myEvents.date).format("ddd, MMMM Do, ha")}
+                          </p>
+                          <p>
+                            {myEvents.location}
+                          </p>
+
+                        </div>
+                        <p className="sport-icon" id="icone">
+                        </p>
+
+                      </blockquote>
+                      <div id="cardFooter">
+                        <p>Players</p>
+                        <p>level</p>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </div>
             })}
-          </ul>
+          </div>
           <p><Link to="/find-event">Find Match</Link></p>
           <p><button onClick={logout}>Logout</button></p>
         </div>

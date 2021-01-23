@@ -19,19 +19,19 @@ import EditEventPage from './Pages/EditEventPage';
 function App() {
   return <BrowserRouter>
     <Switch>
-      <AuthRoute path="/login" component={LoginPage}/>
-      <AuthRoute path="/register" component={RegisterPage}/>
-      <AuthRoute path="/forgotpassword" component={ForgotPasswordPage}/>
-      <AuthRoute path="/passwordreset/:code" component={PasswordResetPage}/>
-      <ProtectedRoute path="/dashboard" component={DashboardPage}/>
-      <ProtectedRoute path="/find-event" component={FindEventPage}/>
-      <ProtectedRoute path="/create-event" component={CreateEventPage}/>
-      <ProtectedRoute path="/event/:id/chat" component={EventChatPage}/>
-      <ProtectedRoute path="/event/:id/edit" component={EditEventPage}/>
-      <ProtectedRoute path="/event/:id" component={EventPage}/>
-      <ProtectedRoute path="/profile/:id" component={ProfilePage}/>
-      <ProtectedRoute path="/edit-profile" component={EditProfilePage}/>
-      <Route path="*" component={NotFoundPage}/>
+      <AuthRoute path="/login" component={LoginPage} />
+      <AuthRoute path="/register" component={RegisterPage} />
+      <AuthRoute path="/forgotpassword" component={ForgotPasswordPage} />
+      <AuthRoute path="/passwordreset/:code" component={PasswordResetPage} />
+      <ProtectedRoute path="/dashboard" component={DashboardPage} />
+      <ProtectedRoute path="/find-event" component={FindEventPage} />
+      <ProtectedRoute path="/create-event" component={CreateEventPage} />
+      <ProtectedRoute path="/event/:id/chat" component={EventChatPage} />
+      <ProtectedRoute path="/event/:id/edit" component={EditEventPage} />
+      <ProtectedRoute path="/event/:id" component={EventPage} />
+      <ProtectedRoute path="/profile/:id" component={ProfilePage} />
+      <ProtectedRoute path="/edit-profile" component={EditProfilePage} />
+      <Route path="*" component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
 }
