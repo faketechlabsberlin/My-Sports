@@ -26,7 +26,7 @@ export default props => {
                         Find events
       </Link>
 
-                    <Link to="/my-event" className="menu-item">
+                    <Link to="/" className="menu-item">
                         Upcoming
       </Link>
 
