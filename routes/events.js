@@ -5,8 +5,8 @@ const eventRouter = express.Router();
 
 eventRouter.post('', async (req, res) => {
   try {
-    const { host, title, sport, size, date, time, location } = req.body
-    const newEvent = new Event({sport, host, title, size, date, time, location});
+    const { host, title, sport, size, date, time, location, about, court } = req.body
+    const newEvent = new Event({sport, host, title, size, date, time, location, about, court});
     newEvent.teammates.push(host)
     await newEvent.save();
     res.send(newEvent);

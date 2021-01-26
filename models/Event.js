@@ -48,6 +48,9 @@ const eventSchema = new mongoose.Schema({
     },
     about: {
         type: String
+    },
+    court: {
+        type: String
     }
 })
 

@@ -185,6 +185,7 @@ let allRatings = []
                     <div className="col">
                       <p className="card-text text-muted">{moment(event.date).format("dddd, MMM Do")}</p>
                       <p className="card-text text-muted">{event.location}</p>
+                      {event.court &&  <p className="card-text text-muted">{event.court}</p>}
                     </div>
                       <div className="col">
                         <img className="event-page-sport-image" src={`../images/sport-images/${event.sport}.png`} />
