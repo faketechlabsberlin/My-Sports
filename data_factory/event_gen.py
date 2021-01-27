@@ -43,9 +43,31 @@ while i3 < x:
     i3 += 1
 print(size)
 
-#time:       type: String,
-# date  type: Date,
+#generate datetime
+datetimeraw=[]
+def create_random_datetime(from_date, to_date, rand_type='uniform'):
+    delta = to_date - from_date
+    if rand_type == 'uniform':
+        rand = rd.random()
+    else:
+        raise NotImplementedError('Unknown random mode \'{}\''
+                                  .format(rand_type))
+    return from_date + rand * delta
 
+while i6 < x:
+    dtime = create_random_datetime(datetime(2021,1,1), datetime(2021,2,25))
+    datetimeraw.append(dtime)
+    i6 += 1
+print(datetimeraw)
+
+#time:       type: String,
+
+# date  type: Date,
+date_list=[]
+while i7 < x:
+    date_list.append(datetimeraw[i7].date)
+    i7 += 1
+print(date_list)
 # location: {
 location = []
 while i4 < x:
@@ -72,6 +94,23 @@ while i5 < x:
 print(team_lists)
 
 # skill: {type: Number default},
+
+
 # equipment : type: Boolean,
 # active :type: Boolean,
 # about:
+
+#Unify all list in the DataFrame
+
+df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport':sports, 'size':size, 'date':date_list, 'teamate':team_lists,
+                   'location':location},
+                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teamate', 'location'])
+print(df.head(5))
+print(df.describe)
+
+#Export it in csv and json
+df.to_csv('generated_events.csv')
+df.to_json('generated_events.json')
+
+print('SUCCESSFULLY CREATED ' + str(x) + ' EVENTS')
+print('FILES SUCCESSFULLY CREATED IN CSV AND JSON FORMAT')
