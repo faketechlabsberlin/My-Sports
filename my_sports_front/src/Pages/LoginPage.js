@@ -25,7 +25,7 @@ const LoginPage = ({ errors, login, clearErrors, clearSuccess }) => {
             clearErrors()
         }
     }, [])
-    
+
     const loginUser = (e) => {
         e.preventDefault();
         const user = {
@@ -59,19 +59,19 @@ const LoginPage = ({ errors, login, clearErrors, clearSuccess }) => {
 
     const showPassword = () => {
         const passwordField = document.getElementById('password');
-        const type = passwordField.getAttribute('type') === 'password'? 'text': 'password';
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordField.setAttribute('type', type);
         const eye = document.getElementById('eye');
-        let view = eye.innerHTML === 'visibility'? 'visibility_off': 'visibility';
+        let view = eye.innerHTML === 'visibility' ? 'visibility_off' : 'visibility';
         eye.innerHTML = view;
     }
 
     return (
 
-        <div id ="background-image" className="login-page basketball-rim-background container-fluid">
-            {isLoginVisible? <div className="row"><div className="login-page-top-space-true col"><i onClick={makeLoginNotVisible} className="material-icons md-36 pointer back-arrow">arrow_back</i></div></div>: <div className="row"><div className="login-page-top-space-false col"></div></div>}
+        <div id="background-image" className="login-page basketball-rim-background container-fluid">
+            {isLoginVisible ? <div className="row"><div className="login-page-top-space-true col"><i onClick={makeLoginNotVisible} className="material-icons md-36 pointer back-arrow">arrow_back</i></div></div> : <div className="row"><div className="login-page-top-space-false col"></div></div>}
             <h1 id="header" className="top-line">MYSPORTS</h1>
-            {!isLoginVisible ? <div className="row justify-content-center"><button className="login-button col" onClick={makeLoginVisible}>Login</button></div>: null}
+            {!isLoginVisible ? <div className="row justify-content-center"><button className="login-button col" onClick={makeLoginVisible}>Login</button></div> : null}
             {isLoginVisible ? (
                 <div>
                     <form onSubmit={loginUser}>
@@ -102,7 +102,7 @@ const LoginPage = ({ errors, login, clearErrors, clearSuccess }) => {
                     </div>
                 </div>
             ) : null}
-        </div>
+        </div >
     )
 }
 

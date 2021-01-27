@@ -1,0 +1,98 @@
+html{
+    background-color: $silver;
+    height: 100%;
+}
+
+
+
+#welcome{
+    position: sticky;
+    overflow:visible;
+    background-color: $dark-grey;
+    align-content:flex-start;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Alef', sans-serif;
+    padding: 3%;
+    border-width: thick;
+    border: $dark-grey;
+}
+
+#border-bottom{
+    width: 100%;
+    height: 30px;
+    margin: 0px;
+    background-color: $silver;
+}
+
+#pref-link{
+    background-color: $sky-blue;
+    border-radius: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Alef', sans-serif;
+
+}
+
+#dashcontent{
+    position:absolute;
+    overflow: auto;
+    width: 100%;
+}
+
+.card-event{
+    margin: 15px;
+    
+}
+
+#cardHeader{
+  color: $dark-grey;
+  background-color: white;
+  font-size: 20px;
+  border: none;
+}
+
+.dateLocation{
+    font-size: 15px;
+    margin: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+
+#icon{
+    float: right; 
+    position: static;
+    color: $dark-grey;
+    
+}
+
+#eventInfo{
+    display: inline-block;
+    
+}
+
+.sport-icon{
+    width: 70px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    right: 30px;
+}
+
+#cardFooter{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+

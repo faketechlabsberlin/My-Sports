@@ -2,36 +2,42 @@ import React from 'react'
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation, filterByMinSkill, filterByMaxSkill } from '../actions/filter';
+import Header from '../components/Header';
+import { Card } from 'react-bootstrap';
+import moment from 'moment';
+import StarRatings from 'react-star-ratings';
+
 
 const getVisibleEvents = (events, filters) => {
     return events.filter((event) => {
-      const nameMatch = event.title.toLowerCase().includes(filters.name.toLowerCase());
-      const sportMatch = event.sport.includes(filters.sport);
-      const dateMatch = event.date.slice(0, 10).includes(filters.date);
-      const timeMatch = event.time.includes(filters.time);
-      const locationMatch = event.location.includes(filters.location);
-      let sizeMatch = true;
-      if (event.size < filters.minSize) {
-          sizeMatch = false
-      }
-      if (event.size > filters.maxSize) {
-          sizeMatch = false
-      }
-      let skillMatch = true;
-      if (event.skill < filters.minSkill) {
-          skillMatch = false
+        const nameMatch = event.title.toLowerCase().includes(filters.name.toLowerCase());
+        const sportMatch = event.sport.includes(filters.sport);
+        const dateMatch = event.date.slice(0, 10).includes(filters.date);
+        const timeMatch = event.time.includes(filters.time);
+        const locationMatch = event.location.includes(filters.location);
+        let sizeMatch = true;
+        if (event.size < filters.minSize) {
+            sizeMatch = false
         }
-      if (event.skill > filters.maxSkill) {
-          skillMatch = false
-    }
-      return nameMatch && sportMatch && dateMatch && timeMatch && locationMatch && sizeMatch;
+        if (event.size > filters.maxSize) {
+            sizeMatch = false
+        }
+        let skillMatch = true;
+        if (event.skill < filters.minSkill) {
+            skillMatch = false
+        }
+        if (event.skill > filters.maxSkill) {
+            skillMatch = false
+        }
+        return nameMatch && sportMatch && dateMatch && timeMatch && locationMatch && sizeMatch;
     });
-  };
-  
+};
 
-const mapStateToProps = ({ event, filters }) => ({
+
+const mapStateToProps = ({ event, filters, session }) => ({
     event,
-    filters
+    filters,
+    session
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -46,7 +52,7 @@ const mapDispatchToProps = dispatch => ({
     filterByLocation: (payload) => dispatch(filterByLocation(payload))
 });
 
-const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation, filterByMinSkill, filterByMaxSkill }) => {
+const FindEventPage = ({ event, session, filters, filterByName, filterBySport, filterByDate, filterByTime, filterByMinSize, filterByMaxSize, filterByLocation, filterByMinSkill, filterByMaxSkill }) => {
 
     const visibleEvents = getVisibleEvents(event, filters);
 
@@ -114,22 +120,23 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
     }
 
     return (
-        <div>
+        <div id="body-find-event">
+            <Header title={'MYSPORTS'} />
             <p>What are you looking for?</p>
             <div>
                 <label htmlFor="filter-by-title">Search for specific Event by Title:</label>
-                <input type="search" id="filter-by-title" placeholder="Search" onChange={e => {filterByInput(e)}}></input>
+                <input type="search" id="filter-by-title" placeholder="Search" onChange={e => { filterByInput(e) }}></input>
             </div>
             <h4>Or apply filters below.</h4>
             <p>What sport do you want to play?</p>
             <button onClick={filterFootball}>Football</button>   <button onClick={filterBasketball}>Basketball</button>   <button onClick={filterVolleyball}>Beach Volleyball</button>   <button onClick={filterNone}>All Events</button>
             <div>
-                <form onSubmit={e => {filterDate(e)}}>
+                <form onSubmit={e => { filterDate(e) }}>
                     <label htmlFor="date-filter">Which day would you like to play?</label>
                     <input type="date" id="date-filter" min="2020-12-12" name="date"></input>
                     <button>Filter!</button>
                 </form>
-                <form onSubmit={e => {filterTime(e)}}>
+                <form onSubmit={e => { filterTime(e) }}>
                     <label htmlFor="time-filter">Prefer a specific time of the day?</label>
                     <select id="time-filter" name="time">
                         <option value="">Any time works for me!</option>
@@ -140,7 +147,7 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
                     </select>
                     <button>Filter!</button>
                 </form>
-                <form onSubmit={e => {filterLocation(e)}}>
+                <form onSubmit={e => { filterLocation(e) }}>
                     <label htmlFor="location-filter">Which neighbourhood are you looking to play in?</label>
                     <select id="location-filter" name="location">
                         <option value="">Doesn't matter!</option>
@@ -153,26 +160,70 @@ const FindEventPage = ({ event, filters, filterByName, filterBySport, filterByDa
                 </form>
                 <p>
                     <label htmlFor="min-size">Minimum amount of teammates</label>
-                    <input onChange={e => {filterMinSize(e)}} id="min-size" type="number" name="min-size" min="2" max="20" value={filters.minSize}></input>
+                    <input onChange={e => { filterMinSize(e) }} id="min-size" type="number" name="min-size" min="2" max="20" value={filters.minSize}></input>
                     <label htmlFor="max-size">Maximum amount of teammates</label>
-                    <input onChange={e => {filterMaxSize(e)}} id="min-size" type="number" name="max-size" min="2" max="20" value={filters.maxSize}></input>
+                    <input onChange={e => { filterMaxSize(e) }} id="min-size" type="number" name="max-size" min="2" max="20" value={filters.maxSize}></input>
                 </p>
                 <p>
                     <label htmlFor="min-skill">Minimum skill level:</label>
-                    <input onChange={e => {filterMinSkill(e)}} id="min-skill" type="number" name="min-skill" min="1" max="5" value={filters.minSkill}></input>
+                    <input onChange={e => { filterMinSkill(e) }} id="min-skill" type="number" name="min-skill" min="1" max="5" value={filters.minSkill}></input>
                     <label htmlFor="max-skill">Maximum skill level:</label>
-                    <input onChange={e => {filterMaxSkill(e)}} id="min-skill" type="number" name="max-skill" min="1" max="5" value={filters.maxSkill}></input>
+                    <input onChange={e => { filterMaxSkill(e) }} id="min-skill" type="number" name="max-skill" min="1" max="5" value={filters.maxSkill}></input>
                 </p>
             </div>
-            {visibleEvents && visibleEvents.map((e) => {
-                return <p key={e._id}><Link to={'/event/' + e._id}>{e.title}</Link></p>
-            })}
-            <p>Didn't find what you were looking for? <Link to="/create-event">Create your own event!</Link></p>
-        </div>
+            <div>
+
+                {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
+                    return <div>
+                        <Card className="card-event">
+                            <Link to={"/event/" + myEvents._id}>
+                                <Card.Header id="cardHeader">{myEvents.title}</Card.Header>
+                            </Link>
+                            <Card.Body>
+                                <blockquote className="blockquote mb-0" id="eventInfo">
+                                    <div className="dateLocation" id="border-bottom-color">
+                                        <p>{moment(myEvents.date).format("ddd, MMMM Do, ha")}</p>
+                                        <p>{myEvents.location}</p>
+                                    </div>
+                                    <img className="sport-icon" id="icone" src={`../images/sport-images/${myEvents.sport}.png`} />
+                                </blockquote>
+                                <div id="cardFooter">
+                                    <p className="card-text text-muted player-count-text">Players: <span className="error-text">{myEvents.teammates.length}/{myEvents.size}</span></p>
+                                    <p className="card-text text-muted player-count-text">Skill Level:
+                        <StarRatings
+                                            rating={myEvents.SkillLevel}
+                                            starRatedColor="#E9B467"
+                                            numberOfStars={5}
+                                            starDimension="1.2em"
+                                            starSpacing="0.7px"
+                                        />
+                                    </p>
+                                </div>
+                            </Card.Body>
+                            <div className="accordion" id="accordionExample">
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header" id="headingOne">
+                                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div className="accordion-body">
+                                            <button className="leave-event-button">Leave Event ?</button>
+                                            <button className="edit-event-button"><Link className="edit-event-link" to={"/event/" + myEvents._id + "/edit"}>Edit Event</Link></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                })}
+            </div>
+            <Link to="/create-event" id="pref-link" >Create your own event!</Link>
+        </div >
     )
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(FindEventPage);
+)(FindEventPage);
