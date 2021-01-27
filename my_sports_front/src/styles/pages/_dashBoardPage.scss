@@ -1,9 +1,15 @@
+html{
+    background-color: $silver;
+    height: 100%;
+}
+
+
+
 #welcome{
     position: sticky;
     overflow:visible;
     background-color: $dark-grey;
     align-content:flex-start;
-    margin-top: 10%;
     height: 200px;
     width: 100%;
     text-align: center;
@@ -12,6 +18,13 @@
     padding: 3%;
     border-width: thick;
     border: $dark-grey;
+}
+
+#border-bottom{
+    width: 100%;
+    height: 30px;
+    margin: 0px;
+    background-color: $silver;
 }
 
 #pref-link{
@@ -30,12 +43,13 @@
 
 #dashcontent{
     position:absolute;
-    overflow: hidden;
+    overflow: auto;
+    width: 100%;
 }
 
-#card{
+.card-event{
     margin: 15px;
-    border-color: $dark-grey;
+    
 }
 
 #cardHeader{
@@ -45,7 +59,7 @@
   border: none;
 }
 
-#dateLocation{
+.dateLocation{
     font-size: 15px;
     margin: 10px;
     padding-bottom: 20px;
@@ -67,8 +81,6 @@
 }
 
 .sport-icon{
-    background: $football;
-    background-repeat: no-repeat;
     width: 70px;
     height: 70px;
     float: right;
@@ -81,6 +93,6 @@
     align-items: flex-start;
     justify-content: space-between;
     font-size: 15px;
-    border: blue;
 }
+
 

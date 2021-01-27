@@ -7,8 +7,18 @@ html, body {
   box-sizing: border-box;
 }
 
+#edit-profile{
+  color: $silver
+}
+
+#username{
+padding-top: 10%;
+}
+
 #Menu {
   font-family: 'Alef', sans-serif;
+  margin-left: -16px;
+  margin-top: -52px;
 }
 
 .top-menu{
@@ -17,7 +27,7 @@ html, body {
   background-color:$dark-grey;
   margin: 0;
   padding: 10px;
-padding-top: 25px;
+  padding-top: 25px;
   text-align: center;
   color: $silver;
   border-bottom: 5px solid $yellow;
@@ -76,6 +86,7 @@ padding-top: 25px;
   height: 30px;
   color: $yellow;
   margin-left: 10px;
+  margin-top: 50px;
  
 }
 
@@ -88,6 +99,7 @@ padding-top: 25px;
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  margin-top: 15px;
 }
 
 /* Color/shape of close button cross */
@@ -110,3 +122,10 @@ padding-top: 25px;
   margin-left: 60px;
   line-height: 50px;
 }
+
+.teammate-icon {
+  width: 2.2em;
+  border-radius: 100%;
+  margin: auto;
+}
+
