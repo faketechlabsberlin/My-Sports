@@ -1,0 +1,61 @@
+,hosts,hostnames,sport,size,date,teamate,location
+0,426,CraigGuerrero76,football,12,<built-in method date of datetime.datetime object at 0x000001F1036A5E40>,"[836, 593, 541, 880, 945, 427, 80, 967, 518, 374, 193, 902]",Charlottenburg
+1,611,SunNapier1830,football,9,<built-in method date of datetime.datetime object at 0x000001F1036A5E10>,"[162, 197, 726, 920, 313, 158, 834, 640, 688]",Berlin-Mitte
+2,451,MichaelMiller1525,basketball,8,<built-in method date of datetime.datetime object at 0x000001F1670C4060>,"[713, 24, 288, 684, 871, 241, 843, 703]",Berlin-Mitte
+3,54,JanetSexton926,yoga,10,<built-in method date of datetime.datetime object at 0x000001F1670C4150>,"[892, 589, 392, 650, 356, 629, 144, 894, 846, 923]",Berlin-Mitte
+4,378,FlorindaMartin1607,basketball,12,<built-in method date of datetime.datetime object at 0x000001F1036A6AB0>,"[301, 204, 184, 974, 843, 391, 808, 318, 34, 717, 195, 937]",Friedrichshain
+5,488,JeffreyGutierrez721,football,20,<built-in method date of datetime.datetime object at 0x000001F1670C4210>,"[561, 897, 964, 745, 283, 111, 500, 820, 223, 714, 548, 821, 280, 844, 653, 53, 555, 959, 773, 383]",Charlottenburg
+6,39,VictorBoehme730,yoga,16,<built-in method date of datetime.datetime object at 0x000001F1670DB5A0>,"[178, 370, 785, 807, 654, 10, 81, 292, 870, 525, 973, 29, 153, 477, 218, 163]",Charlottenburg
+7,566,IvanEichberger1902,football,8,<built-in method date of datetime.datetime object at 0x000001F1670DB600>,"[924, 267, 9, 778, 982, 979, 38, 648]",Friedrichshain
+8,235,CorineSimon648,basketball,19,<built-in method date of datetime.datetime object at 0x000001F1036A6B10>,"[415, 379, 585, 113, 54, 782, 385, 983, 244, 9, 387, 78, 36, 129, 935, 657, 537, 868, 306]",Charlottenburg
+9,577,TinaWright1633,volley,19,<built-in method date of datetime.datetime object at 0x000001F1670DB6C0>,"[838, 401, 921, 842, 35, 803, 833, 761, 854, 332, 297, 617, 692, 3, 269, 599, 251, 888, 969]",Kreuzberg
+10,149,StephanieBarraza1022,football,15,<built-in method date of datetime.datetime object at 0x000001F1670DB690>,"[586, 92, 983, 400, 459, 710, 880, 217, 362, 948, 216, 749, 196, 552, 181]",Friedrichshain
+11,543,ChristopherRoberts1862,football,18,<built-in method date of datetime.datetime object at 0x000001F1670DB660>,"[529, 571, 844, 544, 34, 391, 291, 992, 325, 286, 419, 605, 841, 655, 119, 85, 493, 112]",Charlottenburg
+12,836,ShanaMarcum1935,volley,15,<built-in method date of datetime.datetime object at 0x000001F1670DB8A0>,"[829, 790, 360, 463, 298, 79, 168, 565, 618, 250, 181, 661, 898, 597, 410]",Charlottenburg
+13,945,JodyFerrier1657,yoga,22,<built-in method date of datetime.datetime object at 0x000001F1670DB840>,"[784, 321, 362, 909, 415, 522, 356, 632, 966, 352, 596, 919, 884, 387, 479, 903, 296, 518, 911, 557, 590, 456]",Kreuzberg
+14,646,JuliaMersch53,basketball,11,<built-in method date of datetime.datetime object at 0x000001F1670DB8D0>,"[173, 355, 410, 752, 333, 431, 496, 349, 36, 789, 94]",Neukolln
+15,317,AuraSerrano2000,basketball,15,<built-in method date of datetime.datetime object at 0x000001F1670DB720>,"[328, 219, 789, 304, 911, 132, 430, 745, 465, 895, 712, 809, 682, 643, 990]",Charlottenburg
+16,184,PatriciaVanscoy873,yoga,16,<built-in method date of datetime.datetime object at 0x000001F1670DB7B0>,"[769, 298, 615, 914, 288, 596, 903, 591, 51, 800, 28, 896, 453, 173, 977, 773]",Charlottenburg
+17,594,EleanorHenderson927,football,20,<built-in method date of datetime.datetime object at 0x000001F1670DB7E0>,"[44, 750, 789, 919, 693, 577, 738, 514, 100, 451, 34, 602, 879, 665, 851, 987, 673, 222, 616, 137]",Prenzlauer Berg
+18,58,ReneeSwilling40,rugby,12,<built-in method date of datetime.datetime object at 0x000001F1670DB810>,"[932, 44, 599, 957, 259, 826, 896, 757, 346, 76, 537, 289]",Prenzlauer Berg
+19,395,PriscillaMendonca910,football,13,<built-in method date of datetime.datetime object at 0x000001F1670DB930>,"[85, 978, 743, 907, 771, 451, 876, 847, 716, 293, 580, 78, 973]",Berlin-Mitte
+20,784,RomeoAtchity650,yoga,14,<built-in method date of datetime.datetime object at 0x000001F1670DB960>,"[612, 250, 317, 836, 290, 373, 455, 717, 361, 646, 34, 184, 304, 980]",Friedrichshain
+21,433,FloyShields1637,basketball,16,<built-in method date of datetime.datetime object at 0x000001F1670DB990>,"[540, 668, 637, 326, 492, 522, 241, 228, 990, 964, 582, 178, 190, 255, 719, 291]",Prenzlauer Berg
+22,281,DanielVeltri1655,basketball,11,<built-in method date of datetime.datetime object at 0x000001F1670DB9C0>,"[947, 913, 119, 289, 372, 598, 290, 845, 648, 375, 369]",Berlin-Mitte
+23,53,KaraBihm1353,basketball,22,<built-in method date of datetime.datetime object at 0x000001F1670DB9F0>,"[96, 401, 65, 545, 681, 669, 872, 525, 520, 699, 546, 517, 91, 836, 375, 716, 928, 871, 381, 349, 376, 15]",Kreuzberg
+24,63,MatthewDavis21,basketball,15,<built-in method date of datetime.datetime object at 0x000001F1670DBA20>,"[23, 153, 800, 268, 916, 291, 402, 206, 59, 212, 518, 922, 143, 260, 869]",Charlottenburg
+25,636,LiliaLeneave1293,rugby,8,<built-in method date of datetime.datetime object at 0x000001F1670DBA50>,"[0, 774, 776, 54, 826, 365, 5, 630]",Charlottenburg
+26,92,LoisReber61,basketball,16,<built-in method date of datetime.datetime object at 0x000001F1670DBA80>,"[138, 943, 460, 211, 963, 439, 295, 307, 845, 914, 793, 718, 422, 37, 362, 896]",Neukolln
+27,847,StevenDage1694,football,12,<built-in method date of datetime.datetime object at 0x000001F1670DBAB0>,"[202, 296, 366, 168, 542, 216, 157, 482, 892, 436, 954, 703]",Kreuzberg
+28,594,EleanorHenderson927,football,14,<built-in method date of datetime.datetime object at 0x000001F1670DBAE0>,"[224, 974, 718, 504, 208, 458, 516, 98, 284, 182, 354, 589, 528, 842]",Prenzlauer Berg
+29,220,RichardCorbett521,volley,14,<built-in method date of datetime.datetime object at 0x000001F1670DBB10>,"[392, 866, 89, 193, 692, 58, 217, 504, 716, 468, 38, 975, 144, 642]",Berlin-Mitte
+30,889,JohnOnell506,basketball,8,<built-in method date of datetime.datetime object at 0x000001F1670DBB40>,"[301, 84, 647, 376, 272, 262, 297, 233]",Charlottenburg
+31,202,TeriJaillet796,yoga,13,<built-in method date of datetime.datetime object at 0x000001F1670DBB70>,"[422, 519, 847, 918, 594, 531, 138, 182, 528, 271, 493, 773, 491]",Prenzlauer Berg
+32,268,RandallPasquale880,volley,12,<built-in method date of datetime.datetime object at 0x000001F1670DBBA0>,"[869, 730, 798, 810, 17, 247, 475, 501, 905, 929, 438, 867]",Berlin-Mitte
+33,77,JimmieStride211,football,16,<built-in method date of datetime.datetime object at 0x000001F1670DBBD0>,"[812, 663, 859, 80, 351, 732, 630, 530, 673, 397, 391, 960, 193, 414, 972, 286]",Berlin-Mitte
+34,103,DanelleThurman998,rugby,12,<built-in method date of datetime.datetime object at 0x000001F1670DBC00>,"[639, 522, 442, 839, 776, 294, 24, 744, 620, 757, 289, 146]",Neukolln
+35,381,DeniseCox1991,football,16,<built-in method date of datetime.datetime object at 0x000001F1670DBC30>,"[626, 122, 201, 693, 87, 881, 904, 233, 113, 30, 141, 545, 307, 133, 813, 349]",Prenzlauer Berg
+36,969,AnthonyBeasley449,basketball,14,<built-in method date of datetime.datetime object at 0x000001F1670DBC60>,"[155, 65, 85, 295, 312, 715, 500, 178, 25, 120, 151, 93, 74, 787]",Friedrichshain
+37,89,SheilaShull1759,volley,15,<built-in method date of datetime.datetime object at 0x000001F1670DBC90>,"[641, 963, 301, 386, 519, 327, 585, 33, 473, 892, 898, 312, 589, 158, 84]",Berlin-Mitte
+38,870,ErickMerrill372,basketball,14,<built-in method date of datetime.datetime object at 0x000001F1670DBCC0>,"[65, 194, 555, 706, 938, 21, 369, 98, 118, 152, 245, 815, 518, 677]",Charlottenburg
+39,646,JuliaMersch53,football,14,<built-in method date of datetime.datetime object at 0x000001F1670DBCF0>,"[758, 692, 486, 299, 809, 233, 277, 990, 333, 638, 618, 784, 975, 579]",Kreuzberg
+40,414,RobertJanssen676,football,19,<built-in method date of datetime.datetime object at 0x000001F1670DBD20>,"[909, 774, 31, 603, 106, 860, 652, 573, 242, 933, 296, 886, 339, 759, 739, 710, 518, 93, 971]",Berlin-Mitte
+41,781,TerryMcgee1564,basketball,9,<built-in method date of datetime.datetime object at 0x000001F1670DBD50>,"[456, 124, 675, 924, 304, 457, 618, 601, 447]",Friedrichshain
+42,81,BerthaEsche1105,football,19,<built-in method date of datetime.datetime object at 0x000001F1670DBD80>,"[699, 235, 134, 453, 119, 63, 293, 50, 205, 533, 105, 778, 442, 187, 156, 512, 288, 864, 170]",Neukolln
+43,425,MonaFarley3,football,9,<built-in method date of datetime.datetime object at 0x000001F1670DBDB0>,"[522, 556, 269, 10, 753, 882, 110, 41, 826]",Kreuzberg
+44,392,WilliamSmith1072,volley,13,<built-in method date of datetime.datetime object at 0x000001F1670DBDE0>,"[606, 348, 468, 649, 592, 905, 69, 673, 994, 793, 138, 591, 924]",Berlin-Mitte
+45,761,DaveTintinger1567,basketball,10,<built-in method date of datetime.datetime object at 0x000001F1670DBE10>,"[339, 718, 206, 918, 174, 346, 447, 516, 297, 356]",Friedrichshain
+46,623,NancyAllen1923,football,9,<built-in method date of datetime.datetime object at 0x000001F1670DBE40>,"[157, 215, 209, 880, 758, 434, 504, 38, 703]",Friedrichshain
+47,987,GlennaLat1357,football,10,<built-in method date of datetime.datetime object at 0x000001F1670DBE70>,"[468, 576, 209, 957, 799, 399, 677, 560, 286, 350]",Neukolln
+48,326,AlmaAndrews6,basketball,10,<built-in method date of datetime.datetime object at 0x000001F1670DBEA0>,"[521, 793, 97, 823, 987, 767, 902, 951, 169, 285]",Neukolln
+49,867,BenjaminGonzalez1225,basketball,16,<built-in method date of datetime.datetime object at 0x000001F1670DBED0>,"[87, 539, 862, 455, 963, 137, 7, 935, 762, 649, 837, 174, 494, 274, 805, 582]",Friedrichshain
+50,378,FlorindaMartin1607,rugby,18,<built-in method date of datetime.datetime object at 0x000001F1670DBF00>,"[528, 805, 205, 823, 626, 12, 476, 844, 975, 472, 448, 1, 614, 156, 171, 863, 453, 871]",Berlin-Mitte
+51,66,VincentWitherite1631,football,21,<built-in method date of datetime.datetime object at 0x000001F1670DBF30>,"[888, 254, 243, 968, 702, 155, 845, 681, 159, 310, 827, 266, 301, 456, 33, 29, 4, 22, 536, 34, 242]",Kreuzberg
+52,527,JoHenry1332,yoga,10,<built-in method date of datetime.datetime object at 0x000001F1670DBF60>,"[675, 500, 208, 517, 404, 627, 162, 777, 98, 131]",Prenzlauer Berg
+53,331,StevenTalbert898,yoga,14,<built-in method date of datetime.datetime object at 0x000001F1670DBF90>,"[536, 22, 888, 282, 775, 753, 24, 988, 558, 777, 851, 525, 902, 476]",Friedrichshain
+54,173,GeorgeAnderson1533,football,19,<built-in method date of datetime.datetime object at 0x000001F1670DBFC0>,"[625, 652, 376, 740, 218, 65, 345, 672, 623, 315, 994, 93, 982, 123, 555, 47, 70, 554, 573]",Neukolln
+55,598,DixieDunham1962,basketball,17,<built-in method date of datetime.datetime object at 0x000001F1677B5030>,"[751, 479, 715, 187, 350, 833, 513, 281, 22, 743, 167, 65, 80, 317, 984, 556, 34]",Friedrichshain
+56,463,JonathanSims661,yoga,9,<built-in method date of datetime.datetime object at 0x000001F1677B5060>,"[238, 538, 6, 598, 543, 93, 591, 50, 356]",Berlin-Mitte
+57,627,CrystalMaung1470,basketball,19,<built-in method date of datetime.datetime object at 0x000001F1677B5090>,"[869, 266, 552, 243, 67, 770, 434, 734, 953, 932, 968, 948, 680, 379, 849, 458, 25, 558, 70]",Neukolln
+58,438,CoreyBirdsell1523,rugby,20,<built-in method date of datetime.datetime object at 0x000001F1677B50C0>,"[318, 125, 668, 9, 162, 603, 195, 60, 53, 973, 881, 303, 820, 4, 234, 994, 289, 859, 387, 40]",Charlottenburg
+59,550,WilliamPhillips180,volley,16,<built-in method date of datetime.datetime object at 0x000001F1677B50F0>,"[494, 326, 552, 425, 261, 501, 279, 941, 257, 816, 492, 365, 368, 134, 265, 723]",Friedrichshain
