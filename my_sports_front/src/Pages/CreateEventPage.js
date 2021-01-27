@@ -313,6 +313,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                                 <option value="night">Night</option>
                             </select>
                         </div>
+                        {errorMessage && <p className="error-text">{errorMessage}</p>}
                         <div className="create-event-bottom-box">
                             <i onClick={hideDate} className="material-icons md-48 pointer back-arrow black-icon">arrow_back</i>
                             <button className="next-button-with-back">Next</button>

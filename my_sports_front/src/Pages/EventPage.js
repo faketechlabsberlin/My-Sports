@@ -26,36 +26,9 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
     state.event.find(event => event._id === id)
   )
 
-const [eventSkillLevel, setEventSkillLevel] = useState(0)
-let allRatings = []
-
   useEffect( async () => {
     const div = document.getElementById('border-bottom-color')
     div.classList.add(`bottom-border-color-${event.sport}`)
-    for (let teammate of event.teammates) {
-      switch (event.sport) {
-        case 'volleyball':
-          allRatings.push(teammate.volleyballRating)
-          break;
-        case 'basketball':
-          allRatings.push(teammate.basketballRating)
-          break;
-        case 'football':
-          allRatings.push(teammate.footballRating)
-          break;
-        case 'bouldering':
-          allRatings.push(teammate.boulderingRating)
-          break;
-        case 'yoga':
-          allRatings.push(teammate.yogaRating)
-          break;
-        case 'pingpong':
-          allRatings.push(teammate.pingpongRating)
-          break;
-      }
-    const average = allRatings.reduce((a, b) => a + b) / allRatings.length
-    setEventSkillLevel(average)
-    }
   }, [])
 
   const [isAreYouSureVisible, setIsAreYouSureVisible] = useState(false);
@@ -133,24 +106,24 @@ let allRatings = []
     history.push('/dashboard');
   }
 
-  const removePlayer = async (teammateId) => {
-    const data = {
-    teammateId,
-    eventId: event._id
-    }
-    const response = await fetch('/api/event/removeplayer', {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    const info = await response.json();
-    if (response.ok) {
-        console.log(info)
-    }
-    history.push('/dashboard')
-  }
+  // const removePlayer = async (teammateId) => {
+  //   const data = {
+  //   teammateId,
+  //   eventId: event._id
+  //   }
+  //   const response = await fetch('/api/event/removeplayer', {
+  //       method: 'PUT',
+  //       body: JSON.stringify(data),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+  //   const info = await response.json();
+  //   if (response.ok) {
+  //       console.log(info)
+  //   }
+  //   history.push('/dashboard')
+  // }
       
 
     let isMember = false;
@@ -200,7 +173,7 @@ let allRatings = []
                     <div className="below-player-border"></div>
                     <p className="card-text text-muted player-skill-text">Average Player Skill Level:</p>
                     <StarRatings
-                      rating={eventSkillLevel}
+                      rating={event.skill / event.teammates.length}
                       starRatedColor="#E9B467"
                       numberOfStars={5}
                       starDimension="1.2em"

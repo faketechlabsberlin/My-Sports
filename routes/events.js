@@ -1,12 +1,15 @@
 const express = require('express');
 const Event = require('../models/Event');
+const User = require('../models/User');
 
 const eventRouter = express.Router();
 
 eventRouter.post('', async (req, res) => {
   try {
     const { host, title, sport, size, date, time, location, about, court } = req.body
-    const newEvent = new Event({sport, host, title, size, date, time, location, about, court});
+    const user = await User.findById(host);
+    const skill = user[`${sport}Rating`]
+    const newEvent = new Event({sport, host, title, size, date, time, location, about, court, skill});
     newEvent.teammates.push(host)
     await newEvent.save();
     res.send(newEvent);
@@ -28,13 +31,15 @@ eventRouter.get('', async (req, res) => {
 
 eventRouter.put('', async (req, res) => {
   try {
-    const { eventId, title, size, date, time, location } = req.body;
+    const { eventId, title, size, date, time, location, court, about } = req.body;
     const event = await Event.findById(eventId);
     event.title = title;
     event.size = size;
     event.date = date;
     event.time = time;
     event.location = location;
+    event.court = court;
+    event.about = about;
     await event.save();
     res.send(event)
   } catch (err) {
@@ -58,7 +63,11 @@ eventRouter.put('/joinevent', async (req, res) => {
   try {
     const { teammateId, eventId } = req.body
     const event = await Event.findById(eventId);
+    const user = await User.findById(teammateId)
     event.teammates.push(teammateId)
+    const newSkill = event.skill + user[`${event.sport}Rating`]
+    console.log(newSkill)
+    event.skill = newSkill
     await event.save();
     res.send(event)
   } catch (err) {
