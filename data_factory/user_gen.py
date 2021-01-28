@@ -90,16 +90,16 @@ print(location)
 #Generate Heights using gaussian distribution
 while i3 < x:
     if genders[i3] == 'male':
-        heights.append(rd.gauss(1.754, 0.20))
+        heights.append(rd.gauss(1.78, 0.1))
     else:
-        heights.append(rd.gauss(1.62, 0.20))
+        heights.append(rd.gauss(1.65, 0.1))
     i3 += 1
 print(heights)
 
 #Generate Weights using heights and a gaussian distribution of BMI
 while i8 < x:
     hgts = heights[i8]
-    bmi = rd.gauss(25,5)
+    bmi = rd.gauss(25,3)
     m = hgts**2 * bmi
     weights.append(m)
     i8 += 1
