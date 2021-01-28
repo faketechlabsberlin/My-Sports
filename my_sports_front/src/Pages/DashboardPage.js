@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { connect, useSelector } from "react-redux";
-import { logout } from "../actions/session";
+import React, { useEffect } from 'react'
+import { connect } from "react-redux";
 import { getEvents } from '../actions/event';
 import { resetFilters } from '../actions/filter';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import { clearErrors } from "../actions/error";
 import { clearSuccess } from "../actions/success";
@@ -17,86 +15,81 @@ const mapStateToProps = ({ session, event }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout()),
   getEvents: () => dispatch(getEvents()),
   resetFilters: () => dispatch(resetFilters()),
   clearErrors: () => dispatch(clearErrors()),
   clearSuccess: () => dispatch(clearSuccess())
 });
 
-const DashboardPage = ({ logout, session, event, getEvents, resetFilters, clearErrors, clearSuccess }) => {
+const DashboardPage = ({ session, event, getEvents, resetFilters, clearErrors, clearSuccess }) => {
 
   useEffect(async () => {
     getEvents();
     resetFilters();
     clearErrors();
     clearSuccess();
-    const div = document.getElementById('border-bottom-color')
-    div.classList.add(`bottom-border-color-${event.sport}`)
   },
     [])
 
+  let hasEvents = false;
+  if (event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).length > 0) {
+    hasEvents = true;
+  }
+
   return (
     <div>
-      <div id="header-div">
-        <Header />
+      <div>
+        <Header title={'MY SPORTS'}/>
       </div>
-      <div id="border-bottom" />
-      <div id="welcome">
+      <div className="dashboard-welcome">
         <p>Welcome {session.username}! </p>
-        <p>You can now join a match, create an event or tell us your preferencies and have a look at matches we found for you.</p>
-        <p><Link id="pref-link" to={"/profile/" + session.userId}>Edit preferencies</Link></p>
+        <p>You can now join a match, create an event or update your preferences. {hasEvents? <span>Have a look at your upcoming matches.</span>: <span>You don't seem to be a part of any upcoming matches</span>}</p>
+        {!hasEvents && <p><Link className="dashboard-find-event-button" to="/find-events">Find Events</Link></p>}
       </div>
-      <div id="dashcontent">
-        <p>Your upcoming matches:</p>
-        <div>
-
+      <div className="silver-background container-fluid">
+        <div className="registration-top-space"></div>
           {event.filter(e => e.teammates.some(teammate => teammate._id === session.userId)).map((myEvents) => {
-            return <div>
-              <Card className="card-event">
-                <Link to={"/event/" + myEvents._id}>
-                  <Card.Header id="cardHeader">{myEvents.title}</Card.Header>
-                </Link>
-                <Card.Body>
-                  <blockquote className="blockquote mb-0" id="eventInfo">
-                    <div className="dateLocation" id="border-bottom-color">
-                      <p>{moment(myEvents.date).format("ddd, MMMM Do, ha")}</p>
-                      <p>{myEvents.location}</p>
-                    </div>
-                    <img className="sport-icon" id="icone" src={`../images/sport-images/${myEvents.sport}.png`} />
-                  </blockquote>
-                  <div id="cardFooter">
-                    <p className="card-text text-muted player-count-text">Players: <span className="error-text">{myEvents.teammates.length}/{myEvents.size}</span></p>
-                    <p className="card-text text-muted player-count-text">Skill Level:
-                      <StarRatings
-                        rating={myEvents.SkillLevel}
-                        starRatedColor="#E9B467"
-                        numberOfStars={5}
-                        starDimension="1.2em"
-                        starSpacing="0.7px"
-                      />
-                    </p>
+            return <div className="form-box-white thick-bottom-border">
+              <div className="card" style={{width: 100 + '%'}}>
+              <div className="card-body">
+                <h3 className="event-page-event-title card-title">{myEvents.title}</h3>
+                <div className={`bottom-border-color-${myEvents.sport} row justify-content-space-between`}>
+                  <div className="col">
+                    <p className="card-text text-muted">{moment(myEvents.date).format("dddd, MMM Do")}</p>
+                    <p className="card-text text-muted">{myEvents.location}</p>
+                    {myEvents.court &&  <p className="card-text text-muted">{myEvents.court}</p>}
                   </div>
-                </Card.Body>
-                <div className="accordion" id="accordionExample">
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingOne">
-                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      </button>
-                    </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                      <div className="accordion-body">
-                        <button className="edit-event-button"><Link className="edit-event-link" to={"/event/" + myEvents._id}>Event Details</Link></button>
+                    <div className="col">
+                      <img className="event-page-sport-image" src={`../images/sport-images/${myEvents.sport}.png`} />
+                    </div>
+                </div>
+                <div className="row">
+                  <p id="dashboard-player" className="col card-text text-muted player-count-text">Players: <span className="error-text">{myEvents.teammates.length}/{myEvents.size}</span></p>
+                  <p id="dashboard-stars" className="col dashboard-stars"><StarRatings
+                      rating={myEvents.skill / myEvents.teammates.length}
+                      starRatedColor="#E9B467"
+                      numberOfStars={5}
+                      starDimension="1.2em"
+                      starSpacing="0.7px"
+                      /></p>
+                </div>
+                <div className="accordion" id={"accordionExample" + myEvents._id}>
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id={"heading" + myEvents._id}>
+                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse" + myEvents._id} aria-expanded="true" aria-controls={"collapse"+ myEvents._id}>
+                        </button>
+                      </h2>
+                      <div id={"collapse"+ myEvents._id} className="accordion-collapse collapse" aria-labelledby={"heading"+ myEvents._id} data-bs-parent={"#accordionExample"+ myEvents._id}>
+                        <div className="accordion-body">
+                          <div><button className="edit-event-button"><Link className="edit-event-link" to={"/event/" + myEvents._id}>View Event</Link></button></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Card>
+                </div>
             </div>
           })}
-        </div>
-        <p><Link to="/find-event">Find Match</Link></p>
-        <p><button onClick={logout}>Logout</button></p>
       </div>
     </div>
   )

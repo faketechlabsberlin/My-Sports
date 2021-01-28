@@ -167,7 +167,7 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
                     <p className="card-text text-muted player-count-text">Players: <span className="error-text">{event.teammates.length}/{event.size}</span></p>
                     <div className="row row-cols-5 justify-content-space-between">
                     {event.teammates && event.teammates.map((user, index) => {
-                      return <div key={user._id} className={"col teammate-icon teammate-icon-color-" + index}><h6>{user.username[0].toUpperCase()}</h6></div>
+                      return <div className="col" key={user._id} ><h6 className={"teammate-icon teammate-icon-color-" + index}>{user.username[0].toUpperCase()}</h6></div>
                     })}
                     </div>
                     <div className="below-player-border"></div>
@@ -215,9 +215,9 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
                   </div>
                 </div>
             </div>
-            <div className="form-box-white">
+            {isMember && (<div className="form-box-white">
             <EventChatPage id={id} event={event} />
-            </div>
+            </div>)}
           </div>
         </div>
     )

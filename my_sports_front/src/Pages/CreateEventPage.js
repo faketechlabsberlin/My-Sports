@@ -345,7 +345,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                             <option value="Mitte">Mitte</option>
                             <option value="Moabit">Moabit</option>
                             <option value="Neukolln">Neukolln</option>
-                            <option value="Prenzlauer Berg">PrenzLauer Berg</option>
+                            <option value="Prenzlauer-Berg">PrenzLauer-Berg</option>
                             <option value="Schoneberg">Schoneberg</option>
                             <option value="Tempelhof">Tempelhof</option>
                             <option value="Tiergarten">Tiergarten</option>
