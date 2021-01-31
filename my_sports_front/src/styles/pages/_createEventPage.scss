@@ -28,19 +28,10 @@
     margin-left: 1em;
 }
 
-.next-button {
-    margin-left: 65%;
-    margin-top: 8em;
-    color: #9F54FF;
-    background: none;
-    border: 1px solid #9F54FF;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-    padding-left: 2.2em;
-    padding-right: 2.2em;
-    border-radius: 30px;
-    margin-bottom: 1.1em;
-}   
+.create-event-bottom-box {
+    margin-top: 7em;
+    margin-right: 1em;
+}
 
 .event-sport-header {
     padding-left: 0.8em;
@@ -57,19 +48,12 @@
 
 .black-icon {
     color: black;
-    margin-left: 0.5em;
 }
 
 .next-button-with-back {
-    margin-left: 50%;
-    margin-top: 8em;
     color: #9F54FF;
     background: none;
     border: 1px solid #9F54FF;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-    padding-left: 2.2em;
-    padding-right: 2.2em;
     border-radius: 30px;
     margin-bottom: 1.1em;
 }   
@@ -102,8 +86,14 @@
 
 #date-create-event {
     margin-top: 3em;
-    margin-left: 3em;
     margin-bottom: 5em;
+    border-bottom: 2px solid $silver;
+    width: 50%;
+}
+
+.create-event-date-selector .react-datepicker__input-container {
+    display: flex;
+    justify-content: center;
 }
 
 #time-create-event {
@@ -125,10 +115,6 @@
     height: 2em;
     font-size: 1.2em;
     margin-top: 2.5em;
-}
-
-.create-event-bottom-box {
-    margin-bottom: 0;
 }
 
 .title-selection-marker {
@@ -155,4 +141,26 @@
 .location-selection-marker {
     border-bottom: 5px solid #56CCF2;
     margin-right: 3%;
+}
+
+.event-summary-header {
+    padding-top: 1em;
+    color: #6FCF97;
+    font-size: 1.5em;
+}
+
+.event-summary-sub {
+    font-size: 1.2em;
+}
+
+.blue-icon {
+    color: #1672EC;
+}
+
+.summary-item {
+    border-bottom: 1px solid $silver;
+}
+
+.summary-answer {
+    color:  #1672EC;
 }

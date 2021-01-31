@@ -33,5 +33,27 @@
     margin-bottom: 0em;
 }
 
+@media (min-width: 750px) {
+    .desktop-card-container {
+        width: 600px;
+        margin: auto;
+    }
+    .white-background {
+        background-color: white;
+    }
+    .desktop-card-container {
+        padding: 0;
+    }
+}
 
+@media (max-width: 370px) {
+    .event-page-event-title {
+       padding-bottom: 0em;
+       margin-bottom: 0em;
+       font-size: 1.3em;
+    }
+    .card-text {
+        font-size: 0.9em;
+    }
+}
 

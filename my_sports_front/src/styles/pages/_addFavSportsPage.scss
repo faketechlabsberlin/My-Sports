@@ -1,13 +1,11 @@
 .sport-titles {
     color: $dark-grey;
     margin-top: 5px;
-    margin-bottom: 0;
 }
 
 .sport-image-select {
-    background-color: $silver;
-    border: 2px solid $silver;
-    border-radius: 50% 20% / 10% 40%;
+    border: 3px solid blue;
+    border-radius: 40px;
 }
 
 .star-ratings {
@@ -16,4 +14,23 @@
 
 .toggle-stars {
     visibility: hidden;
+}
+
+.align-stars {
+    display: flex;
+    justify-content: center;
+}
+
+
+.sport-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 370px) {
+    .sport-titles {
+        font-size: 0.7em;
+        margin-bottom: 5px;
+    }
 }

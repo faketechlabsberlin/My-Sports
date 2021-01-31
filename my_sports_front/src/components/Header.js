@@ -2,7 +2,7 @@ import React from 'react';
 import SideBar from '../components/SideBar';
 import FilterBar from '../components/FilterBar';
 
-const Header = ({ title }) => {
+const Header = ({ title, results }) => {
  
     return (
             <header>
@@ -11,9 +11,8 @@ const Header = ({ title }) => {
                         <SideBar />
                     </div>
                     <h2 id="logo">{title}</h2>
-                    {/*<i onClick={() => setIsFilterBarVisible(!isFilterBarVisible)} className="material-icons-outlined md-36" id="filter-icon">filter_alt</i>*/}
                     <div className="filter-bar">
-                        <FilterBar />
+                        <FilterBar results={results || 0} />
                     </div>
                 </nav>
             </header>

@@ -1,34 +1,20 @@
-.login-page-top-space-false {
-    height: 30vh;
-    width: 100%
-}
-
-.login-page-top-space-true {
-    height: 11vh;
-    width: 100%
-}
-
-.top-line {
-    padding-top: 1.5rem;
-    border-top: solid #FBEF4E;
-}
-
-.bottom-line {
+.header-with-login-visible {
     padding-bottom: 3rem;
     border-bottom: solid #FBEF4E;
+    margin-top: 4vh;
+}
+
+.header-with-login-not-visible {
+    padding-top: 1.5rem;
+    border-top: solid #FBEF4E;
+    margin-top: 26vh;
 }
 
 .login-button {
-    margin-top: 10rem;
-    margin-bottom: 2rem;
-    margin-left: 50%;
-    margin-right: 50%;
+    margin: 22vh 50% 5vh;
     background-color: $yellow;
-    border-radius: 24px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    border-radius: 55px;
+    padding: 35px 30px;
     border: 0px;
     color: $dark-grey;
     box-shadow: 2px 5px 5px grey;
@@ -73,46 +59,35 @@ p.col {
 .login-form input {
     background: transparent;
     border: none;
-    border-bottom: solid #FBEF4E;
     color: $yellow;
     font-size: 1.2em;
-    padding-left:1em;
-    width: 80%;
+    width: 83%;
     text-align: center;
-}
-
-#eye {
-    z-index: 100;
-}
-
-.login-form input:focus {
-    outline: none;
 }
 
 .login-form label {
     padding-bottom: 0.1rem;
     border-bottom: solid #FBEF4E;
-}
+} //maybe delete
 
 .login-form .username {
-    margin-left: 1rem;
     padding-top: 3.5rem;
+    border-bottom: solid #FBEF4E;
+    width: 85%;
 }
 
 .login-form .password {
-    margin-left: 1rem;
     padding-top: 4rem;
-    padding-bottom: 5rem;
+    margin-bottom: 4rem;
+    width: 85%;
+    border-bottom: solid #FBEF4E;
 }
 
 #login-button {
-    margin-top: 4.9rem;
-    margin-bottom: 4.9rem;
-    margin-left: 30%;
+    margin: 4.9rem auto;
+    width: 12rem;
     background-color: $yellow;
     border-radius: 24px;
-    padding-left: 70px;
-    padding-right: 70px;
     padding-top: 12px;
     padding-bottom: 12px;
     border: 0px;
@@ -121,34 +96,62 @@ p.col {
 }
 
 .error-box {
-    position: absolute;
-}
-
-.error-symbol {
-    color: #FF6E33;
-    margin-top: 10px;
-    margin-bottom: 0%;
-    padding-bottom: 0%;
-    margin-left: 45%;
-}
-
-.forgot-password-box {
-    position: absolute;
-    margin-top: 1.5rem;
-
-}
-.forgot-password-paragraph {
-    margin-left: 50%;
+    padding-top: 2rem;
+    margin-bottom: -3rem;
 }
 
 .forgot-password-button {
     color: #81D5FF;
     border-radius: 24px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px 30px;
     appearance: button;
-    border: solid #81D5FF;
-    border-width: 2px;
+    border: 2px solid #81D5FF;
+}
+
+#signup-button {
+    margin-bottom: 0;
+}
+
+@media (min-width: 750px) {
+    .desktop-container {
+        width: 750px;
+        margin: auto;
+    }
+    .desktop-small-container {
+        width: 550px;
+        margin: auto;
+    }
+    .login-button {
+        border-radius: 70px;
+        padding: 55px 50px;
+    }
+    .header-with-login-not-visible {
+        padding-top: 4rem;
+        margin-top: 5vh;
+        padding-bottom: 5rem;
+        border-width: 5px;
+    }
+    .header-with-login-visible {
+        margin-top: 1vh;
+        padding-top: 0;
+        padding-bottom: 3rem;
+        border-width: 5px;
+    }
+    .login-form {
+        width: 65%;
+        margin: 4rem auto;
+    }
+    #login-button {
+        margin: 3rem auto;
+        width: 12rem;
+    }
+    .login-form input {
+        width: 88%;
+    }
+}
+
+@media (max-width: 370px) {
+    .login-form input {
+        width: 80%;
+    }
 }

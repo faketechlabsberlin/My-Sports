@@ -2,10 +2,10 @@ import { FILTER_BY_SPORT, FILTER_BY_NAME, FILTER_BY_DATE, FILTER_BY_TIME, FILTER
 
 const filtersReducerDefaultState = {
     name: '',
-    sport: '',
+    sport: [],
     date: '',
-    time: '',
-    location: '',
+    time: [],
+    location: [],
     minSize: 2,
     maxSize: 20,
     minSkill: 1,
@@ -18,10 +18,17 @@ export default (state = filtersReducerDefaultState, action) => {
         case RESET_FILTERS:
             return filtersReducerDefaultState;
         case FILTER_BY_SPORT:
-            return {
-                ...state,
-                sport: action.payload
-            };
+            if (!state.sport.includes(action.payload)) {
+                return {
+                    ...state,
+                    sport: state.sport.concat(action.payload)
+                };
+            } else {
+                return {
+                    ...state,
+                    sport: state.sport.filter((s) => {return s !== action.payload})
+                }
+            }
         case FILTER_BY_DATE:
             return {
                 ...state,
@@ -33,10 +40,17 @@ export default (state = filtersReducerDefaultState, action) => {
                 name: action.payload.value
             };
         case FILTER_BY_TIME:
-            return {
-                ...state,
-                time: action.payload
-            };
+            if (!state.time.includes(action.payload)) {
+                return {
+                    ...state,
+                    time: state.time.concat(action.payload)
+                };
+            } else {
+                return {
+                    ...state,
+                    time: state.time.filter((t) => {return t !== action.payload})
+                }
+            }
         case FILTER_BY_MIN_SIZE:
             return {
                 ...state,
@@ -48,10 +62,17 @@ export default (state = filtersReducerDefaultState, action) => {
                 maxSize: action.payload
             };
         case FILTER_BY_LOCATION:
-            return {
-                ...state,
-                location: action.payload
-            };
+            if (!state.location.includes(action.payload)) {
+                return {
+                    ...state,
+                    location: state.location.concat(action.payload)
+                };
+            } else {
+                return {
+                    ...state,
+                    location: state.location.filter((l) => {return l !== action.payload})
+                }
+            }
         case FILTER_BY_MIN_SKILL:
             return {
                 ...state,

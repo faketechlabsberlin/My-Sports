@@ -21,6 +21,7 @@ section {
     width: 100%; 
     background-color: $silver;
     border-radius: 10px;
+    margin-bottom: 0.5em;
 }
 
 #msg {
@@ -44,14 +45,14 @@ section {
 }
 
 .test-form-button { 
-    width: 9%; 
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: $yellow; 
     border: none; 
     border-radius: 100%;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 25px;
-    margin-top: 1em;
 }
 
 #messages { 
@@ -62,8 +63,9 @@ section {
     background: #eee; 
     overflow: scroll;
     border-bottom: 20px solid $silver;
-    border-top-left-radius: 10px;
-    border-top-right-radius:10px;
+    border-radius:10px;
+    border-bottom: none;
+    overflow-y: scroll;
 }
 
 #messages li { 

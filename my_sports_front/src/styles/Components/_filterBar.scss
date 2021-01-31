@@ -1,12 +1,17 @@
 .filter-bar{
-    margin-top: 0;
     padding-top: 0;
+    padding-right: 2em;
+    width: 2.4rem;
+    display: flex;
 } 
 
-.filter-bar .bm-burger-button {
-    padding: 0;
-    margin-top: 2.5em;
-}
+.filter-bar-body .bm-burger-button {
+    position:sticky;
+    float: right;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 2.2em;
+  }
 
 .filter-bar-body {
     margin-right: 1em;
@@ -28,7 +33,7 @@
 }
 
 .filter-bar-content-menu{
-    padding-top: 2.5em;
+    padding-top: 2em;
     width: 100%;
     padding-bottom: 2em;
     border-bottom: solid $silver;
@@ -49,12 +54,10 @@
     color: #9F54FF;
     background: none;
     border: 1px solid #9F54FF;
-    padding-left: 2.2em;
-    padding-right: 2.2em;
+    padding: 0.5em 2.2em;
     border-radius: 30px;
     margin-bottom: 1.1em;
-    margin-left: 1em;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .remove-all-filters-button:focus {
@@ -108,4 +111,53 @@
 
 .pink-label {
     color: #FF9ADD
+}
+
+.filter-type-selector {
+    border-bottom: 2px solid $silver;
+    padding-bottom: 0.5em;
+}
+
+.filter-type-selector .accordion-button::after {
+    margin-right: 0;
+    transform: rotate(1turn)
+}
+
+.filter-type-selector .accordion-button.collapsed::after {
+    margin-right: 0;
+    transform: rotate(0.75turn);
+}
+
+.filter-type-selector .accordion-button {
+    color: #6F9CE4;
+    letter-spacing: 0.15em;
+}
+
+.filter-counter {
+    color: white;
+    background-color: #6F9CE4;
+    width: 2rem;
+    height: 2rem;
+    padding-bottom: 0.1em;
+    padding-left: 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.3em;
+}
+
+@media (max-width: 750px) {
+    .desktop-filterbar{
+      display: none;
+    }
+  }
+
+.desktop-filterbar {
+position: relative;
+bottom: 6.4em;
+left: 1em;
+z-index: 1000;
+padding-left: 0;
+font-size: 1.1em;
 }

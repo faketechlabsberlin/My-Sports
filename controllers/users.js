@@ -7,7 +7,7 @@ const nodemailerSendgrid = require('nodemailer-sendgrid');
 
 module.exports.newUser = async(req, res, next) => {
     try {
-        const { email, username, password, name, dob, gender, location, lastName } = req.body;
+        const { email, username, password, name, dob, lastName } = req.body;
         const emailCheck = await User.findOne({ email });
         if (emailCheck) {
             res.status(401).send({ message: 'email taken'});
@@ -16,7 +16,7 @@ module.exports.newUser = async(req, res, next) => {
             if (usernameCheck) {
                 res.status(401).send({ message: 'username taken'});
             } else {
-                const newUser = new User({email, username, name, dob, gender, location, lastName});
+                const newUser = new User({email, username, name, dob, lastName});
                 const registeredUser = await User.register(newUser, password);
                 const sessionUser = helper.sessionizeUser(registeredUser);
                 const code = crypto.randomBytes(16).toString('hex');

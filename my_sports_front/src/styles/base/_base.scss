@@ -10,6 +10,10 @@ i {
     color: $yellow;
 }
 
+input:focus {
+    outline: none;
+}
+
 .md-18 {
     font-size: 18px !important;
     height: 18px !important;
@@ -32,7 +36,7 @@ i {
 }
 
 .basketball-rim-background {
-    background: url('../../images/background.jpg') center center ;
+    background: url('../../images/background.jpg') center center;
     background-repeat: no-repeat;
     background-size:cover;
 }
@@ -69,34 +73,21 @@ h2 {
     background-color: white;
 }
 
-.form-box input:focus {
-    outline: none;
-}
-
-.form-box-white input:focus {
-    outline: none;
-}
-
 .form-box input {
     background: transparent;
     border: none;
-    border-bottom: solid #FBEF4E;
     color: $yellow;
     font-size: 1.2em;
-    padding-left:1em;
-    width: 80%;
+    width: 83%;
     text-align: center;
 }
 
 .form-box-white input {
     background: transparent;
     border: none;
-    border-bottom: solid #5C5C5C;
     color: $dark-grey;
     font-size: 1.2em;
-    padding-left:1em;
-    width: 80%;
-    margin-bottom: 1em;
+    width: 83%;
     text-align: center;
 }
 
@@ -105,26 +96,17 @@ input::placeholder {
     color: $silver;
 }
 
-.form-box label {
-    padding-bottom: 0.1rem;
-    border-bottom: solid #FBEF4E;
-}
-
-.form-box-white label {
-    padding-bottom: 0.13rem;
-    border-bottom: solid #5C5C5C;
-}
-
 .success-symbol {
     color: #00FFD5;
 }
 
 .error-symbol {
-    color: red;
+    color: rgb(247, 70, 47);
 }
 
 .grey-icon {
     color: $dark-grey;
+    padding-left: 0;
 }
 
 .error-text {
@@ -136,4 +118,17 @@ input::placeholder {
 
 .error-border {
     border: 2px solid red !important;
+}
+
+
+@media (max-width: 400px){
+    .form-box-white input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 750px){
+    .mobile-hide {
+        display: none;
+    }
 }

@@ -1,7 +1,6 @@
 .side-bar-head-text{
   color: $silver;
   margin-left: 1.5em;
-  margin-bottom: 0;
 }
 
 .side-bar-username{
@@ -34,16 +33,21 @@ margin-left: 3em;
   background-color: $yellow;
   color: $dark-grey;
   font-size: 1.3em;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
-  padding-left: 0.6em;
-  padding-right: 0.45em;
-  margin-left: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.3em;
+  height: 2.3em;
+  margin-left: 1em;
+}
+
+.flex {
+  display: flex;
 }
 
 
 .side-bar-search-form {
-  width: 85%; 
+  width: 90%; 
   background-color: gainsboro;
   border-radius: 18px;
   margin-left: 0.8em;
@@ -79,28 +83,12 @@ margin-left: 3em;
   padding-bottom: 6px;
   padding-left: 13px;
   padding-right: 35px;
-  margin-left: 0.095em;
 }
-
-// #page-wrap {
-//   text-align: center;
-//   overflow: auto;
-//   position: relative;
-// }
-
-// .bm-item {
-//   display: inline-block;
-//   /* Our sidebar item styling */
-//   text-decoration: none;
-//   margin-bottom: 10px;
-//   color: #d1d1d1;
-//   transition: color 0.2s;
-// }
 
 .side-bar-content-menu{
   padding-top: 2.5em;
   width: 100%;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-top: solid $dark-grey;
   border-bottom: solid $silver;
 }
@@ -112,11 +100,10 @@ margin-left: 3em;
 .bm-burger-button {
   position:sticky;
   float: left;
-  width: 2.5em;
-  height: 2em;
-  // color: $yellow;
+  width: 2.2rem;
+  height: 1.7rem;
   margin-left: 0.7em;
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 .bm-burger-bars {
@@ -133,9 +120,7 @@ margin-left: 3em;
 
 .bm-menu {
   background: white;
-  // padding: 0;
   font-size: 1.15em;
-  // height: 100vh;
 }
 
 .menu-item{
@@ -148,3 +133,87 @@ margin-left: 3em;
 #side-bar-create-event {
   margin-left: 2.35em;
 }
+
+@media (max-width: 750px) {
+  .desktop-sidebar{
+    display: none;
+  }
+}
+
+.desktop-sidebar {
+  position: relative;
+  bottom: 7em;
+  right: 1em;
+  z-index: 1000;
+  padding-right: 0;
+  font-size: 1.1em;
+  background-color: #E5E5E5;
+}
+
+.desktop-side-bar-search-form {
+  width: 80%; 
+  background-color: gainsboro;
+  border-radius: 18px;
+  margin-left: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.8em;
+  height: 2.5em;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+#desktop-side-bar-create-event {
+  margin-left: 2.6em;
+}
+
+.desktop-side-bar-content-menu {
+  padding-top: 2.5em;
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: solid $dark-grey;
+}
+
+.desktop-side-bar-search-button {
+  width: 9%; 
+  background: $yellow; 
+  border: none; 
+  border-radius: 100%;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 35px;
+}
+
+.hover-effect:hover {
+  background-color: #6F9CE4;
+  width: 80%;
+  margin-left: 2em;
+  margin-top: 1em;
+  border-radius: 7px;
+}
+
+.menu-item:hover {
+  text-decoration: none;
+  color: $dark-grey;
+}
+
+.desktop-side-bar-identifier {
+  border: 1px solid $yellow;
+  border-radius: 100%;
+  background-color: $yellow;
+  color: $dark-grey;
+  font-size: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.3em;
+  height: 2.3em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+.desktop-side-bar-username{
+  margin-top: 1.5em;
+  margin-bottom: 1.4em;
+  margin-left: 1em;
+  }

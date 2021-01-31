@@ -1,18 +1,27 @@
 #navbar{
     width: 100%;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background-color: $dark-grey;
     letter-spacing: 0.185em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 1rem;
 }
 
 #logo {
-    margin-left: 0.6em;
+    width: 90%;
+    text-align: center;
 }
+
+@media (max-width: 400px){
+    #logo {
+        font-size: 1.4em;
+    }
+}
+
+@media (min-width: 750px) {
+    #navbar{
+      border-bottom: 2px solid $yellow;
+    }
+  }

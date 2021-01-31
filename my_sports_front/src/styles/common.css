@@ -55,7 +55,7 @@ section {
 } */
 
 
-.modal {
+/* .modal {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -99,4 +99,4 @@ section {
       }
       .close:after {
         transform: rotate(-45deg);
-      }
+      } */

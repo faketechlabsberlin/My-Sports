@@ -5,13 +5,7 @@ import { getUserInfo } from '../util/user';
 import StarRatings from 'react-star-ratings';
 import { connect } from "react-redux";
 import { clearErrors, receiveErrors } from '../actions/error';
-import basketball from '../images/sport-images/basketball.png';
-import bouldering from '../images/sport-images/bouldering.png';
-import football from '../images/sport-images/football.png';
-import pingpong from '../images/sport-images/pingpong.png';
-import running from '../images/sport-images/running.png';
-import yoga from '../images/sport-images/yoga.png';
-import volleyball from '../images/sport-images/volleyball.png';
+import DesktopSideBar from '../components/DesktopSideBar'
 
 const mapDispatchToProps = dispatch => ({
     receiveErrors: (payload) => dispatch(receiveErrors(payload)),
@@ -97,72 +91,72 @@ const ProfilePage = ({ match, session, clearErrors, receiveErrors, errors }) => 
         return (
             <div>
                 <Header title='YOUR PROFILE' />
-                <div className="silver-background container-fluid">
-                <div className="registration-top-space"></div>
-                <div className="form-box-white">
-                    <div className="profile-box-top-space"></div>
-                    <h3 className="initial-identifier-profile">{userInfo.username[0].toUpperCase()}</h3>
-                    {isUser && <Link to={"/edit-profile/" + userInfo._id}><i id="edit-profile-button" className="pointer material-icons md-24 grey-icon">edit</i></Link>}
-                    <h3 className="username-profile">{userInfo.username.toUpperCase()}</h3>
-                    <div className="container-fluid">
-                        <div className="row justify-content-between">
-                            <div className="col">
-                            <p className="profile-query">Age</p>
-                            <p>{age || <span>N/A</span>}</p> 
-                            </div>
-                            <div className="col container-fluid row justify-content-end profile-right-spacing">
-                                <p className="profile-favsports-title">My Top 3 Sports</p>
-                                <img className="favsport" src={`../images/sport-images/${firstSport}.png`} />
-                                <StarRatings
-                                    rating={firstSportRating}
-                                    starRatedColor="#E9B467"
-                                    numberOfStars={5}
-                                    starDimension="1.2em"
-                                    starSpacing="0.7px"
-                                    className="profile-display-stars"
-                                    />
+                <div className="silver-background container-fluid row m-0 p-0">
+                    <div className="desktop-sidebar col-3"><DesktopSideBar /></div>
+                        <div className="desktop-small-container">
+                            <div>.</div>
+                            <div className="form-box-white">
+                                <div>.</div>
+                                <h3 className="initial-identifier-profile mx-auto">{userInfo.username[0].toUpperCase()}</h3>
+                                <h3 className="username-profile pb-4">{userInfo.username.toUpperCase()}</h3>
+                                <div className="row justify-content-between user-info-section pt-4 ml-4 mr-4">
+                                    <div className="col">
+                                        <p className="profile-query">Age:</p>
+                                        <p className="blue-icon">{age || <span>N/A</span>}</p> 
+                                    </div>
+                                    <div className="col row justify-content-end">
+                                        <p className="profile-favsports-title">My Top Sports</p>
+                                        <img className="favsport" src={`../images/sport-images/${firstSport}.png`} />
+                                        <StarRatings
+                                            rating={firstSportRating}
+                                            starRatedColor="#E9B467"
+                                            numberOfStars={5}
+                                            starDimension="1.2em"
+                                            starSpacing="0.7px"
+                                            className="profile-display-stars"
+                                            />
+                                    </div>
+                                </div>
+                                <div className="row justify-content-between">
+                                    <div className="col ml-4">
+                                        <p className="profile-query">Gender:</p>
+                                        <p className="blue-icon">{userInfo.gender || <span>N/A</span>}</p>  
+                                    </div>
+                                    <div className="col mr-4 row justify-content-end">
+                                        <img className="favsport" src={`../images/sport-images/${secondSport}.png`}/>
+                                        <StarRatings
+                                            rating={secondSportRating}
+                                            starRatedColor="#E9B467"
+                                            numberOfStars={5}
+                                            starDimension="1.2em"
+                                            starSpacing="0.7px"
+                                            className="profile-display-stars"
+                                            />
+                                    </div>
+                                </div>
+                                <div className="row justify-content-between">
+                                    <div className="col ml-4">
+                                        <p className="profile-query">Lives in:</p>
+                                        <p className="blue-icon">{userInfo.location || <span>N/A</span>}</p>  
+                                    </div>
+                                    <div className="col mr-4 row justify-content-end">
+                                        <img className="favsport" src={`../images/sport-images/${thirdSport}.png`}/>
+                                        <StarRatings
+                                            rating={thirdSportRating}
+                                            starRatedColor="#E9B467"
+                                            numberOfStars={5}
+                                            starDimension="1.2em"
+                                            starSpacing="0.7px"
+                                            className="profile-display-stars"
+                                            />
+                                    </div>
+                                </div>
+                                <p className="profile-query ml-4">About me:</p>
+                                <p className="ml-4 mr-4 blue-icon">{userInfo.aboutMe || <span>N/A</span>}</p>
+                                {isUser && <div className="row justify-content-center"><Link to={"/edit-profile/" + userInfo._id} className="col-8 col-md-4 pt-3 pb-1 mt-4 profile-edit-button"><h3 className="pointer profile-edit-button">EDIT INFO</h3></Link></div>}
+                                <div className="profile-box-bottom-space"></div>
                             </div>
                         </div>
-                        <div className="row justify-content-between">
-                            <div className="col">
-                            <p className="profile-query">Gender</p>
-                            <p>{userInfo.gender}</p>  
-                            </div>
-                            <div className="col container-fluid row justify-content-end profile-right-spacing">
-                                <img className="favsport" src={`../images/sport-images/${secondSport}.png`}/>
-                                <StarRatings
-                                    rating={secondSportRating}
-                                    starRatedColor="#E9B467"
-                                    numberOfStars={5}
-                                    starDimension="1.2em"
-                                    starSpacing="0.7px"
-                                    className="profile-display-stars"
-                                    />
-                            </div>
-                        </div>
-                        <div className="row justify-content-between">
-                            <div className="col">
-                            <p className="profile-query">Lives in</p>
-                            <p>{userInfo.location}</p>  
-                            </div>
-                            <div className="col container-fluid row justify-content-end profile-right-spacing">
-                                <img className="favsport" src={`../images/sport-images/${thirdSport}.png`}/>
-                                <StarRatings
-                                    rating={thirdSportRating}
-                                    starRatedColor="#E9B467"
-                                    numberOfStars={5}
-                                    starDimension="1.2em"
-                                    starSpacing="0.7px"
-                                    className="profile-display-stars"
-                                    />
-                            </div>
-                        </div>
-                        <p className="profile-query">About me</p>
-                        <p>{userInfo.aboutMe}</p>
-                    </div>
-                    {isUser && <Link to={"/edit-profile/" + userInfo._id} className="profile-edit-button"><h3 className="pointer profile-edit-button">EDIT INFO</h3></Link>}
-                    <div className="profile-box-bottom-space"></div>
-                </div>
                 </div>
             </div>
         )

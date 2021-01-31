@@ -15,7 +15,12 @@ import running from '../images/sport-images/running.png';
 import volleyball from '../images/sport-images/volleyball.png';
 import yoga from '../images/sport-images/yoga.png';
 import { updateRatings } from '../util/user';
-import Modal from "../components/TermsConditions";
+import Modal from "../components/MySportsModal";
+import GeneralSportsGuidance from '../components/GeneralSportsGuidance';
+import MySportsModal from "../components/MySportsModal";
+import BoulderingGuidance from '../components/BoulderingGuidance';
+import YogaGuidance from '../components/YogaGuidance';
+import RunningGuidance from '../components/RunningGuidance';
 
 
 
@@ -85,7 +90,7 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
     }
 
     const selectSport = (sport) => {
-        const image = document.getElementById('add-fav-' + sport);
+        const image = document.getElementById('edit-fav-' + sport);
         const div = document.getElementById('add-' + sport + '-div')
         if (image.getAttribute('class') === 'sport-image-select') {
             div.classList.add('toggle-stars')
@@ -154,16 +159,19 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
             <div>
                 <Header title='EDIT PROFILE' />
                 <div className="silver-background container-fluid">
-                    <div className="registration-top-space"></div>
-                    <div className="form-box-white container-fluid">
-                        <div className="profile-box-top-space"></div>
-                        <h3 className="initial-identifier-profile">{userInfo.username[0].toUpperCase()}</h3>
+                    <div className="desktop-container">
+                    <div>.</div>
+                    <div className="form-box-white">
+                        <div>.</div>
+                        <h3 className="initial-identifier-profile mx-auto">{userInfo.username[0].toUpperCase()}</h3>
                         <p className="registration-message">Add your favorite sports and rate yourself!.</p>
-                            <div className="row justify-content-space-between">
+                            <div className="row justify-content-between">
                                 <div className="col">
-                                    <img id="add-fav-volleyball" onClick={() => selectSport('volleyball')} src={volleyball}/>
-                                    <p className="sport-titles">Volleyball</p>
-                                    <div id="add-volleyball-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-volleyball" onClick={() => selectSport('volleyball')} src={volleyball}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Volleyball</p>
+                                    <div id="add-volleyball-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={volleyballRating}
                                         changeRating={(rating) => setVolleyballRating(rating)}
@@ -177,9 +185,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <img id="add-fav-basketball" onClick={() => selectSport('basketball')} src={basketball}/>
-                                    <p className="sport-titles">Basketball</p>
-                                    <div id="add-basketball-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-basketball" onClick={() => selectSport('basketball')} src={basketball}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Basketball</p>
+                                    <div id="add-basketball-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={basketballRating}
                                         changeRating={(rating) => setBasketballRating(rating)}
@@ -193,9 +203,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <img id="add-fav-football" onClick={() => selectSport('football')} src={football}/>
-                                    <p className="sport-titles">Football</p>
-                                    <div id="add-football-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-football" onClick={() => selectSport('football')} src={football}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Football</p>
+                                    <div id="add-football-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={footballRating}
                                         changeRating={(rating) => setFootballRating(rating)}
@@ -211,9 +223,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                             </div>
                             <div className="row justify-content-space-between">
                                 <div className="col">
-                                    <img id="add-fav-bouldering" onClick={() => selectSport('bouldering')} src={bouldering}/>
-                                    <p className="sport-titles">Bouldering</p>
-                                    <div id="add-bouldering-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-bouldering" onClick={() => selectSport('bouldering')} src={bouldering}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Bouldering</p>
+                                    <div id="add-bouldering-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={boulderingRating}
                                         changeRating={(rating) => setBoulderingRating(rating)}
@@ -227,9 +241,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <img id="add-fav-yoga" onClick={() => selectSport('yoga')} src={yoga}/>
-                                    <p className="sport-titles">Yoga</p>
-                                    <div id="add-yoga-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-yoga" onClick={() => selectSport('yoga')} src={yoga}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Yoga</p>
+                                    <div id="add-yoga-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={yogaRating}
                                         changeRating={(rating) => setYogaRating(rating)}
@@ -243,9 +259,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <img id="add-fav-pingpong" onClick={() => selectSport('pingpong')} src={pingpong}/>
-                                    <p className="sport-titles">Table Tennis</p>
-                                    <div id="add-pingpong-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-pingpong" onClick={() => selectSport('pingpong')} src={pingpong}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Table Tennis</p>
+                                    <div id="add-pingpong-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={pingpongRating}
                                         changeRating={(rating) => setPingpongRating(rating)}
@@ -261,9 +279,11 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                             </div>
                             <div className="row justify-content-space-between">
                                 <div className="col">
-                                    <img id="add-fav-running" onClick={() => selectSport('running')} src={running}/>
-                                    <p className="sport-titles">Running</p>
-                                    <div id="add-running-div" className="toggle-stars">
+                                    <div className="sport-selector">
+                                        <img id="edit-fav-running" onClick={() => selectSport('running')} src={running}/>
+                                    </div>
+                                    <p className="sport-titles text-center">Running</p>
+                                    <div id="add-running-div" className="toggle-stars align-stars">
                                         <StarRatings
                                         rating={runningRating}
                                         changeRating={(rating) => setRunningRating(rating)}
@@ -277,63 +297,38 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
                                     </div>
                                 </div>
                             </div>
-                            <p>Guidance for star ratings:</p>
+                            <p className="text-center">Guidance for star ratings:</p>
                             <div className="Terms">
                                 <p className="registration-message">Guidance for <span onClick={showGeneralStars} className="pointer"><strong>General Sports.</strong></span></p>
-                                {isGeneralStarsVisible ? (
-                                    <Modal onClose={hideGeneralStars}>
-                                        <h3>General</h3>
-                                        <p>1 star - no competetive experience, I might not know the rules, and I don’t care, I just want to have fun.</p>
-                                        <p>2 star - a little, not a lot, I have some basic understanding but I’m not very good, but thats ok!</p>
-                                        <p>3 star - I know the rules and I have a little experience. I’m up for some light competition and a friendly game.</p>
-                                        <p>4 star - I want to win. I have the energy and the skills to do my best and make a good and fair game.</p>
-                                        <p>5 star - Go hard or go home. I take this sport seriously and I want to play with those at the highest level.</p>
-                                    </Modal>
-                                ) : null}
+                                <MySportsModal onClose={hideGeneralStars} isTermsVisible={isGeneralStarsVisible}>
+                                    <GeneralSportsGuidance />
+                                </MySportsModal>
                             </div>
                             <div className="Terms">
                                 <p className="registration-message">Guidance for <span onClick={showBoulderingStars} className="pointer"><strong>Bouldering.</strong></span></p>
-                                {isBoulderingStarsVisible ? (
-                                    <Modal onClose={hideBoulderingStars}>
-                                        <h3>Bouldering</h3>
-                                        <p>1 star bouldering - I’m a complete beginner. I don’t know what the V scale is but I want to try climbing.</p>
-                                        <p>2 star bouldering - I have some bouldering experience but I can only manage entry level routes. V0-V2</p>
-                                        <p>3 star bouldering - I’m experienced and I like to explore intermediate difficulty routes. V3-V6.</p>
-                                        <p>4 star bouldering - I’m an advanced climber and I like high technical difficulty. V7-V10.</p>
-                                        <p>5 star bouldering - Very strong climber looking for the hardest challenges. V11+</p>
-                                    </Modal>
-                                ) : null}
+                                <MySportsModal onClose={hideBoulderingStars} isTermsVisible={isBoulderingStarsVisible}>
+                                    <BoulderingGuidance />
+                                </MySportsModal>
                             </div>
                             <div className="Terms">
                                 <p className="registration-message">Guidance for <span onClick={showYogaStars} className="pointer"><strong>Yoga.</strong></span></p>
-                                {isYogaStarsVisible ? (
-                                    <Modal onClose={hideYogaStars}>
-                                        <h3>Yoga</h3>
-                                        <p>1 star yoga - I’m a complete beginner but I’m open to new experiences at a slow pace.</p>
-                                        <p>2 star yoga - I have done yoga a few times and I am familiar with some of the poses. But I am still learning.</p>
-                                        <p>3 star yoga - I have a good understanding of the basics and I know how to control my breath.</p>
-                                        <p>4 star yoga - I’m developing advanced techniques and poses and I am mastering my breath and movement relationship. I enjoy longer and more difficult sessions.</p>
-                                        <p>5 star yoga - I have been a devoted student of yoga for many years and my body and mind are capable of the highest forms of yoga practise.</p>
-                                    </Modal>
-                                ) : null}
+                                <MySportsModal onClose={hideYogaStars} isTermsVisible={isYogaStarsVisible}>
+                                    <YogaGuidance />
+                                </MySportsModal>
                             </div>
                             <div className="Terms">
                                 <p className="registration-message">Guidance for <span onClick={showRunningStars} className="pointer"><strong>Running.</strong></span></p>
-                                {isRunningStarsVisible ? (
-                                    <Modal onClose={hideRunningStars}>
-                                        <h3>Running</h3>
-                                        <p>1 star running - I’m a complete beginner, speed is not so important to me, I would like to get outside and move a bit.</p>
-                                        <p>2 star running - I enjoy running from time to time and to get the heart rate up at jogging speeds.</p>
-                                        <p>3 star running - I have been running for a while, I like to push the tempo and meet my time goals.</p>
-                                        <p>4 star running - I am a fast runner and I will work my hardest at middle and long distance efforts. I enjoy a race.</p>
-                                        <p>5 star running - I’m a speed machine. I have racing experience and perhaps I’m capable of a marathon. Looking for other like minded racers to push me.</p>
-                                    </Modal>
-                                ) : null}
+                                <MySportsModal onClose={hideRunningStars} isTermsVisible={isRunningStarsVisible}>
+                                    <RunningGuidance />
+                                </MySportsModal>
                             </div>
-                            <button onClick={sendRatings} className="add-fav-sports-button">Add Fav Sports</button>
+                            <div className="row justify-content-center">
+                                <button onClick={sendRatings} className="add-fav-sports-button pt-2 pb-2">Add Fav Sports</button>
+                            </div>
                     <div className="profile-box-bottom-space"></div>
                 </div>
                 </div>
+            </div>
             </div>
         )
     }
