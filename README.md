@@ -5,8 +5,11 @@ MySports is the final group project which was created in order to complete the B
 -- Yet To Be Deployed --
 
 ### Screenshots
-
-<img width="354" alt="Screenshot 2021-01-19 at 12 21 44" src="https://user-images.githubusercontent.com/70976690/105028291-24222380-5a51-11eb-92e4-71c110e89ace.png"> <img width="351" alt="Screenshot 2021-01-19 at 12 22 25" src="https://user-images.githubusercontent.com/70976690/105028436-503da480-5a51-11eb-97d9-a6d8ee013b4c.png"> <img width="351" alt="Screenshot 2021-01-19 at 12 22 56" src="https://user-images.githubusercontent.com/70976690/105028486-60558400-5a51-11eb-93fd-54e56abdfc2f.png"> <img width="354" alt="Screenshot 2021-01-19 at 12 23 20" src="https://user-images.githubusercontent.com/70976690/105028528-6e0b0980-5a51-11eb-8df2-df56c817dab1.png">
+<img width="355" alt="Screenshot 2021-02-01 at 15 34 52" src="https://user-images.githubusercontent.com/70976690/106473151-bd1a5b00-64a3-11eb-9ee6-43b8c622015f.png">
+<img width="354" alt="Screenshot 2021-02-01 at 15 38 02" src="https://user-images.githubusercontent.com/70976690/106473217-d15e5800-64a3-11eb-8795-a2b1e7acecb4.png">
+<img width="356" alt="Screenshot 2021-02-01 at 15 39 19" src="https://user-images.githubusercontent.com/70976690/106473243-dae7c000-64a3-11eb-88d4-de2141c82b54.png">
+<img width="354" alt="Screenshot 2021-02-01 at 15 38 34" src="https://user-images.githubusercontent.com/70976690/106473255-df13dd80-64a3-11eb-8812-487bd311c172.png">
+<img width="353" alt="Screenshot 2021-02-01 at 15 39 44" src="https://user-images.githubusercontent.com/70976690/106473285-e89d4580-64a3-11eb-8de1-d09a6b09a2f4.png">
 
 ### Project Status
 
@@ -56,4 +59,3 @@ The technologies implemented in this project include Express, Node, React, Redux
 * Kwame - Web Development *
 * Sam - Data Science
 * Usman - Web Development *
-* Viktoria Repich - UX/UI Design *
