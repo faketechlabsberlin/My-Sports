@@ -36,7 +36,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnified
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, "my_sports_front", "build")))
 app.use(cors()); //express middlewares
 
 const secret = process.env.SECRET || 'temporarysecret'
@@ -110,7 +110,7 @@ io.on('connection', (socket) => { //testing socket usage
 });
 
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/my_sports_front/public/index.html'));
+    res.sendFile(path.join(__dirname+'/my_sports_front/build/index.html'));
 });
    
 server.listen(port, () => {
