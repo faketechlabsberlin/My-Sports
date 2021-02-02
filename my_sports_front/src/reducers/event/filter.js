@@ -8,7 +8,7 @@ const filtersReducerDefaultState = {
     location: [],
     minSize: 2,
     maxSize: 20,
-    minSkill: 1,
+    minSkill: 0,
     maxSkill: 5
   }
 

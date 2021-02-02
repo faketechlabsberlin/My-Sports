@@ -46,7 +46,7 @@ const SizeAndSkillFilterSelector = ({ filters, filterByMinSize, filterByMaxSize,
     }
 
     const minusMinSkill = () => {
-        if (filters.minSkill > 1) {
+        if (filters.minSkill > 0) {
             filterByMinSkill(filters.minSkill -1)
         }
     }
