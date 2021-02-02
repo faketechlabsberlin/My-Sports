@@ -24,7 +24,7 @@ const Message = require('./models/Message');//Message database model
 const routes = require('./routes/index');//API routes
 
 
-const dbUrl = 'mongodb://localhost:27017/mysports' //|| process.env.DB_URL ; //db connection on local host first
+const dbUrl =  process.env.DB_URL || 'mongodb://localhost:27017/mysports' //db connection on local host first
 
 mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => {

@@ -52,10 +52,9 @@ The technologies implemented in this project include Express, Node, React, Redux
 ### Contributors
 
 * Alex NeuSchafer - UX/UI Design
-* Ashneil Sakhrani - Web Development
+* Ashneil Sakhrani - Web Development / Project Lead
 * Barney Riley - UX/UI Design
 * Catia Goncalves - Web Development
 * Jan-Henrik Pot - Data Science
 * Kwame - Web Development *
 * Sam - Data Science
-* Usman - Web Development *

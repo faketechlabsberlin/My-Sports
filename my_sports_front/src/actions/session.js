@@ -37,5 +37,4 @@ export const logout = () => async dispatch => {
   if (response) {
     return dispatch(logoutCurrentUser());
   }
-  //return dispatch(receiveErrors(data));
 };
