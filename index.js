@@ -108,6 +108,10 @@ io.on('connection', (socket) => { //testing socket usage
     //     io.emit('message', msg)
     // })
 });
+
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/my_sports_front/public/index.html'));
+});
    
 server.listen(port, () => {
     console.log(`Server listening on ${port}`)
