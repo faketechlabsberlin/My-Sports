@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const EventChatPage = ({ session, message, getMessagesFunc, saveMessage, clearMessages, id, event, myInfo }) => {
 
-  const socket = io('http://localhost:5000');
+  const socket = io();
 
   const scrollFunction = () => {
     const element = document.getElementById("messages");
