@@ -6,13 +6,16 @@ import moment from 'moment';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
+import { receiveSuccess } from '../actions/success';
+import SuccessPage from '../components/SuccessPage';
 
-const mapStateToProps = ({ session, event }) => ({
+const mapStateToProps = ({ session, event, success }) => ({
     session,
-    event
+    event,
+    success
 });
 
-const EditEventPage = ({ session, history, match }) => {
+const EditEventPage = ({ session, history, match, success }) => {
     const { id } = match.params
     const event = useSelector(state =>
         state.event.find(event => event._id === id)
@@ -129,9 +132,12 @@ const EditEventPage = ({ session, history, match }) => {
         })
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
-            history.push('/dashboard')
+            receiveSuccess('Your Event was succesfully edited')
         }
+    }
+
+    if (success) {
+        return <SuccessPage success={success} />
     }
 
     return (
@@ -211,18 +217,21 @@ const EditEventPage = ({ session, history, match }) => {
                 }}>
                     <form onSubmit={acceptDate}>
                         <p className="text-muted event-date-header">Date & time</p>
-                        <div className="create-event-date-selector row justify-content-center">
-                            <DatePicker
-                                id="date-create-event"
-                                name="date"
-                                utcOffset={0}
-                                placeholderText="Select a date"
-                                selected={startDate}
-                                minDate={startDate}
-                                onChange={date => setStartDate(date)}
-                                dateFormat="MMMM d, yyyy"
-                                shouldCloseOnSelect={true}
-                            />
+                        <div className="row justify-content-center">
+                            <div className="col date-create-event">
+                                <DatePicker
+                                    id="date-create-event"
+                                    name="date"
+                                    utcOffset={0}
+                                    placeholderText="Select a date"
+                                    selected={startDate}
+                                    minDate={startDate}
+                                    onChange={date => setStartDate(date)}
+                                    dateFormat="MMMM d, yyyy"
+                                    shouldCloseOnSelect={true}
+                                    inline
+                                />
+                            </div>
                         </div>
                         <div className="row justify-content-center">
                             <select className="col-9 col-md-6" defaultValue={event.time} id="time-create-event" name="time">

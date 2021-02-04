@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import { createEvent } from '../actions/event';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import "../../node_modules/react-datepicker/dist/react-datepicker.css";
@@ -14,16 +13,19 @@ import volleyball from '../images/sport-images/volleyball.png';
 import yoga from '../images/sport-images/yoga.png';
 import { motion } from 'framer-motion'; 
 import { Link } from 'react-router-dom';
+import { receiveSuccess } from '../actions/success';
+import SuccessPage from '../components/SuccessPage';
 
-const mapStateToProps = ({ session }) => ({
-    session
+const mapStateToProps = ({ session, success }) => ({
+    session,
+    success
 });
 
 const mapDispatchToProps = dispatch => ({
-    createEvent: payload => dispatch(createEvent(payload))
+    receiveSuccess: (payload) => dispatch(receiveSuccess(payload))
 });
 
-const CreateEventPage = ({ session, createEvent, history }) => {
+const CreateEventPage = ({ session, receiveSuccess, success }) => {
     const submitEvent = async (e) => {
         e.preventDefault();
         const event = {
@@ -46,8 +48,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
         })
         const data = await response.json();
         if (response.ok) {
-            createEvent(data)
-            history.push('/dashboard')
+            receiveSuccess('Your Event was succesfully created')
         }
     }
 
@@ -77,6 +78,7 @@ const CreateEventPage = ({ session, createEvent, history }) => {
     const [location, setLocation] = useState('');
     const [court, setCourt] = useState('');
     const [time, setTime] = useState('');
+    //const [summaryToggle, setSummaryToggle] = useState(false);
 
     const addSize = () => {
         if (size < 20) {
@@ -197,6 +199,10 @@ const CreateEventPage = ({ session, createEvent, history }) => {
     const summaryToLocation = () => {
         setIsSummaryVisible(false)
         setIsLocationVisible(true);
+    }
+
+    if (success) {
+        return <SuccessPage success={success} />
     }
 
     return (
@@ -347,18 +353,21 @@ const CreateEventPage = ({ session, createEvent, history }) => {
                     }}>
                         <form onSubmit={acceptDate}>
                             <p className="text-muted event-date-header">Date & time</p>
-                            <div className="create-event-date-selector row justify-content-center">
-                                <DatePicker
-                                    id="date-create-event"
-                                    name="date"
-                                    utcOffset={0}
-                                    placeholderText="Select a date"
-                                    selected={startDate}
-                                    minDate={startDate}
-                                    onChange={date => setStartDate(date)}
-                                    dateFormat="MMMM d, yyyy"
-                                    shouldCloseOnSelect={true}
-                                />
+                            <div className="row justify-content-center">
+                                <div className="col date-create-event">
+                                    <DatePicker
+                                        id="date-create-event"
+                                        name="date"
+                                        utcOffset={0}
+                                        placeholderText="Select a date"
+                                        selected={startDate}
+                                        minDate={startDate}
+                                        onChange={date => setStartDate(date)}
+                                        dateFormat="MMMM d, yyyy"
+                                        shouldCloseOnSelect={true}
+                                        inline
+                                    />
+                                </div>
                             </div>
                             <div className="row justify-content-center">
                                 <select className="col-9 col-md-6" defaultValue={time} id="time-create-event" name="time">

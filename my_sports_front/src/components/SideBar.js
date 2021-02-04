@@ -40,9 +40,9 @@ const SideBar = ({ session, logout, filterByName }) => {
                 </div>
                 <div className="side-bar-content-menu">
                     <Link to="/create-event" id="side-bar-create-event" className="menu-item">+ Create Event</Link>
-                    <Link to="/find-event" className="menu-item">Find events</Link>
-                    <Link to="/dashboard" className="menu-item">Upcoming</Link>
-                    <Link to={"/profile/" + session.userId} className="menu-item">Played</Link>
+                    <Link to="/find-event" className="menu-item">Find Events</Link>
+                    <Link to="/dashboard" className="menu-item">Upcoming Events</Link>
+                    <Link to={"/profile/" + session.userId} className="menu-item">Played Events</Link>
                 </div>
                 <Link onClick={logout} className="menu-item pt-3">Logout</Link>
             </Menu>

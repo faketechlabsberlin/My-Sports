@@ -8,6 +8,7 @@ import { sendChanges } from '../util/user';
 import { clearSuccess } from '../actions/success';
 import SuccessPage from '../components/SuccessPage';
 import ErrorPage from '../components/ErrorPage';
+import LoadingPage from '../components/LoadingPage';
 
 const mapDispatchToProps = dispatch => ({
     receiveErrors: (payload) => dispatch(receiveErrors(payload)),
@@ -75,7 +76,7 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, c
         input.classList.add('error-border')
     }
 
-    if (errors || !isUser) {
+    if (errors) {
         return <ErrorPage errors={errors} />
     }
 
@@ -97,8 +98,8 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, c
                             <form className="row justify-content-center" onSubmit={editUser}>
                                     <div id="username-div-profile-edit" className="row justify-content-start registration-inputs">
                                         <i className="material-icons md-24 grey-icon">account_circle</i>
-                                        <input className="registration-username" type="text" defaultValue={userInfo.username} id="username" name="username" placeholder="Username" pattern="[A-Za-z0-9]+" data-tip="Only letters and numbers may be used." required />
-                                        <ReactTooltip place="top" type="light" effect="solid" border={true} borderColor="black"/>
+                                        <input className="registration-username" type="text" defaultValue={userInfo.username} id="username" name="username" placeholder="Username" pattern="[A-Za-z0-9]+" data-for="edit-user-tip" data-tip="Only letters and numbers may be used." required />
+                                        <ReactTooltip id="edit-user-tip" place="top" type="light" effect="solid" border={true} borderColor="black"/>
                                     </div>
                                     {errors && <p className="error-text">The username or email might already be taken. Please try again.</p> }
                                     <div id="email-div-profile-edit" className="row justify-content-center registration-inputs">
@@ -150,7 +151,7 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, c
 
     return (
         <div>
-            <p>Loading...</p>
+            <LoadingPage />
         </div>
     )
 }

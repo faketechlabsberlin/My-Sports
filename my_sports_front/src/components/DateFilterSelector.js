@@ -18,7 +18,7 @@ const DateFilterSelector = ({ filterByDate, filters }) => {
 
     const filterDate = (date) => {
         setStartDate(date)
-        filterByDate(date);
+        filterByDate(moment(date).format('YYYY-MM-DD'));
     }
 
     const removeDateFilter = () => {

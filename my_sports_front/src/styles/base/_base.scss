@@ -1,3 +1,8 @@
+button {
+    -webkit-appearance: none;
+    border-radius: 0;
+    }
+
 body {
     font-family: 'Alef', sans-serif;
 }
@@ -12,6 +17,10 @@ i {
 
 input:focus {
     outline: none;
+}
+
+.loading-container {
+    height: 100vh;
 }
 
 .md-18 {

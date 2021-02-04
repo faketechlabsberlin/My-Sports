@@ -65,8 +65,8 @@ const PasswordResetPage = ({ match, getUsername, toggleCodeOk, resetPassword, up
                         <div className="row justify-content-center"> 
                             <div className="forgot-password-email-div mb-4 row justify-content-between">
                                 <i className="material-icons md-24 p-0">lock_outline</i>
-                                <input type="password" id="password" name="password" placeholder="Password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" data-tip="Passwords must be between 8 and 12 characters long. They must containt atleast 1 letter and 1 number." required />
-                                <ReactTooltip place="top" type="light" effect="solid" border={true} borderColor="black"/>
+                                <input type="password" id="password" name="password" placeholder="Password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" data-for="reset-pass-tip" data-tip="Passwords must be between 8 and 12 characters long. They must containt atleast 1 letter and 1 number." required />
+                                <ReactTooltip id="reset-pass-tip" place="top" type="light" effect="solid" border={true} borderColor="black"/>
                                 <i id="eye" className="material-icons md-24" onClick={showPassword}>visibility</i>
                             </div>
                         </div>

@@ -24,9 +24,9 @@ const DesktopSideBar = ({ session, logout}) => {
             <div className="desktop-side-bar-content-menu">
                 <div className="hover-effect"><Link to={"/profile/" + session.userId} className="menu-item">View Profile</Link></div>
                 <div className="hover-effect"><Link to="/create-event" id="desktop-side-bar-create-event" className="menu-item">+ Create Event</Link></div>
-                <div className="hover-effect"><Link to="/find-event" className="menu-item">Find events</Link></div>
-                <div className="hover-effect"><Link to="/dashboard" className="menu-item">Upcoming</Link></div>
-                <div className="hover-effect"><Link to={"/profile/" + session.userId} className="menu-item">Played</Link></div>
+                <div className="hover-effect"><Link to="/find-event" className="menu-item">Find Events</Link></div>
+                <div className="hover-effect"><Link to="/dashboard" className="menu-item">Upcoming Events</Link></div>
+                <div className="hover-effect"><Link to={"/profile/" + session.userId} className="menu-item">Played Events</Link></div>
             </div>
             <div className="hover-effect"><Link onClick={logout} className="menu-item">Logout</Link></div>   
         </div>

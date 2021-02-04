@@ -57,7 +57,8 @@ section {
 
 #messages { 
     list-style-type: none; 
-    margin: 0; 
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding: 0; 
     height: 400px;
     background: #eee; 
@@ -70,4 +71,19 @@ section {
 
 #messages li { 
     padding: 5px 10px; 
+}
+
+
+.user-chat-color {
+    color: #FF4D76;
+}
+
+.other-chat-color {
+    color: #00A8FF;
+}
+
+@media (min-width: 750px) {
+    #messages{
+        width: 30vw;
+    }
 }
