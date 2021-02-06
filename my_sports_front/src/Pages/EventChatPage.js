@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const EventChatPage = ({ session, message, getMessagesFunc, saveMessage, clearMessages, id, event, myInfo }) => {
 
-  const socket = io('http://localhost:5000');
+  const socket = io();
 
   const scrollFunction = () => {
     const element = document.getElementById("messages");
@@ -62,6 +62,8 @@ const EventChatPage = ({ session, message, getMessagesFunc, saveMessage, clearMe
     e.target.chatMessage.value = '';
   }
 
+  const iconEntity = <React.Fragment>&#9673;</React.Fragment>
+
   return (
       <div className="form-box-white">
         <div className="card" style={{width: 100 + '%'}}>
@@ -71,7 +73,7 @@ const EventChatPage = ({ session, message, getMessagesFunc, saveMessage, clearMe
           <section>
               <ul id="messages">
                 {message && message.map((m) => {
-                  return <li key={m._id}><b>{m.user.username}: </b>{m.message}</li>
+                  return <li key={m._id}>{myInfo.username === m.user.username ? <b className="user-chat-color">{iconEntity}{m.user.username}: </b>: <b className="other-chat-color">{iconEntity}{m.user.username}:</b>} {m.message}</li>
                 })}
               </ul>
           </section>

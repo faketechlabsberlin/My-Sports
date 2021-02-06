@@ -22,7 +22,7 @@ eventRouter.get('', async (req, res) => {
   try {
     let cutoff = new Date();
     cutoff.setDate(cutoff.getDate()-1);
-    const allEvents = await Event.find({ date: { $gte: cutoff } }).populate('teammates');
+    const allEvents = await Event.find({ date: { $gte: cutoff } }).populate('teammates').sort('date');
     res.send(allEvents);
   } catch (err) {
     res.status(422).send(err)

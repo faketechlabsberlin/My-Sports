@@ -5,7 +5,8 @@ import { getUserInfo } from '../util/user';
 import StarRatings from 'react-star-ratings';
 import { connect } from "react-redux";
 import { clearErrors, receiveErrors } from '../actions/error';
-import DesktopSideBar from '../components/DesktopSideBar'
+import DesktopSideBar from '../components/DesktopSideBar';
+import LoadingPage from '../components/LoadingPage.js';
 
 const mapDispatchToProps = dispatch => ({
     receiveErrors: (payload) => dispatch(receiveErrors(payload)),
@@ -90,7 +91,7 @@ const ProfilePage = ({ match, session, clearErrors, receiveErrors, errors }) => 
     if (userInfo.username) {
         return (
             <div>
-                <Header title='YOUR PROFILE' />
+                <Header title='PROFILE' />
                 <div className="silver-background container-fluid row m-0 p-0">
                     <div className="desktop-sidebar col-3"><DesktopSideBar /></div>
                         <div className="desktop-small-container">
@@ -99,12 +100,12 @@ const ProfilePage = ({ match, session, clearErrors, receiveErrors, errors }) => 
                                 <div>.</div>
                                 <h3 className="initial-identifier-profile mx-auto">{userInfo.username[0].toUpperCase()}</h3>
                                 <h3 className="username-profile pb-4">{userInfo.username.toUpperCase()}</h3>
-                                <div className="row justify-content-between user-info-section pt-4 ml-4 mr-4">
-                                    <div className="col">
+                                <div className="row justify-content-between user-info-section pt-4">
+                                    <div className="col ml-4">
                                         <p className="profile-query">Age:</p>
                                         <p className="blue-icon">{age || <span>N/A</span>}</p> 
                                     </div>
-                                    <div className="col row justify-content-end">
+                                    <div className="col row justify-content-end mr-4">
                                         <p className="profile-favsports-title">My Top Sports</p>
                                         <img className="favsport" src={`../images/sport-images/${firstSport}.png`} />
                                         <StarRatings
@@ -164,7 +165,7 @@ const ProfilePage = ({ match, session, clearErrors, receiveErrors, errors }) => 
 
     return (
         <div>
-            <p>Loading...</p>
+            <LoadingPage />
         </div>
     )
 }

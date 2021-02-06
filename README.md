@@ -2,7 +2,7 @@
 
 MySports is the final group project which was created in order to complete the Berlin TechLabs Bootcamp. The team disciplines included UX/UI design, Web Development, and Data Science. All disciplines were put into practice to develop MySports. MySports is an event creation platform specifically aimed to match users into teams for various sports. Users are matched based on search criteria and filters and then are able to communicate in an integrated event chatroom to discuss details. A deployed version can be found here:
 
--- Yet To Be Deployed --
+https://blooming-ridge-65166.herokuapp.com/login
 
 ### Screenshots
 <img width="355" alt="Screenshot 2021-02-01 at 15 34 52" src="https://user-images.githubusercontent.com/70976690/106473151-bd1a5b00-64a3-11eb-9ee6-43b8c622015f.png">
@@ -52,10 +52,9 @@ The technologies implemented in this project include Express, Node, React, Redux
 ### Contributors
 
 * Alex NeuSchafer - UX/UI Design
-* Ashneil Sakhrani - Web Development
+* Ashneil Sakhrani - Web Development / Project Lead
 * Barney Riley - UX/UI Design
 * Catia Goncalves - Web Development
 * Jan-Henrik Pot - Data Science
 * Kwame - Web Development *
 * Sam - Data Science
-* Usman - Web Development *

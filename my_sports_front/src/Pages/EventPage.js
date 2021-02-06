@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-const EventPage = ({ session, match, history, success, receiveSuccess }) => {
+const EventPage = ({ session, match, success, receiveSuccess }) => {
   const { id } = match.params
   const event = useSelector(state =>
     state.event.find(event => event._id === id)
@@ -91,9 +91,8 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
     })
     const info = await response.json();
     if (response.ok) {
-        console.log(info)
+      receiveSuccess('You have succesfully deleted the event.')
     }
-    history.push('/dashboard');
   }
 
   // const removePlayer = async (teammateId) => {
@@ -161,12 +160,12 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
                             </div>
                         </div>
                           <p className="card-text text-muted player-count-text">Players: <span className="error-text">{event.teammates.length}/{event.size}</span></p>
-                          <div className="row row-cols-5 justify-content-space-between">
+                          {isMember && <div className="row row-cols-5 justify-content-space-between">
                           {event.teammates && event.teammates.map((user, index) => {
-                            return <div className="col" key={user._id} ><h6 className={"teammate-icon teammate-icon-color-" + index}>{user.username[0].toUpperCase()}</h6></div>
+                            return <div className="col" key={user._id} ><h6 className={"teammate-icon teammate-icon-color-" + index}><Link to={'/profile/' + user._id}>{user.username[0].toUpperCase()}</Link></h6></div>
                           })}
                           {[...Array(emptySpots)].map((e, i) => <div className="col" key={i}><h6 className="teammate-icon teammate-icon-color-grey"></h6></div>)}
-                          </div>
+                          </div>}
                           <div className="below-player-border"></div>
                           <p className="card-text text-muted player-skill-text">Average Player Skill Level:</p>
                           <StarRatings
@@ -197,11 +196,13 @@ const EventPage = ({ session, match, history, success, receiveSuccess }) => {
                                     {isMember && !isHost && <div className="row justify-content-center"><button className="leave-event-button" onClick={leaveEvent}>Leave Event ?</button></div>}
                                     {isHost && <div><div className="row justify-content-center"><button className="edit-event-button"><Link className="edit-event-link" to={"/event/" + event._id + "/edit"}>Edit Event</Link></button></div><div className="row justify-content-center"><button className="delete-event-button" onClick={() => setIsAreYouSureVisible(true)}>Delete Event</button></div></div>}
                                       {isAreYouSureVisible ? (
-                                          <MySportsModal onClose={() => setIsAreYouSureVisible(false)}>
-                                              <h3>Delete Event ?</h3>
+                                          <MySportsModal isTermsVisible={isAreYouSureVisible} onClose={() => setIsAreYouSureVisible(false)}>
+                                              <h3 className="text-center">Delete Event</h3>
                                               <p className="text-center">Are you sure you want to delete this event?</p>
-                                              <button className="are-you-sure-button" onClick={deleteEvent}>Yes</button>
-                                              <button className="are-you-not-sure-button" onClick={() => setIsAreYouSureVisible(false)}>No</button>
+                                              <div className="row justify-content-center mt-5">
+                                                <button className="are-you-sure-button col" onClick={deleteEvent}>Yes</button>
+                                                <button className="are-you-not-sure-button col" onClick={() => setIsAreYouSureVisible(false)}>No</button>
+                                              </div>
                                           </MySportsModal>
                                       ) : null}
                                     {!isMember && <div className="row justify-content-center"><button className="join-event-button" onClick={joinEvent}>Join Event !</button></div>}

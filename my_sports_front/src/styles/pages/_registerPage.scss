@@ -37,6 +37,16 @@
     width: 102%;
 }
 
+#reg-user-tip {
+    width: 40%;
+    text-align: center;
+}
+
+#reg-pass-tip {
+    width: 60%;
+    text-align: center;
+}
+
 @media (min-width: 750px) {
     .registration-username {
         padding-left: 4rem;

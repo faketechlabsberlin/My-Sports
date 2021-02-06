@@ -38,7 +38,7 @@ const DesktopFilterBar = ({ filterByName, resetFilters }) => {
                     <LocationFilterSelector />
                     <SizeAndSkillFilterSelector />
                 </div>
-                <p className="text-center"><button className="remove-all-filters-button" onClick={resetFilters}>Remove All Filters</button></p>
+                <p className="text-center text-muted mt-5 mx-2">Please use the tabs above to select and deselect filters</p>
             </div>
         </div>
     )

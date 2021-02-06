@@ -7,6 +7,7 @@ import { resetFilters } from '../actions/filter';
 import DesktopSideBar from '../components/DesktopSideBar';
 import DesktopFilterBar from '../components/DesktopFilterBar';
 import FilterInformationBar from '../components/FilterInformationBar';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = ({ event, filters, session }) => ({
     event,
@@ -36,6 +37,10 @@ const FindEventPage = ({ event, session, filters, resetFilters }) => {
                 <div className="col-1 mobile-hide"></div>
                 <div className="desktop-card-container col">
                     <div>
+                        {allOtherEvents.length === 0 && <div className="dashboard-welcome">
+                            <p>There seem to be no events you can join. Why not try creating your own?</p>
+                            <p><Link className="dashboard-find-event-button" to="/create-event">Create Event</Link></p>
+                        </div>}
                         <div className="registration-top-space"></div>
                             {allOtherEvents.map((otherEvents) => {
                                 return <EventCard event={otherEvents} />

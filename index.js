@@ -24,7 +24,7 @@ const Message = require('./models/Message');//Message database model
 const routes = require('./routes/index');//API routes
 
 
-const dbUrl = 'mongodb://localhost:27017/mysports' //|| process.env.DB_URL ; //db connection on local host first
+const dbUrl =  process.env.DB_URL || 'mongodb://localhost:27017/mysports' //db connection on local host first
 
 mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => {
@@ -36,7 +36,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useCreateIndex: true, useUnified
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, "my_sports_front", "build")))
 app.use(cors()); //express middlewares
 
 const secret = process.env.SECRET || 'temporarysecret'
@@ -107,6 +107,10 @@ io.on('connection', (socket) => { //testing socket usage
     // socket.on('chatMessage', (msg) => {
     //     io.emit('message', msg)
     // })
+});
+
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/my_sports_front/build/index.html'));
 });
    
 server.listen(port, () => {

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const User = require('../models/User');
 const helper = require('../utils/helpers');
 const crypto = require('crypto');
@@ -24,10 +25,10 @@ module.exports.newUser = async(req, res, next) => {
                 const secretCode = await secret.save();
                 const transport = nodemailer.createTransport(
                     nodemailerSendgrid({
-                        apiKey: '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' //hide this soon
+                        apiKey: process.env.SENDGRID_API_KEY //hide this soon
                     })
                 );
-                const mailOptions = { from: 'arsakhrani@gmail.com', to: registeredUser.email, subject: 'My Sports Account Verification', html: 'Hello,\n\n' + 'Thank you for joining My Sports! We are glad to have you on board. Please verify your account by clicking the following link: \nhttp:\/\/localhost:5000\/api\/users\/confirmation\/' + secretCode.code + '\n' };
+                const mailOptions = { from: process.env.EMAIL, to: registeredUser.email, subject: 'My Sports Account Verification', html: 'Hello,\n\n' + 'Thank you for joining My Sports! We are glad to have you on board. Please verify your account by clicking the following link: \nhttp:\/\/localhost:5000\/api\/users\/confirmation\/' + secretCode.code + '\n' };
                 transport.sendMail(mailOptions, function (err) {
                     if (err) { console.log('Error occured: ', err) } //account will be active with or without verification for now, no need for erro rhandlng here.
                 });
@@ -65,10 +66,10 @@ module.exports.sendForgotPasswordCode = async(req, res, next) => {
             const secretCode = await secret.save();
             const transport = nodemailer.createTransport(
                 nodemailerSendgrid({
-                    apiKey: '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'
+                    apiKey: process.env.SENDGRID_API_KEY
                 })
             );
-            const mailOptions = { from: 'arsakhrani@gmail.com', to: user.email, subject: 'My Sports Account Password Reset', html: 'Hello,\n\n' + 'You are recieving this because you (or someone else) has requuested a password reset. If you have not done so, please ignore this email. If you have requested a password reset, please click on the following link: \nhttp:\/\/localhost:3000\/passwordreset\/' + secretCode.code + '\n' };
+            const mailOptions = { from: process.env.EMAIL, to: user.email, subject: 'My Sports Account Password Reset', html: 'Hello,\n\n' + 'You are recieving this because you (or someone else) has requuested a password reset. If you have not done so, please ignore this email. If you have requested a password reset, please click on the following link: \nhttp:\/\/localhost:3000\/passwordreset\/' + secretCode.code + '\n' };
             transport.sendMail(mailOptions, function (err) {
                 if (err) { console.log('Error occured: ', err) }
             });

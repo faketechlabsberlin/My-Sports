@@ -36,7 +36,7 @@ const RegisterPage = ({ errors, signup, clearErrors }) => {
             email: e.target.email.value,
             password: e.target.password.value,
             name: e.target.name.value,
-            dob: moment.parseZone(e.target.dob.value),
+            dob: moment.parseZone(e.target.dob.value, "DD-MM-YYYY"),
             lastName: e.target.lastName.value
         }
         signup(user);
@@ -76,8 +76,8 @@ const RegisterPage = ({ errors, signup, clearErrors }) => {
                     <form className="row justify-content-center" onSubmit={registerUser}>  
                         <div id="username-div" className="row justify-content-start registration-inputs">
                             <i className="material-icons md-24 grey-icon">account_circle</i>
-                            <input className="registration-username" type="text" id="username" name="username" placeholder="Username" pattern="[A-Za-z0-9]+" data-tip="Only letters and numbers may be used." required />
-                            <ReactTooltip place="top" type="light" effect="solid" border={true} borderColor="black"/>
+                            <input className="registration-username" type="text" id="username" name="username" placeholder="Username" pattern="[A-Za-z0-9]+" data-for="reg-user-tip" data-tip="Only letters and numbers may be used." required />
+                            <ReactTooltip id="reg-user-tip" place="top" type="light" effect="solid" border={true} borderColor="black"/>
                         </div>
                         {errors && errors === 'username taken' && <p className="error-text">This username is already taken. Try another one.</p>}
                         <div id="email-div" className="row justify-content-center registration-inputs">
@@ -86,8 +86,8 @@ const RegisterPage = ({ errors, signup, clearErrors }) => {
                         {errors && errors === 'email taken' && <p className="error-text">This email address is already registered. Try another one.</p>}
                         <div className="row justify-content-between registration-inputs">
                             <i className="material-icons md-24 grey-icon">lock_outline</i>
-                            <input type="password" id="password" name="password" placeholder="Password" minLength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,12}" data-tip="Passwords must be between 8 and 12 characters long. They must containt atleast 1 letter and 1 number." required />
-                            <ReactTooltip place="top" type="light" effect="solid" border={true} borderColor="black"/>
+                            <input type="password" id="password" name="password" placeholder="Password" minLength="8" maxLength="18" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,18}" data-for="reg-pass-tip" data-tip="Passwords must be between 8 and 12 characters long. They must containt atleast 1 letter and 1 number." required />
+                            <ReactTooltip id="reg-pass-tip" place="top" type="light" effect="solid" border={true} borderColor="black"/>
                             <i id="eye" className="material-icons md-24 grey-icon" onClick={showPassword}>visibility</i>
                         </div>
                         <div className="row justify-content-center registration-inputs">

@@ -15,12 +15,12 @@ import running from '../images/sport-images/running.png';
 import volleyball from '../images/sport-images/volleyball.png';
 import yoga from '../images/sport-images/yoga.png';
 import { updateRatings } from '../util/user';
-import Modal from "../components/MySportsModal";
 import GeneralSportsGuidance from '../components/GeneralSportsGuidance';
 import MySportsModal from "../components/MySportsModal";
 import BoulderingGuidance from '../components/BoulderingGuidance';
 import YogaGuidance from '../components/YogaGuidance';
 import RunningGuidance from '../components/RunningGuidance';
+import LoadingPage from '../components/LoadingPage';
 
 
 
@@ -146,7 +146,7 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
       isUser = true;
     }
 
-    if (errors || !isUser) {
+    if (errors) {
         return <ErrorPage errors={errors} />
     }
 
@@ -335,7 +335,7 @@ const EditProfilePage = ({ match, receiveErrors, clearErrors, session, errors, r
 
     return (
         <div>
-            <p>Loading...</p>
+            <LoadingPage />
         </div>
     )
 }

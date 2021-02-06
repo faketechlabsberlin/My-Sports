@@ -4,7 +4,8 @@
   "description": "Match and connect to find teammates",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "heroku-postbuild": "cd my_sports_front && npm install --only=dev && npm install && npm run build"
   },
   "author": "Techlabs my_sports team",
   "license": "ISC",

@@ -14,7 +14,7 @@ export default combineReducers({
   success,
   event,
   filters,
-  socket, //might not need
+  socket, //def do not need
   message,
   resetPassword
 });

@@ -84,16 +84,11 @@
     border-bottom: 3.5px solid #6FCF97;
 }
 
-#date-create-event {
-    margin-top: 3em;
-    margin-bottom: 5em;
-    border-bottom: 2px solid $silver;
-    width: 50%;
-}
-
-.create-event-date-selector .react-datepicker__input-container {
-    display: flex;
-    justify-content: center;
+.date-create-event {
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 3em;
+    margin-top: 2em;
 }
 
 #time-create-event {

@@ -53,7 +53,7 @@ const DashboardPage = ({ session, filters, event, getEvents, resetFilters, clear
         <div className="dashboard-welcome">
           <p>Welcome {session.username}! </p>
           <p>You can now join a match, create an event or update your preferences. {hasEvents? <span>Have a look at your upcoming matches.</span>: <span>You don't seem to be a part of any upcoming matches</span>}</p>
-          {!hasEvents && <p><Link className="dashboard-find-event-button" to="/find-events">Find Events</Link></p>}
+          {!hasEvents && <p><Link className="dashboard-find-event-button" to="/find-event">Find Events</Link></p>}
         </div>
         <div>
           <div className="registration-top-space"></div>
