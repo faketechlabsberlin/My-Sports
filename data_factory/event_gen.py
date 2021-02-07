@@ -17,9 +17,9 @@ x = int(input('how many should we generate ?'))
 hosts = []
 hostnames = []
 while i1 < x:
-    g = rd.randint(0,ucount)
+    g = rd.randint(0, ucount)
     hosts.append(g)
-    hostnames.append(userlist.iat[g,2])
+    hostnames.append(userlist.iat[g, 2])
     i1 += 1
 print(hosts)
 print(hostnames)
@@ -27,7 +27,7 @@ print(hostnames)
 #sport: type: String,
 sports=[]
 while i2 < x:
-    sp = rd.randint(0,4)
+    sp = rd.randint(0, 4)
     sports.append(sport_list[sp])
     i2 += 1
 print(sports)
@@ -38,7 +38,7 @@ print(sports)
 size=[]
 while i3 < x:
     if sports[i3] == 'football' or 'rugby' or 'basket' or 'volleyball' or "yoga" or "baseball":
-        sz = rd.randint(8,22)
+        sz = rd.randint(8, 22)
     else:
         sz = rd.randint(2, 6)
     size.append(sz)
@@ -57,7 +57,7 @@ def create_random_datetime(from_date, to_date, rand_type='uniform'):
     return from_date + rand * delta
 
 while i6 < x:
-    dtime = create_random_datetime(datetime(2021,1,1), datetime(2021,2,25))
+    dtime = create_random_datetime(datetime(2021, 1, 1), datetime(2021, 2, 25))
     datetimeraw.append(dtime)
     i6 += 1
 print(datetimeraw)
@@ -73,7 +73,7 @@ print(date_list)
 # location: {
 location = []
 while i4 < x:
-    location.append(userlist.iat[i4,7])
+    location.append(userlist.iat[i4, 7])
     i4 += 1
 print(location)
 
@@ -83,7 +83,7 @@ def playerlist(pl):
     sgame = []
     sco = 0
     while sco < size[pl]:
-        player= rd.randint(0,ucount)
+        player = rd.randint(0, ucount)
         if sgame.count(player) == 1:
             continue
         sgame.append(player)
@@ -104,9 +104,9 @@ print(team_lists)
 
 #Unify all list in the DataFrame
 
-df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport':sports, 'size':size, 'date':date_list, 'teamate':team_lists,
+df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport':sports, 'size':size, 'date':date_list, 'teammate':team_lists,
                    'location':location},
-                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teamate', 'location'])
+                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location'])
 print(df.head(5))
 print(df.describe)
 
