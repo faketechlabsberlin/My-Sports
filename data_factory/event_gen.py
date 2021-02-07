@@ -1,15 +1,17 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
 from datetime import datetime
 import random as rd
 import pandas as pd
 
 userlist = pd.read_csv('generated_userbase.csv')
-sport_list = ['football', 'yoga', 'volley', 'basketball', 'rugby']
+sport_list = ['football', 'yoga', 'volleyball', 'basketball', 'rugby', "baseball"]
 ucount = len(userlist.index)
 i1, i2, i3, i4, i5, i6, i7, i8 = 0, 0, 0, 0, 0, 0, 0, 0
 
 print(str(ucount) + ' users available to generate events')
 
-x = int(input('how many even should we generate ?'))
+x = int(input('how many should we generate ?'))
 
 # host: type: String,
 hosts = []
@@ -35,7 +37,7 @@ print(sports)
 # size: type: Number,
 size=[]
 while i3 < x:
-    if sports[i3] == 'football' or 'rugby' or 'basket' or 'volleyball':
+    if sports[i3] == 'football' or 'rugby' or 'basket' or 'volleyball' or "yoga" or "baseball":
         sz = rd.randint(8,22)
     else:
         sz = rd.randint(2, 6)
