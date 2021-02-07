@@ -130,8 +130,12 @@ print(skills_football)
 
 df = pd.DataFrame(
     {'mail': mail, 'username': username, 'password': password, 'name': names_list, 'dob': dob, 'gender': genders,
-     'location': location, 'lastName': lastName, 'heights': heights, 'weights': weights},
-    columns=['mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights'])
+     'location': location, 'lastName': lastName, 'heights': heights, 'weights': weights, "skills_football": skills_football,
+     "skills_yoga": skills_yoga, "skills_basketball": skills_basketball, "skills_volleyball": skills_volleyball,
+     "skills_rugby": skills_rugby,"skills_baseball": skills_baseball},
+    columns={'mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights',
+             "skills_yoga", "skills_basketball", "skills_volleyball", "skills_rugby", "skills_baseball"})
+
 print(df.head(5))
 print(df.describe)
 
