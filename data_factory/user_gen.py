@@ -23,6 +23,8 @@ skills_football = []
 skills_baseball = []
 skills_yoga = []
 skills_basketball = []
+skills_volleyball = []
+skills_rugby = []
 
 # set number of users we want to generate
 x = int(input('Select a number of fake user you want to generate:'))
@@ -115,13 +117,14 @@ print(weights)
 
 # Generate a randomized skill level to each user for each sport
 while i9 < x:
-    skill_football.append(rd.random(0, 5))
-    skill_yoga.append(rd.random(0, 5))
-    skill_basketball.append(rd.random(0, 5))
-    skill_volleyball.append(rd.random(0, 5))
-    skill_rugby.append(rd.random(0, 5))
+    skills_football.append(rd.randint(0, 5))
+    skills_yoga.append(rd.randint(0, 5))
+    skills_basketball.append(rd.randint(0, 5))
+    skills_volleyball.append(rd.randint(0, 5))
+    skills_rugby.append(rd.randint(0, 5))
+    skills_baseball.append(rd.randint(0, 5))
     i9 += 1
-print(skill_football)
+print(skills_football)
 
 # Unify all list in the DataFrame
 
