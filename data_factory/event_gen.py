@@ -1,13 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
+from typing import Any
 from datetime import datetime
 import random as rd
 import pandas as pd
 
 userlist = pd.read_csv('generated_userbase.csv')
-sport_list = ['football', 'yoga', 'volleyball', 'basketball', 'rugby', "baseball"]
+sport_list = ['football', 'yoga', 'volleyball', 'basketball', "bouldering", "pingpong", "running"]
 ucount = len(userlist.index)
-i1, i2, i3, i4, i5, i6, i7, i8 = 0, 0, 0, 0, 0, 0, 0, 0
+i1, i2, i3, i4, i5, i6, i7, i8, i9, i10 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 print(str(ucount) + ' users available to generate events')
 
@@ -37,7 +38,7 @@ print(sports)
 # size: type: Number,
 size=[]
 while i3 < x:
-    if sports[i3] == 'football' or 'rugby' or 'basket' or 'volleyball' or "yoga" or "baseball":
+    if sports[i3] == 'football' or "yoga" or 'basketball' or 'volleyball' or "bouldering" or "pingpong" or "running":
         sz = rd.randint(8, 22)
     else:
         sz = rd.randint(2, 6)
@@ -70,6 +71,7 @@ while i7 < x:
     date_list.append(datetimeraw[i7].date)
     i7 += 1
 print(date_list)
+
 # location: {
 location = []
 while i4 < x:
@@ -96,16 +98,37 @@ while i5 < x:
 print(team_lists)
 
 # skill: {type: Number default},
-
+skill_avg = []
+while i9 < x:
+    if sports[i3] == 'football':
+        sk = team_lists[skill_football].mean()
+    skill_avg.append(sk)
+    i9 += 1
+print(skill_avg)
 
 # equipment : type: Boolean,
 # active :type: Boolean,
+# format of date/time strings; assuming dd/mm/yyyy
+# create datetime objects from the strings
+# event in past/future/occuring now
+active = []
+now = datetime.now()
+while i10 < x:
+    if date_list < now:
+        active.append("event in the past")
+    elif date_list > now:
+        active.append("event active")
+    else:
+        assert isinstance(active, object)
+    active.append("event currently happening")
+print(active)
+#maybe implement [morning, afternoon, evening, night]
 # about:
 
 #Unify all list in the DataFrame
 
-df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport':sports, 'size':size, 'date':date_list, 'teammate':team_lists,
-                   'location':location},
+df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport': sports, 'size': size, 'date': date_list,
+                   'teammate': team_lists, 'location': location},
                   columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location'])
 print(df.head(5))
 print(df.describe)
