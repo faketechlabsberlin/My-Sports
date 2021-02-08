@@ -120,7 +120,7 @@ while i10 < x:
         active.append("event active")
     else:
         assert isinstance(active, object)
-    active.append("event currently happening")
+        active.append("event currently happening")
 print(active)
 #maybe implement [morning, afternoon, evening, night]
 # about:
@@ -128,8 +128,8 @@ print(active)
 #Unify all list in the DataFrame
 
 df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport': sports, 'size': size, 'date': date_list,
-                   'teammate': team_lists, 'location': location},
-                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location'])
+                   'teammate': team_lists, 'location': location, "active":active},
+                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location', "active"])
 print(df.head(5))
 print(df.describe)
 
