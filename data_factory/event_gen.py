@@ -101,7 +101,7 @@ print(team_lists)
 skill_avg = []
 while i9 < x:
     if sports[i3] == 'football':
-        sk = team_lists[skill_football].mean()
+        sk = team_lists[skills_football].mean()
     skill_avg.append(sk)
     i9 += 1
 print(skill_avg)
