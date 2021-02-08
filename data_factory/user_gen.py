@@ -8,7 +8,8 @@ import pandas as pd
 # Reminder of all user variables: mail, username, password, name, dob, gender, location, lastName
 
 # set lists
-districts = ['Berlin-Mitte', 'Charlottenburg', 'Prenzlauer Berg', 'Friedrichshain', 'Kreuzberg', 'Neukolln']
+districts = ['Mitte', 'Charlottenburg', 'Prenzlauer Berg', 'Friedrichshain', 'Kreuzberg', 'Neukolln', "Moabit",
+             "Schoneberg", "Tempelhof", "Tiergarten", "Wilmersdorf"]
 genders = []
 username = []
 names_list = []
@@ -20,11 +21,12 @@ heights = []
 weights = []
 mail = []
 skills_football = []
-skills_baseball = []
+skills_bouldering = []
 skills_yoga = []
 skills_basketball = []
 skills_volleyball = []
-skills_rugby = []
+skills_pingpong = []
+skills_running = []
 
 # set number of users we want to generate
 x = int(input('Select a number of fake user you want to generate:'))
@@ -121,8 +123,10 @@ while i9 < x:
     skills_yoga.append(rd.randint(0, 5))
     skills_basketball.append(rd.randint(0, 5))
     skills_volleyball.append(rd.randint(0, 5))
-    skills_rugby.append(rd.randint(0, 5))
+    skills_bouldering.append(rd.randint(0, 5))
     skills_baseball.append(rd.randint(0, 5))
+    skills_pingpong.append(rd.randint(0, 5))
+    skills_running.append(rd.randint(0, 5))
     i9 += 1
 print(skills_football)
 
@@ -130,9 +134,10 @@ print(skills_football)
 
 df = pd.DataFrame(
     {'mail': mail, 'username': username, 'password': password, 'name': names_list, 'dob': dob, 'gender': genders,
-     'location': location, 'lastName': lastName, 'heights': heights, 'weights': weights, "skills_football": skills_football,
-     "skills_yoga": skills_yoga, "skills_basketball": skills_basketball, "skills_volleyball": skills_volleyball,
-     "skills_rugby": skills_rugby,"skills_baseball": skills_baseball},
+     'location': location, 'lastName': lastName, 'heights': heights, 'weights': weights,
+     "skills_football": skills_football, "skills_yoga": skills_yoga, "skills_basketball": skills_basketball,
+     "skills_volleyball": skills_volleyball, "skills_bouldering": skills_bouldering,
+     "skills_pingpong": skills_pingpong, "skills_running": skills_running},
     columns={'mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights',
              "skills_yoga", "skills_basketball", "skills_volleyball", "skills_rugby", "skills_baseball"})
 
