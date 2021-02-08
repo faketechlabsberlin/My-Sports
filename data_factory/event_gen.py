@@ -101,7 +101,7 @@ print(team_lists)
 skill_avg = []
 while i9 < x:
     if sports[i3] == 'football':
-        sk = team_lists[skills_football].mean()
+        sk = skills_football.mean()
     skill_avg.append(sk)
     i9 += 1
 print(skill_avg)
@@ -112,11 +112,11 @@ print(skill_avg)
 # create datetime objects from the strings
 # event in past/future/occuring now
 active = []
-now = datetime.now()
+t = datetime.time(datetime.now())
 while i10 < x:
-    if date_list < now:
+    if date_list < t:
         active.append("event in the past")
-    elif date_list > now:
+    elif date_list > t:
         active.append("event active")
     else:
         assert isinstance(active, object)
