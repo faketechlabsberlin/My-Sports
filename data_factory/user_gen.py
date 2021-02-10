@@ -124,7 +124,6 @@ while i9 < x:
     skills_basketball.append(rd.randint(0, 5))
     skills_volleyball.append(rd.randint(0, 5))
     skills_bouldering.append(rd.randint(0, 5))
-    skills_baseball.append(rd.randint(0, 5))
     skills_pingpong.append(rd.randint(0, 5))
     skills_running.append(rd.randint(0, 5))
     i9 += 1
@@ -139,7 +138,8 @@ df = pd.DataFrame(
      "skills_volleyball": skills_volleyball, "skills_bouldering": skills_bouldering,
      "skills_pingpong": skills_pingpong, "skills_running": skills_running},
     columns={'mail', 'username', 'password', 'name', 'dob', 'gender', 'location', 'lastName', 'heights', 'weights',
-             "skills_yoga", "skills_basketball", "skills_volleyball", "skills_rugby", "skills_baseball"})
+             "skills_football", "skills_yoga", "skills_basketball", "skills_volleyball", "skills_pingpong",
+             "skills_bouldering", "skills_running"})
 
 print(df.head(5))
 print(df.describe)
