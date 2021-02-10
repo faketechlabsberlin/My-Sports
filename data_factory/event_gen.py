@@ -98,37 +98,37 @@ while i5 < x:
 print(team_lists)
 
 # skill: {type: Number default},
+# each element in teamlist - index
+# user id - find score for set skill
+# append to new list
+# then mean
 skill_avg = []
 while i9 < x:
     if sports[i3] == 'football':
-        sk = skills_football.mean()
+        sk = teams_lists[skills_football].mean()
     skill_avg.append(sk)
     i9 += 1
 print(skill_avg)
 
 # equipment : type: Boolean,
+
 # active :type: Boolean,
-# format of date/time strings; assuming dd/mm/yyyy
-# create datetime objects from the strings
-# event in past/future/occuring now
 active = []
 t = datetime.time(datetime.now())
 while i10 < x:
     if date_list < t:
-        active.append("event in the past")
-    elif date_list > t:
-        active.append("event active")
+        active = False
     else:
-        assert isinstance(active, object)
-        active.append("event currently happening")
+        active = True
 print(active)
-#maybe implement [morning, afternoon, evening, night]
+
+# maybe implement [morning, afternoon, evening, night]
 # about:
 
 #Unify all list in the DataFrame
 
 df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport': sports, 'size': size, 'date': date_list,
-                   'teammate': team_lists, 'location': location, "active":active},
+                   'teammate': team_lists, 'location': location, "active": active},
                   columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location', "active"])
 print(df.head(5))
 print(df.describe)
