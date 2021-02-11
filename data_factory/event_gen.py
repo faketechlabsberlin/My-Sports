@@ -102,25 +102,35 @@ print(team_lists)
 # user id - find score for set skill
 # append to new list
 # then mean
-skill_avg = []
-while i9 < x:
-    if sports[i3] == 'football':
-        sk = teams_lists[skills_football].mean()
-    skill_avg.append(sk)
-    i9 += 1
-print(skill_avg)
+#skill_avg = []
+#while i9 < x:
+#    if sports[i3] == 'football':
+#        sk = teams_lists[skills_football].mean()
+#    skill_avg.append(sk)
+#    i9 += 1
+#print(skill_avg)
 
 # equipment : type: Boolean,
 
 # active :type: Boolean,
-active = []
-t = datetime.time(datetime.now())
-while i10 < x:
-    if date_list < t:
-        active = False
-    else:
-        active = True
-print(active)
+#from time import strptime
+
+#active = []
+#def date_in_the_future(date):
+#    datetime_string = strptime(date, "%d.%m.%Y")
+#    d = datetime.datetime(datetime_string[0],datetime_string[1],datetime_string[2])
+#    now = datetime.datetime.now()
+#    delta = d - now
+#    diff = delta.days + 1
+#    if diff > 0:
+#        return True
+#   else:
+#        return False
+
+#while i10 < x:
+#    active.append(date_in_the_future(i10))
+#    i10 += 1
+#print(active)
 
 # maybe implement [morning, afternoon, evening, night]
 # about:
@@ -128,8 +138,8 @@ print(active)
 #Unify all list in the DataFrame
 
 df = pd.DataFrame({'hosts': hosts, 'hostnames': hostnames, 'sport': sports, 'size': size, 'date': date_list,
-                   'teammate': team_lists, 'location': location, "active": active},
-                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location', "active"])
+                   'teammate': team_lists, 'location': location},
+                  columns=['hosts', 'hostnames', 'sport', 'size', 'date', 'teammate', 'location'])
 print(df.head(5))
 print(df.describe)
 
