@@ -45,7 +45,19 @@ To Visit App:
 
 localhost:3000/login
 
-### data_factory
+### UX/UI Prototype
+
+Ideation Session:
+https://miro.com/app/board/o9J_lbXvb6I=/
+
+Figma Prototype:
+https://www.figma.com/proto/f1xKrE8iHwOKpr0qSLL2fb/MYSports-Prototype?node-id=541%3A307&viewport=1190%2C709%2C0.060248423367738724&scaling=scale-down
+
+Figma Link: 
+https://www.figma.com/file/f1xKrE8iHwOKpr0qSLL2fb/MYSports-Prototype?node-id=487%3A4363
+
+### Data Factory
+
 Since the project My-Sports itself is not a traditional Data Science project, some improvisation was required. While help with structuring the Database in the backend was imperative, there were no real usage data to handle. As the app/website would be set up from scratch with no real users or other (external) datasets it was decided  to set up a fake user-database. Based on this you will find python code for imaginary events with the ultimate  goal in mind to have a matching algorithm to match users with the type of (sports)events that would be interesting for them.
 
 Prerequisites
@@ -73,7 +85,7 @@ The third script, stats.py, lets you visualize the distribution of male and fema
 
 ### Technologies Used
 
-The technologies implemented in this project include Express, Node, Python, React, Redux, MongoDB, Nodemailer, Socket.io, PassportJS, Axios, MomentJs, Bootstrap, and SCSS. 
+The technologies implemented in this project include Figma, Express, Node, Python, React, Redux, MongoDB, Nodemailer, Socket.io, PassportJS, Axios, MomentJs, Bootstrap, and SCSS. 
 
 ### Contributors
 
