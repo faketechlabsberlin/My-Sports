@@ -12,7 +12,8 @@ Brainstorming the development within the team was bittersweet, as while we were 
 
 This was also not a small list as at a minimum our users should be able to register an account, build a profile, create events, find events, join events, and then further communicate with the other matched users. Our database would have to record user data, event data and relational matching data. Our web build would have to divide this functionality into multiple different sections and our UI options at operating and viewing the matching process were numerous. 
 
-_Compiled advanced feature list_
+![feature list](blogpost_images/image14.jpg "Compiled advanced feature list")
+
 
 We also had to prioritise a phone-based web version as the most practical to achieve and the most functional to our goals of spontaneous and easy use. 
 
@@ -29,6 +30,9 @@ We would later adapt the display simultaneously for desktop and even incorporate
 
 Time constraints didn´t allow for extensive user reseach, so we determined a target demographic from letting each team member interview their circle of friends and family.
 
+![persona 1](blogpost_images/Person1.png "Personas")
+![persona 2](blogpost_images/Persona2.png)
+
 The demographic we determined from this was mostly young individuals, professionals and students from the ages of roughly 18 to 45; mostly with a pragmatic affinity towards tech; they would prefer using mobile tech solutions for their problems. This would have to be validated in later research, but this also helped us think of and prioritize which features we wanted to include in our first prototype, and which would be for later development. 
 
 For now, it was simultaneously important this wasn’t exclusive and that those both younger and older than these estimations would not be estranged from its use. 
@@ -39,25 +43,16 @@ We did an [extensive analysis](https://www.notion.so/competitor-analysis-39dbe78
 
 We wanted to find out where the pain points lie in those sites: where could we offer sth. new and where would be possible points to be improved, regarding functionality, easy flow of use, UI decisions.
 
-After determining the key features, we went on drafting an optimal flow of use. 
+After determining the key features, we went on drafting an optimal flow of use.
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
+![use flow](blogpost_images/use_flow2.png "User flow diagrams")
+![use flow 2](blogpost_images/use_flow.png "User flow diagrams")
 
 The goal here was to define the “roads to success” for the use; defining the key functions and the way the user reaches the desired goal. Here, the main routes are for finding and signing up for a sport event; or creating your own event. It was equally important that the user had an overview of the other functionality our site offered at all timesk, when needed. 
 
 This led to first ideas about the UI and the site map with the navigation structure; starting with hand-drawn drafts and moving to Lo-fi Wireframes:
+
+![lo-fi wireframe screens](blogpost_images/lofi_screens.png "lo-fi wireframe screens")
 
 We made this clickable for the main use routes we determined before. This process was at times a bit exhausting, since it required us to learn and get familiar with the prototyping tool Figm,  and also getting results quickly because the team needed UX decisions fast in order to start working developing the functionality.   
 
@@ -73,9 +68,16 @@ We also decided we wanted to keep a clean look and feel. So in the main use rout
 
 The UI structure of the filter search system was difficult for us. We needed to display lots and lots of filter options in a compact way that´s easy to navigate, while staying consistent with the UI decisions of the rest of the site. We then settled for a list-style filter menu where all filter options could be viewed at one glance. Together with the web developers we determined the filter options we were able to implement for the MVP and which would have to wait for further development (i.e. a GMaps integration for easy location filtering)
 
+![event card final](blogpost_images/event_card1.png)
+![event card draft](blogpost_images/event_card2.png)
+![hi fi prototype screens](blogpost_images/hifi_proto.png)
+
 Most UI decisions after that happened while creating our Hi-fi Prototype. Choosing Icons, button design and creating a design library with all UI components to speed up the prototype creation and ease the workflow within the UX Team.
 
 One other interesting specificity was that of the chat feature and the dynamics that occur in a group conversation. We opted to rather have the newest message pinned at the top (that made sense with our event display) than at the bottom (like we are familiar with message services.) Choosing to hide older parts of the conversation rather than newer with the keyboard overlay.
+
+![chat function 1](blogpost_images/chat1.png)
+![chat function 2](blogpost_images/chat2.png)
 
 Another thing that had to discussed in depth with the team was the design of user profiles, and the amount of info displayed there. We agreed on not showing user profile photos in the MVP as well as having only the most basic info displayed, and making the display optional for some profile information, to allow for some degree of control about what the user reveals or not.
 
