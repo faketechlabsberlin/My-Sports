@@ -61,10 +61,9 @@ Prerequisites
 Before you continue, ensure you have met the following requirements:
 
 * You have installed the latest version of Python.
-* You have installed the necessary modules datetime, random, names, pandas, Any, matplotlib.pyplot and seaborn.
-* You have a program for displaying the generated csv files.
+* You have installed the necessary modules datetime, random, names, pandas, matplotlib and seaborn.
 
-There are three runnable python scripts, namely user_gen.py, event_gen.py and stats.py.
+There are four runnable python scripts, namely user_gen.py, event_gen.py, stats.py and reco.py.
 
 The first one to execute is user_gen.py, as it serves as basis for the other two scripts. 
 Its output is a dataframe of fake users which is dependent on the number you type in and confirm as the programme asks:
@@ -79,6 +78,9 @@ The output is again a dataframe which is exported in csv and json format (same f
 
 The third script, stats.py, lets you visualize the distribution of male and female fake users generated as well as their respective height and weight.
 
+Reco.py generates recommandations of best active games. It works by generating a matrix with a row for each user and the best available active game in each columns.
+Please note that this last script is not complete yet.
+
 ### Technologies Used
 
 The technologies implemented in this project include Figma, Express, Node, Python, React, Redux, MongoDB, Nodemailer, Socket.io, PassportJS, Axios, MomentJs, Bootstrap, and SCSS. 
@@ -91,4 +93,4 @@ The technologies implemented in this project include Figma, Express, Node, Pytho
 * Cátia Goncalves - Web Development
 * Jan-Henrik Pott - Data Science
 * Kwame Agard - Web Development *
-* Sam Bouras- Data Science
+* Samy Bouras- Data Science
