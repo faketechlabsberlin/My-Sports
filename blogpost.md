@@ -24,9 +24,9 @@ We would later adapt the display simultaneously for desktop and even incorporate
 ---
 
 
-**<span style="text-decoration:underline;">UX \
- \
-</span>**The ux team started by storyboarding the usage scenarios and getting into the minds of profiling our potential users. 
+**UX**
+
+The ux team started by storyboarding the usage scenarios and getting into the minds of profiling our potential users. 
 
 Time constraints didn´t allow for extensive user reseach, so we determined a target demographic from letting each team member interview their circle of friends and family.
 
@@ -86,6 +86,22 @@ The techlabs presentation marks the finished development of the MVP. With more t
 **Web Development**
 
 As for web development. The back end was created to perform basic functionality (eg. user auth) whilst UX/UI delivered the first prototype. The technology used for the back end was NodeJS, Express, and MongoDB. Basic database structures were created for users and events which would later be tweaked to match UX and Data Science needs. PassportJS was used for user auth and socket.io was used to integrate the in app chat. For the front end React was used. A small debate was had between using bootstrap and material UI which eventually settled on bootstrap. Redux was used for state management which stored user data, events, chat messages, error and success handling. The project moved along quite quickly towards the MVP and was able to be deployed on Heroku with over a week to spare. This allowed users to test and try to break the app and allowed us to create a list of 44 bugs to fix. Over the next week the majority of those bugs were squashed. 
+
+**Data Science**
+
+As data scientists, our goal was to make the app functioning smarter by automating the game matching in the most relevant way possible.
+To do so we worked with the backend to ensure that the structure of the database would be optimal for both the web development and the data science needs.
+To achieve our final goal we would need to have actual data from users to train a model and extract a model. 
+
+Considering our context and options we decided to go forward following this roadmap:
+
+- step 1: establish the database structure and workflows with the backend team
+- step 2: generate fake users and events to have content to work with. Considering the nature of the data we knew that we wouldn't be able to use an ML algorithm on them to identify patterns and extract a model. However, we made all possible to make the data realistic possible (ex: heights and weights data follow a Gaussian distribution with the real-life average for german males and females heights and BMI). 
+- step 3 (current step): create a first recommendation scoring algorithm program that generates a matrix of best events for each sport and for each user. The early algorithm would be a polynomial model with different parameters (ex: the distance between the football skill level of the player to the average of the event participants for each game) and weights for these parameters. And the matrix would have for each player the event with the higher score for each sport.
+Those weights which represent the importance for each parameter and which could be negative or positive (skill distance is negative as we want to have players with the closer level as possible) were decided for the first version by UX/UI team and DS team.
+- step 4: connect our recommendation algorithm to the actual database using APIs
+- step 5: once the site has real user data use ML algorithms to create a new model that will challenge the first recommendation algorithm based on human insight with a model based on actual user behavioral data and then tweak this new algorithm over time.
+
 
 
 
