@@ -19,4 +19,4 @@ test("should receive error", () => {
   });
 });
 
-//receiveErrorsFunc must be done
+//receiveErrorsFunc
