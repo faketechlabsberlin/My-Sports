@@ -1,0 +1,35 @@
+{
+    "name": "test-repository-1",
+    "nameFull": "Test Repository 1",
+    "videoUrl": "https://drive.google.com/file/d/1Jikn3mHcnxS0cV4Y4igj1vTX7eAdBh7m/view",
+    "prototypeUrl": "https://www.figma.com/proto/uBhYU7XNDItIfeX0W22MH9/WhatStreetArt---Everything?page-id=0%3A1&node-id=133%3A8608&viewport=-1034%2C780%2C0.5655179023742676&scaling=scale-down",
+    "techlabsUrl": "https://techlabs.org/",
+    "location": "Berlin",
+    "semester": "Winter 2021",
+    "status": "Looking for collaborators",
+    "tools": ["Notion", "Fondora", "Postman", "Figma", "Miro"],
+    "membersContacts": [
+        {
+            "name": "David",
+            "nameFull": "David, Dillmann",
+            "track": "UX",
+            "githubName": "dlmndvd",
+            "githubUrl": "https://github.com/dlmdvd",
+            "linkedinUrl": "https://linkedin.com",
+            "emailAdress": "david.dillmann@web.de",
+            "personalPage": "daviddillmann.de",
+            "display": true
+        },
+        {
+            "name": "Javad",
+            "nameFull": "Javad, Raisi",
+            "track": "WD",
+            "githubName": "jiveeee",
+            "githubUrl": "https://github.com/jiveeee",
+            "linkedinUrl": "https://linkedin.com",
+            "emailAdress": null,
+            "personalPage": null,
+            "display": true
+        }
+        ]
+}
